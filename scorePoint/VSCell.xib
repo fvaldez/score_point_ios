@@ -23,24 +23,33 @@
                             <constraint firstAttribute="width" constant="65" id="NLT-eQ-8iA"/>
                             <constraint firstAttribute="height" constant="65" id="Xtg-4X-Svi"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="IxB-su-z17"/>
+                                <exclude reference="KGf-bA-XxO"/>
+                                <exclude reference="Xtg-4X-Svi"/>
+                            </mask>
+                        </variation>
                     </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hwO-Os-vN3">
+                        <rect key="frame" x="81" y="8" width="161" height="65"/>
+                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
+                        <color key="textColor" red="0.031372549019607843" green="0.043137254901960784" blue="0.011764705882352941" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
                     <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="36O-Wk-QYS">
-                        <rect key="frame" x="270" y="8" width="46" height="65"/>
+                        <rect key="frame" x="250" y="8" width="70" height="65"/>
                         <constraints>
-                            <constraint firstAttribute="width" constant="46" id="qcm-gg-HzS"/>
+                            <constraint firstAttribute="width" constant="70" id="qcm-gg-HzS"/>
                         </constraints>
-                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="15"/>
-                        <state key="normal" title="VS"/>
+                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="13"/>
+                        <state key="normal" title="Challenge">
+                            <color key="titleColor" red="0.88235294117647056" green="0.22352941176470587" blue="0.086274509803921567" alpha="1" colorSpace="calibratedRGB"/>
+                        </state>
                         <connections>
                             <action selector="matchBtnPressed:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="kb0-JE-Bo0"/>
                         </connections>
                     </button>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hwO-Os-vN3">
-                        <rect key="frame" x="81" y="8" width="181" height="65"/>
-                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
-                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                        <nil key="highlightedColor"/>
-                    </label>
                 </subviews>
                 <constraints>
                     <constraint firstItem="hwO-Os-vN3" firstAttribute="leading" secondItem="b78-Bi-GFk" secondAttribute="trailing" constant="8" id="0RI-Vz-waZ"/>
@@ -49,6 +58,8 @@
                     <constraint firstItem="36O-Wk-QYS" firstAttribute="leading" secondItem="hwO-Os-vN3" secondAttribute="trailing" constant="8" id="O4J-I1-DTt"/>
                     <constraint firstItem="b78-Bi-GFk" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" id="cjc-3y-t8Q"/>
                     <constraint firstItem="36O-Wk-QYS" firstAttribute="trailing" secondItem="H2p-sc-9uM" secondAttribute="trailingMargin" id="h1c-ZC-lkD"/>
+                    <constraint firstItem="b78-Bi-GFk" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" id="ixO-Q1-SYf"/>
+                    <constraint firstItem="b78-Bi-GFk" firstAttribute="bottom" secondItem="H2p-sc-9uM" secondAttribute="bottomMargin" id="pdl-zz-D3m"/>
                     <constraint firstItem="36O-Wk-QYS" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="qaN-Gn-nwc"/>
                 </constraints>
             </tableViewCellContentView>

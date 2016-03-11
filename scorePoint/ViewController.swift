@@ -10,19 +10,35 @@ import UIKit
 
 class ViewController: UIViewController {
 
+    @IBOutlet weak var loginBtn: UIButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        
+        loginBtn.layer.cornerRadius = 5
+        UIApplication.sharedApplication().setStatusBarStyle(.Default, animated: false)
+
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
+    
+    override func preferredStatusBarStyle() -> UIStatusBarStyle {
+        return .Default
+    }
 
     @IBAction func btnPressed(sender: AnyObject) {
         
-        self.performSegueWithIdentifier("loggedIn", sender: nil)
+        let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+        
+        appDelegate.window!.rootViewController = appDelegate.tabBarController
+        appDelegate.tabBarController.selectedIndex = 0
+        
+        UIView.transitionWithView(appDelegate.window!, duration: 0.5, options: UIViewAnimationOptions.TransitionCrossDissolve, animations: {
+            }, completion: nil)
 
     }
 

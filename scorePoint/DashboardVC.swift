@@ -21,8 +21,9 @@ class DashboardVC: UIViewController, UITableViewDelegate, UITableViewDataSource,
         let value = UIInterfaceOrientation.Portrait.rawValue
         UIDevice.currentDevice().setValue(value, forKey: "orientation")
               
-        self.title = "Dashboard"
-        
+        self.title = "Matches"
+        self.tabBarItem.title = ""
+
         let backView = UIView(frame: self.tableView.bounds)
         backView.backgroundColor = UIColor.clearColor()
         self.tableView.backgroundView = backView
@@ -39,6 +40,15 @@ class DashboardVC: UIViewController, UITableViewDelegate, UITableViewDataSource,
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        UIApplication.sharedApplication().setStatusBarStyle(.LightContent, animated: false)
+
+    }
+    
+    override func preferredStatusBarStyle() -> UIStatusBarStyle {
+        return .LightContent
     }
     
     override func shouldAutorotate() -> Bool {
@@ -78,7 +88,7 @@ class DashboardVC: UIViewController, UITableViewDelegate, UITableViewDataSource,
     func matchSelected() {
         
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        let vc = storyboard.instantiateViewControllerWithIdentifier("GameVC")
+        let vc = storyboard.instantiateViewControllerWithIdentifier("GameSetupVC")
         //self.navigationController?.pushViewController(vc, animated: true)
         self.presentViewController(vc, animated: true, completion: nil)
 

@@ -9,13 +9,55 @@
 import UIKit
 
 @UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate {
+class AppDelegate: UIResponder, UIApplicationDelegate, UITabBarControllerDelegate {
 
     var window: UIWindow?
+    let tabBarController = UITabBarController()
 
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
-        // Override point for customization after application launch.
+        
+        application.statusBarStyle = UIStatusBarStyle.LightContent
+
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let dashboardVC = storyboard.instantiateViewControllerWithIdentifier("DashboardVC")
+        let leaderBoardVC = storyboard.instantiateViewControllerWithIdentifier("LeaderboardVC")
+        let recordVC = storyboard.instantiateViewControllerWithIdentifier("RecordVC")
+        
+        let dashboardImg = UIImage(named: "vs-icon")
+        let leaderBoardImg = UIImage(named: "leaderboard-icon")
+        let recordImg = UIImage(named: "clock-icon")
+        
+        dashboardVC.tabBarItem = UITabBarItem(title: "", image: dashboardImg, tag: 1)
+        leaderBoardVC.tabBarItem = UITabBarItem(title: "", image: leaderBoardImg, tag:2)
+        recordVC.tabBarItem = UITabBarItem(title: "", image: recordImg, tag: 3)
+        
+        let navController1 = UINavigationController(rootViewController: dashboardVC)
+        let navController2 = UINavigationController(rootViewController: leaderBoardVC)
+        let navController3 = UINavigationController(rootViewController: recordVC)
+        
+        dashboardVC.tabBarItem.imageInsets = UIEdgeInsets(top: 5.5, left: 0, bottom: -5.5, right: 0)
+        leaderBoardVC.tabBarItem.imageInsets = UIEdgeInsets(top: 5.5, left: 0, bottom: -5.5, right: 0)
+        recordVC.tabBarItem.imageInsets = UIEdgeInsets(top: 5.5, left: 0, bottom: -5.5, right: 0)
+        
+        tabBarController.delegate = self
+        tabBarController.viewControllers = [navController1, navController2, navController3]
+        
+        UITabBar.appearance().barTintColor = PURPLE_COLOR
+        UITabBar.appearance().translucent = false 
+        //TabBar items selected color
+        UITabBar.appearance().tintColor = UIColor.whiteColor()
+        
+        UINavigationBar.appearance().barTintColor = PURPLE_COLOR
+        UINavigationBar.appearance().tintColor = UIColor.whiteColor()
+        UINavigationBar.appearance().translucent = false
+        
+        let attributes = [
+            NSForegroundColorAttributeName: UIColor.whiteColor(),
+            NSFontAttributeName: UIFont(name: "Helvetica", size: 18)!
+        ]
+        UINavigationBar.appearance().titleTextAttributes = attributes
+        
         return true
     }
 

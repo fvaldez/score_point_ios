@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3F4CF7071C932FCC00FD04B8 /* BoardVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F4CF7061C932FCC00FD04B8 /* BoardVC.swift */; };
 		3F6A68D51C8DDF34009F05D7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F6A68D41C8DDF34009F05D7 /* AppDelegate.swift */; };
 		3F6A68D71C8DDF34009F05D7 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F6A68D61C8DDF34009F05D7 /* ViewController.swift */; };
 		3F6A68DA1C8DDF34009F05D7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3F6A68D81C8DDF34009F05D7 /* Main.storyboard */; };
@@ -16,9 +17,14 @@
 		3F6A68EB1C8DE6A0009F05D7 /* VSCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F6A68E91C8DE6A0009F05D7 /* VSCell.swift */; };
 		3F6A68EC1C8DE6A0009F05D7 /* VSCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3F6A68EA1C8DE6A0009F05D7 /* VSCell.xib */; };
 		3F6A68F01C8E1F04009F05D7 /* GameVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F6A68EF1C8E1F04009F05D7 /* GameVC.swift */; };
+		3FB6CEBE1C91FDA800662C18 /* RecordVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FB6CEBD1C91FDA800662C18 /* RecordVC.swift */; };
+		3FB6CEC01C91FDB600662C18 /* LeaderBoardVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FB6CEBF1C91FDB600662C18 /* LeaderBoardVC.swift */; };
+		3FB6CEC21C92194700662C18 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FB6CEC11C92194700662C18 /* Colors.swift */; };
+		3FB6CEC61C92241E00662C18 /* GameSetupVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FB6CEC51C92241E00662C18 /* GameSetupVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		3F4CF7061C932FCC00FD04B8 /* BoardVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BoardVC.swift; sourceTree = "<group>"; };
 		3F6A68D11C8DDF34009F05D7 /* scorePoint.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = scorePoint.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3F6A68D41C8DDF34009F05D7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3F6A68D61C8DDF34009F05D7 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -30,6 +36,10 @@
 		3F6A68E91C8DE6A0009F05D7 /* VSCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VSCell.swift; sourceTree = "<group>"; };
 		3F6A68EA1C8DE6A0009F05D7 /* VSCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = VSCell.xib; sourceTree = "<group>"; };
 		3F6A68EF1C8E1F04009F05D7 /* GameVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameVC.swift; sourceTree = "<group>"; };
+		3FB6CEBD1C91FDA800662C18 /* RecordVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecordVC.swift; sourceTree = "<group>"; };
+		3FB6CEBF1C91FDB600662C18 /* LeaderBoardVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LeaderBoardVC.swift; sourceTree = "<group>"; };
+		3FB6CEC11C92194700662C18 /* Colors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
+		3FB6CEC51C92241E00662C18 /* GameSetupVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameSetupVC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -87,7 +97,12 @@
 			children = (
 				3F6A68D61C8DDF34009F05D7 /* ViewController.swift */,
 				3F6A68E61C8DE556009F05D7 /* DashboardVC.swift */,
+				3FB6CEBF1C91FDB600662C18 /* LeaderBoardVC.swift */,
+				3FB6CEBD1C91FDA800662C18 /* RecordVC.swift */,
+				3FB6CEC11C92194700662C18 /* Colors.swift */,
 				3F6A68EF1C8E1F04009F05D7 /* GameVC.swift */,
+				3FB6CEC51C92241E00662C18 /* GameSetupVC.swift */,
+				3F4CF7061C932FCC00FD04B8 /* BoardVC.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -182,8 +197,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				3F6A68EB1C8DE6A0009F05D7 /* VSCell.swift in Sources */,
+				3FB6CEC21C92194700662C18 /* Colors.swift in Sources */,
+				3FB6CEC01C91FDB600662C18 /* LeaderBoardVC.swift in Sources */,
+				3FB6CEC61C92241E00662C18 /* GameSetupVC.swift in Sources */,
 				3F6A68D71C8DDF34009F05D7 /* ViewController.swift in Sources */,
 				3F6A68E71C8DE556009F05D7 /* DashboardVC.swift in Sources */,
+				3FB6CEBE1C91FDA800662C18 /* RecordVC.swift in Sources */,
+				3F4CF7071C932FCC00FD04B8 /* BoardVC.swift in Sources */,
 				3F6A68F01C8E1F04009F05D7 /* GameVC.swift in Sources */,
 				3F6A68D51C8DDF34009F05D7 /* AppDelegate.swift in Sources */,
 			);
