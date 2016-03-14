@@ -14,20 +14,29 @@ class GameSetupVC: UIViewController {
     @IBOutlet weak var startBtn: UIButton!
     
     @IBOutlet weak var cancelBtn: UIButton!
-    @IBOutlet weak var logoView: UIView!
+    
+    @IBOutlet weak var firstPlayerImg: UIImageView!
+    
+    @IBOutlet weak var secondPlayerImg: UIImageView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        logoView.layer.cornerRadius = logoView.frame.size.width / 2
-        logoView.clipsToBounds = true
+        firstPlayerImg.layer.cornerRadius = firstPlayerImg.frame.size.width / 2
+        firstPlayerImg.clipsToBounds = true
+
+        secondPlayerImg.layer.cornerRadius = secondPlayerImg.frame.size.width / 2
+        secondPlayerImg.clipsToBounds = true
 
        
         startBtn.layer.cornerRadius = 5
         cancelBtn.layer.cornerRadius = 5
 
+        let attr = NSDictionary(object: UIFont(name: "Open Sans", size: 15.0)!, forKey: NSFontAttributeName)
+        UISegmentedControl.appearance().setTitleTextAttributes(attr as [NSObject : AnyObject] , forState: .Normal)
         
     }
+    
     override func viewWillAppear(animated: Bool) {
         UIApplication.sharedApplication().setStatusBarStyle(.LightContent, animated: true)
     }

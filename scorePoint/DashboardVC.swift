@@ -10,7 +10,7 @@ import UIKit
 
 class DashboardVC: UIViewController, UITableViewDelegate, UITableViewDataSource, matchSelectedDelegate {
 
-    var playersArray = ["Someone", "Someone", "Someone", "Someone"]
+    var playersArray = ["Some Player", "Some Player", "Some Player", "Some Player"]
     
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var tableView: UITableView!

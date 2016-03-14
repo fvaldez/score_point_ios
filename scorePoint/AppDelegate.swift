@@ -54,7 +54,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UITabBarControllerDelegat
         
         let attributes = [
             NSForegroundColorAttributeName: UIColor.whiteColor(),
-            NSFontAttributeName: UIFont(name: "Helvetica", size: 18)!
+            NSFontAttributeName: UIFont(name: "Open Sans", size: 18)!
         ]
         UINavigationBar.appearance().titleTextAttributes = attributes
         

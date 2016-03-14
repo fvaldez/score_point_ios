@@ -38,6 +38,13 @@
 	</array>
 	<key>UIViewControllerBasedStatusBarAppearance</key>
 	<false/>
+	<key>UIAppFonts</key>
+	<array>
+		<string>OpenSans-Semibold.ttf</string>
+		<string>OpenSans-Bold.ttf</string>
+		<string>OpenSans-Regular.ttf</string>
+		<string>OpenSans-Light.ttf</string>
+	</array>
 	<key>UISupportedInterfaceOrientations~ipad</key>
 	<array>
 		<string>UIInterfaceOrientationPortrait</string>
