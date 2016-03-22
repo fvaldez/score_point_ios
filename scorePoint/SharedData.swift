@@ -13,9 +13,11 @@ class SharedData {
     
     static var sharedInstance: SharedData = SharedData()
 
+    var completeName = ""
     var firstName = ""
     var lastName = ""
     var imgString = ""
+    var downloadedImg : UIImage?
     var idnum = ""
     var mail = ""
     

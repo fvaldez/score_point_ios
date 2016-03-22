@@ -13,7 +13,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UITabBarControllerDelegat
 
     var window: UIWindow?
     let tabBarController = UITabBarController()
-
+    var loginVC : UIViewController!
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         
@@ -23,7 +23,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UITabBarControllerDelegat
         let dashboardVC = storyboard.instantiateViewControllerWithIdentifier("DashboardVC")
         let leaderBoardVC = storyboard.instantiateViewControllerWithIdentifier("LeaderboardVC")
         let recordVC = storyboard.instantiateViewControllerWithIdentifier("RecordVC")
-        
+        loginVC = storyboard.instantiateViewControllerWithIdentifier("LoginVC")
+
         let dashboardImg = UIImage(named: "vs-icon")
         let leaderBoardImg = UIImage(named: "leaderboard-icon")
         let recordImg = UIImage(named: "clock-icon")

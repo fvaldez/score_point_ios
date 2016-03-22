@@ -1080,6 +1080,7 @@
                         <outlet property="chartView2" destination="vyJ-UA-taP" id="PaG-Ki-sNS"/>
                         <outlet property="lblChart1" destination="zPI-qz-GUx" id="ATh-9U-XIu"/>
                         <outlet property="lblChart2" destination="Utg-4J-MJg" id="084-DR-00l"/>
+                        <outlet property="lblName" destination="rWw-Sm-jIU" id="M9c-zL-JCh"/>
                         <outlet property="tableView" destination="cY4-LX-JMd" id="VLe-7x-HTT"/>
                         <outlet property="userImg" destination="Eta-VI-wGw" id="kNP-9X-j3g"/>
                     </connections>

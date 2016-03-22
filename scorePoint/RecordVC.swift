@@ -16,6 +16,7 @@ class RecordVC: UIViewController, UITableViewDelegate, UITableViewDataSource, MD
     @IBOutlet weak var chartView2: UIView!
     @IBOutlet weak var lblChart1: UILabel!
     @IBOutlet weak var lblChart2: UILabel!
+    @IBOutlet weak var lblName: UILabel!
     
     var playersArray = ["Some Player", "Some Player", "Some Player", "Some Player"]
     var slicesData:Array<Data> = Array<Data>()
@@ -26,12 +27,19 @@ class RecordVC: UIViewController, UITableViewDelegate, UITableViewDataSource, MD
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        let logoutBtn : UIBarButtonItem = UIBarButtonItem(title: "Logout", style: UIBarButtonItemStyle.Plain, target: self, action: "logout")
+        self.navigationItem.rightBarButtonItem = logoutBtn
 
         self.title = "Record"
         self.tabBarItem.title = ""
         
+        userImg.image = SharedData.sharedInstance.downloadedImg
         userImg.layer.cornerRadius = userImg.frame.size.width / 2
         userImg.clipsToBounds = true
+        
+        
+        lblName.text = SharedData.sharedInstance.completeName
         
         tableView.delegate = self
         tableView.dataSource = self
@@ -176,6 +184,19 @@ class RecordVC: UIViewController, UITableViewDelegate, UITableViewDataSource, MD
     }
 
 
+    func logout(){
+        GIDSignIn.sharedInstance().signOut()
+        
+        let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+        
+        appDelegate.window!.rootViewController = appDelegate.loginVC
+        appDelegate.tabBarController.selectedIndex = 0
+        
+        UIView.transitionWithView(appDelegate.window!, duration: 0.5, options: UIViewAnimationOptions.TransitionCrossDissolve, animations: {
+            }, completion: nil)
+
+    }
+    
     /*
     // MARK: - Navigation
 

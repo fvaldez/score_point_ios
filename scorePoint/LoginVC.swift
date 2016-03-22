@@ -43,14 +43,10 @@ class LoginVC: UIViewController, GIDSignInUIDelegate, GIDSignInDelegate {
         withError error: NSError!) {
             if (error == nil) {
                 // Perform any operations on signed in user here.
-                let userId = user.userID                  // For client-side use only!
-                let idToken = user.authentication.idToken // Safe to send to the server
+                let userId = user.userID
+                let idToken = user.authentication.idToken
                 let name = user.profile.name
                 let email = user.profile.email
-                print(userId)
-                print(idToken)
-                print(name)
-                print(email)
                 
                 let completename = GIDSignIn.sharedInstance().currentUser.profile.name
                 let fullNameArr = completename.characters.split{$0 == " "}.map(String.init)
@@ -59,6 +55,16 @@ class LoginVC: UIViewController, GIDSignInUIDelegate, GIDSignInDelegate {
                 SharedData.sharedInstance.mail = GIDSignIn.sharedInstance().currentUser.profile.email
                 SharedData.sharedInstance.firstName = fullNameArr[0]
                 SharedData.sharedInstance.lastName = fullNameArr[1]
+                SharedData.sharedInstance.completeName = completename
+                
+                if("\(GIDSignIn.sharedInstance().currentUser.profile.imageURLWithDimension(100))" != nil){
+                    SharedData.sharedInstance.imgString = "\(GIDSignIn.sharedInstance().currentUser.profile.imageURLWithDimension(100))"
+                    let url = NSURL(string: SharedData.sharedInstance.imgString)
+                    let data = NSData(contentsOfURL: url!)
+                    SharedData.sharedInstance.downloadedImg = UIImage(data: data!)
+                }else{
+                    self.generateProfileImage()
+                }
                 
                 self.enterApp()
             } else {
@@ -81,6 +87,26 @@ class LoginVC: UIViewController, GIDSignInUIDelegate, GIDSignInDelegate {
         UIView.transitionWithView(appDelegate.window!, duration: 0.5, options: UIViewAnimationOptions.TransitionCrossDissolve, animations: {
             }, completion: nil)
 
+    }
+    
+    func generateProfileImage(){
+        let first = SharedData.sharedInstance.firstName.characters.first
+        let second = SharedData.sharedInstance.lastName.characters.first
+        
+        let lbl = UILabel(frame: CGRectMake(0,0,100,100))
+        lbl.text = "\(first!)\(second!)"
+        lbl.font =  UIFont(name: "OpenSans-Semibold", size: 50)
+        lbl.backgroundColor = BLUE_COLOR
+        lbl.textAlignment = NSTextAlignment.Center
+        lbl.textColor = UIColor.whiteColor()
+        
+        UIGraphicsBeginImageContextWithOptions(lbl.bounds.size, true, 0)
+        lbl.drawViewHierarchyInRect(lbl.bounds, afterScreenUpdates: true)
+        let image = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        
+        SharedData.sharedInstance.downloadedImg = image
+        
     }
 
     /*
