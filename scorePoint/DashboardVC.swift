@@ -12,11 +12,35 @@ class DashboardVC: UIViewController, UITableViewDelegate, UITableViewDataSource,
 
     var playersArray = ["Some Player", "Some Player", "Some Player", "Some Player"]
     
-    @IBOutlet weak var searchBar: UISearchBar!
+    @IBOutlet weak var playerOneImg: UIImageView!
+    @IBOutlet weak var playerTwoImg: UIImageView!
+    @IBOutlet weak var joinBtn: UIButton!
+    @IBOutlet weak var playingNowView: UIView!
+    @IBOutlet weak var view1: UIView!
+    @IBOutlet weak var view2: UIView!
+    
     @IBOutlet weak var tableView: UITableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        joinBtn.layer.cornerRadius = 5
+        joinBtn.layer.masksToBounds = true
+        
+        playingNowView.layer.cornerRadius = 5
+        playingNowView.layer.masksToBounds = true
+        
+        playerOneImg.layer.cornerRadius = playerOneImg.frame.size.width/2
+        playerOneImg.layer.masksToBounds = true
+        
+        playerTwoImg.layer.cornerRadius = playerTwoImg.frame.size.width/2
+        playerTwoImg.layer.masksToBounds = true
+        
+        view1.layer.cornerRadius = view1.frame.size.width/2
+        view1.layer.masksToBounds = true
+        
+        view2.layer.cornerRadius = view2.frame.size.width/2
+        view2.layer.masksToBounds = true
         
         let value = UIInterfaceOrientation.Portrait.rawValue
         UIDevice.currentDevice().setValue(value, forKey: "orientation")
@@ -31,10 +55,7 @@ class DashboardVC: UIViewController, UITableViewDelegate, UITableViewDataSource,
         tableView.dataSource = self
         let nibName = UINib(nibName: "VSCell", bundle:nil)
         self.tableView.registerNib(nibName, forCellReuseIdentifier: "VSCell")
-        searchBar.searchBarStyle = .Minimal
-        searchBar.userInteractionEnabled = false
-        searchBar.backgroundColor = UIColor.whiteColor()
-
+       
     }
 
     override func didReceiveMemoryWarning() {

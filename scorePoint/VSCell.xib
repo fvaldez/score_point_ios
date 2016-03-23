@@ -36,8 +36,8 @@
                             </mask>
                         </variation>
                     </imageView>
-                    <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="36O-Wk-QYS">
-                        <rect key="frame" x="163" y="-15" width="244" height="111"/>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="36O-Wk-QYS">
+                        <rect key="frame" x="246" y="24" width="70" height="34"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="70" id="qcm-gg-HzS"/>
                         </constraints>
@@ -48,8 +48,8 @@
                             <action selector="matchBtnPressed:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="kb0-JE-Bo0"/>
                         </connections>
                     </button>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hwO-Os-vN3">
-                        <rect key="frame" x="81" y="8" width="161" height="65"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hwO-Os-vN3">
+                        <rect key="frame" x="81" y="29" width="157" height="24"/>
                         <fontDescription key="fontDescription" name="OpenSans" family="Open Sans" pointSize="17"/>
                         <color key="textColor" red="0.20000000000000001" green="0.21176470589999999" blue="0.2274509804" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>

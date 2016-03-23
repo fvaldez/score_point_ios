@@ -43,10 +43,10 @@ class LoginVC: UIViewController, GIDSignInUIDelegate, GIDSignInDelegate {
         withError error: NSError!) {
             if (error == nil) {
                 // Perform any operations on signed in user here.
-                let userId = user.userID
-                let idToken = user.authentication.idToken
-                let name = user.profile.name
-                let email = user.profile.email
+//                let userId = user.userID
+//                let idToken = user.authentication.idToken
+//                let name = user.profile.name
+//                let email = user.profile.email
                 
                 let completename = GIDSignIn.sharedInstance().currentUser.profile.name
                 let fullNameArr = completename.characters.split{$0 == " "}.map(String.init)

@@ -17,6 +17,7 @@ class RecordVC: UIViewController, UITableViewDelegate, UITableViewDataSource, MD
     @IBOutlet weak var lblChart1: UILabel!
     @IBOutlet weak var lblChart2: UILabel!
     @IBOutlet weak var lblName: UILabel!
+    @IBOutlet weak var backView: UIView!
     
     var playersArray = ["Some Player", "Some Player", "Some Player", "Some Player"]
     var slicesData:Array<Data> = Array<Data>()
@@ -27,12 +28,17 @@ class RecordVC: UIViewController, UITableViewDelegate, UITableViewDataSource, MD
 
     override func viewDidLoad() {
         super.viewDidLoad()
+
         
         let logoutBtn : UIBarButtonItem = UIBarButtonItem(title: "Logout", style: UIBarButtonItemStyle.Plain, target: self, action: "logout")
         self.navigationItem.rightBarButtonItem = logoutBtn
 
         self.title = "Record"
         self.tabBarItem.title = ""
+        
+        
+        backView.layer.cornerRadius = 5
+        backView.layer.masksToBounds = true
         
         userImg.image = SharedData.sharedInstance.downloadedImg
         userImg.layer.cornerRadius = userImg.frame.size.width / 2
