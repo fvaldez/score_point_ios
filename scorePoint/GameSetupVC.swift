@@ -111,7 +111,7 @@ class GameSetupVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSourc
         close.title = "Close"
         close.tintColor = GREEN_COLOR
         close.target = self
-        close.action = Selector("closePicker")
+        close.action = #selector(GameSetupVC.closePicker)
         
         let toolbarButtonItems = [
             close

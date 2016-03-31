@@ -72,7 +72,7 @@
                                                 <constraint firstItem="u2M-u5-AIr" firstAttribute="top" secondItem="HSR-pl-10D" secondAttribute="top" constant="5" id="wYb-mH-0bl"/>
                                             </constraints>
                                         </view>
-                                        <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="jRv-fZ-VGo">
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jRv-fZ-VGo">
                                             <rect key="frame" x="130" y="0.0" width="20" height="110"/>
                                         </view>
                                     </subviews>

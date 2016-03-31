@@ -199,19 +199,19 @@ class BoardVC: UIViewController, ResultsDelegate {
     
     func addGestures() {
         
-        let swipeRightFirst = UISwipeGestureRecognizer(target: self, action: "respondToSwipeGestureFirst:")
+        let swipeRightFirst = UISwipeGestureRecognizer(target: self, action: #selector(BoardVC.respondToSwipeGestureFirst(_:)))
         swipeRightFirst.direction = UISwipeGestureRecognizerDirection.Right
         self.view.addGestureRecognizer(swipeRightFirst)
         
-        let swipeLeftFirst = UISwipeGestureRecognizer(target: self, action: "respondToSwipeGestureFirst:")
+        let swipeLeftFirst = UISwipeGestureRecognizer(target: self, action: #selector(BoardVC.respondToSwipeGestureFirst(_:)))
         swipeLeftFirst.direction = UISwipeGestureRecognizerDirection.Left
         self.view.addGestureRecognizer(swipeLeftFirst)
         
-        let swipeUpFirst = UISwipeGestureRecognizer(target: self, action: "respondToSwipeGestureFirst:")
+        let swipeUpFirst = UISwipeGestureRecognizer(target: self, action: #selector(BoardVC.respondToSwipeGestureFirst(_:)))
         swipeUpFirst.direction = UISwipeGestureRecognizerDirection.Up
         self.view.addGestureRecognizer(swipeUpFirst)
         
-        let swipeDownFirst = UISwipeGestureRecognizer(target: self, action: "respondToSwipeGestureFirst:")
+        let swipeDownFirst = UISwipeGestureRecognizer(target: self, action: #selector(BoardVC.respondToSwipeGestureFirst(_:)))
         swipeDownFirst.direction = UISwipeGestureRecognizerDirection.Down
         self.view.addGestureRecognizer(swipeDownFirst)
         
@@ -220,19 +220,19 @@ class BoardVC: UIViewController, ResultsDelegate {
         scoreFirstPlayer.addGestureRecognizer(swipeUpFirst)
         scoreFirstPlayer.addGestureRecognizer(swipeDownFirst)
         
-        let swipeRightSecond = UISwipeGestureRecognizer(target: self, action: "respondToSwipeGestureSecond:")
+        let swipeRightSecond = UISwipeGestureRecognizer(target: self, action: #selector(BoardVC.respondToSwipeGestureSecond(_:)))
         swipeRightSecond.direction = UISwipeGestureRecognizerDirection.Right
         self.view.addGestureRecognizer(swipeRightSecond)
         
-        let swipeLeftSecond = UISwipeGestureRecognizer(target: self, action: "respondToSwipeGestureSecond:")
+        let swipeLeftSecond = UISwipeGestureRecognizer(target: self, action: #selector(BoardVC.respondToSwipeGestureSecond(_:)))
         swipeLeftSecond.direction = UISwipeGestureRecognizerDirection.Left
         self.view.addGestureRecognizer(swipeLeftSecond)
         
-        let swipeUpSecond = UISwipeGestureRecognizer(target: self, action: "respondToSwipeGestureSecond:")
+        let swipeUpSecond = UISwipeGestureRecognizer(target: self, action: #selector(BoardVC.respondToSwipeGestureSecond(_:)))
         swipeUpSecond.direction = UISwipeGestureRecognizerDirection.Up
         self.view.addGestureRecognizer(swipeUpSecond)
         
-        let swipeDownSecond = UISwipeGestureRecognizer(target: self, action: "respondToSwipeGestureSecond:")
+        let swipeDownSecond = UISwipeGestureRecognizer(target: self, action: #selector(BoardVC.respondToSwipeGestureSecond(_:)))
         swipeDownSecond.direction = UISwipeGestureRecognizerDirection.Down
         self.view.addGestureRecognizer(swipeDownSecond)
         
