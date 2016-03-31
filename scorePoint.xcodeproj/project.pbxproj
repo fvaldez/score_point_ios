@@ -18,6 +18,8 @@
 		3F08E7A31C9B56C9001D4A60 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F08E7A21C9B56C9001D4A60 /* CoreGraphics.framework */; };
 		3F08E7A51C9B56D2001D4A60 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F08E7A41C9B56D2001D4A60 /* QuartzCore.framework */; };
 		3F08E7A81C9B5CD4001D4A60 /* MDRotatingPieChart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F08E7A71C9B5CD4001D4A60 /* MDRotatingPieChart.swift */; };
+		3F0A2F0C1CAC72F000D7F5A3 /* GameResults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F0A2F0B1CAC72F000D7F5A3 /* GameResults.swift */; };
+		3F0A2F0E1CAC730800D7F5A3 /* GameResults.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3F0A2F0D1CAC730800D7F5A3 /* GameResults.xib */; };
 		3F463EFD1C9CB04B004E9CDD /* GoogleSignIn.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 3F463EFB1C9CB04A004E9CDD /* GoogleSignIn.bundle */; };
 		3F463EFE1C9CB04B004E9CDD /* GoogleSignIn.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F463EFC1C9CB04A004E9CDD /* GoogleSignIn.framework */; };
 		3F463F001C9CB162004E9CDD /* AddressBook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F463EFF1C9CB162004E9CDD /* AddressBook.framework */; };
@@ -28,6 +30,8 @@
 		3F463F0A1C9CB503004E9CDD /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F463F091C9CB503004E9CDD /* LoginVC.swift */; };
 		3F463F171C9CC5D7004E9CDD /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F463F161C9CC5D7004E9CDD /* libz.tbd */; };
 		3F463F191C9CC942004E9CDD /* SharedData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F463F181C9CC942004E9CDD /* SharedData.swift */; };
+		3F49B4561CAAE749005D1811 /* Game.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F49B4551CAAE749005D1811 /* Game.swift */; };
+		3F49B4581CAAE912005D1811 /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F49B4571CAAE912005D1811 /* Player.swift */; };
 		3F4CF7071C932FCC00FD04B8 /* BoardVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F4CF7061C932FCC00FD04B8 /* BoardVC.swift */; };
 		3F6A68D51C8DDF34009F05D7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F6A68D41C8DDF34009F05D7 /* AppDelegate.swift */; };
 		3F6A68D71C8DDF34009F05D7 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F6A68D61C8DDF34009F05D7 /* ViewController.swift */; };
@@ -56,6 +60,8 @@
 		3F08E7A21C9B56C9001D4A60 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		3F08E7A41C9B56D2001D4A60 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		3F08E7A71C9B5CD4001D4A60 /* MDRotatingPieChart.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MDRotatingPieChart.swift; sourceTree = "<group>"; };
+		3F0A2F0B1CAC72F000D7F5A3 /* GameResults.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameResults.swift; sourceTree = "<group>"; };
+		3F0A2F0D1CAC730800D7F5A3 /* GameResults.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = GameResults.xib; path = ../GameResults.xib; sourceTree = "<group>"; };
 		3F463EFB1C9CB04A004E9CDD /* GoogleSignIn.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = GoogleSignIn.bundle; sourceTree = "<group>"; };
 		3F463EFC1C9CB04A004E9CDD /* GoogleSignIn.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = GoogleSignIn.framework; sourceTree = "<group>"; };
 		3F463EFF1C9CB162004E9CDD /* AddressBook.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AddressBook.framework; path = System/Library/Frameworks/AddressBook.framework; sourceTree = SDKROOT; };
@@ -67,6 +73,8 @@
 		3F463F0F1C9CBA59004E9CDD /* scorePoint-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "scorePoint-Bridging-Header.h"; sourceTree = "<group>"; };
 		3F463F161C9CC5D7004E9CDD /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
 		3F463F181C9CC942004E9CDD /* SharedData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SharedData.swift; sourceTree = "<group>"; };
+		3F49B4551CAAE749005D1811 /* Game.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Game.swift; sourceTree = "<group>"; };
+		3F49B4571CAAE912005D1811 /* Player.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
 		3F4CF7061C932FCC00FD04B8 /* BoardVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BoardVC.swift; sourceTree = "<group>"; };
 		3F6A68D11C8DDF34009F05D7 /* scorePoint.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = scorePoint.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3F6A68D41C8DDF34009F05D7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -146,6 +154,8 @@
 		3F2329C11C90CE16005825DD /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				3F49B4551CAAE749005D1811 /* Game.swift */,
+				3F49B4571CAAE912005D1811 /* Player.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -171,6 +181,7 @@
 		3F6A68D31C8DDF34009F05D7 /* scorePoint */ = {
 			isa = PBXGroup;
 			children = (
+				3FC00D0F1CAC7EC900425BFD /* Utils */,
 				3F2329C11C90CE16005825DD /* Model */,
 				3F6A68ED1C8DE6AB009F05D7 /* View */,
 				3F6A68E81C8DE560009F05D7 /* Controller */,
@@ -203,6 +214,8 @@
 		3F6A68ED1C8DE6AB009F05D7 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				3F0A2F0D1CAC730800D7F5A3 /* GameResults.xib */,
+				3F0A2F0B1CAC72F000D7F5A3 /* GameResults.swift */,
 				3F6A68EE1C8DE6B0009F05D7 /* Cells */,
 			);
 			name = View;
@@ -219,6 +232,13 @@
 				3F08E78D1C9B48B3001D4A60 /* RecordCell.xib */,
 			);
 			name = Cells;
+			sourceTree = "<group>";
+		};
+		3FC00D0F1CAC7EC900425BFD /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Utils;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -283,6 +303,7 @@
 				3F6A68EC1C8DE6A0009F05D7 /* VSCell.xib in Resources */,
 				3F6A68DF1C8DDF34009F05D7 /* LaunchScreen.storyboard in Resources */,
 				3F463EFD1C9CB04B004E9CDD /* GoogleSignIn.bundle in Resources */,
+				3F0A2F0E1CAC730800D7F5A3 /* GameResults.xib in Resources */,
 				3F08CF0B1C975C3400B71936 /* OpenSans-Light.ttf in Resources */,
 				3F6A68DC1C8DDF34009F05D7 /* Assets.xcassets in Resources */,
 				3F463F081C9CB30E004E9CDD /* GoogleService-Info.plist in Resources */,
@@ -302,6 +323,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3F0A2F0C1CAC72F000D7F5A3 /* GameResults.swift in Sources */,
 				3F6A68EB1C8DE6A0009F05D7 /* VSCell.swift in Sources */,
 				3F08E7A81C9B5CD4001D4A60 /* MDRotatingPieChart.swift in Sources */,
 				3F463F0A1C9CB503004E9CDD /* LoginVC.swift in Sources */,
@@ -317,6 +339,8 @@
 				3F6A68F01C8E1F04009F05D7 /* GameVC.swift in Sources */,
 				3F08E78C1C9B4883001D4A60 /* RecordCell.swift in Sources */,
 				3F6A68D51C8DDF34009F05D7 /* AppDelegate.swift in Sources */,
+				3F49B4581CAAE912005D1811 /* Player.swift in Sources */,
+				3F49B4561CAAE749005D1811 /* Game.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

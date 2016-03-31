@@ -8,6 +8,13 @@
 
 import UIKit
 
+struct SetType {
+    var stringToShow: String
+    var totalSets: Int
+    var setsToWin: Int
+    var shortString: String
+}
+
 class GameSetupVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
 
     @IBOutlet weak var logoback: UIView!
@@ -31,12 +38,25 @@ class GameSetupVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSourc
     var picker: UIPickerView!
     var activePicker = 1
 
-    
+    var game: Game!
     let points = [11, 21]
-    let sets = ["Single Set", "3 out of 5", "4 out of 7", "5 out of 9"]
+    
+    let sets = [SetType(stringToShow: "Single Set", totalSets: 1, setsToWin: 1, shortString: "Single"),
+                SetType(stringToShow: "3 out of 5", totalSets: 5, setsToWin: 3, shortString: "3/5"),
+                SetType(stringToShow: "4 out of 7", totalSets: 7, setsToWin: 4, shortString: "4/7"),
+                SetType(stringToShow: "5 out of 9", totalSets: 9, setsToWin: 5, shortString: "5/9")]
+    
+    var selectedPoints = 11
+    var setsSelected: SetType!
+    
+    var playerA: Player!
+    var playerB: Player!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        setsSelected = sets[0]
+        playerA = Player(firstName: SharedData.sharedInstance.firstName, lastName: SharedData.sharedInstance.lastName, score: 0, setsWon: 0, image: SharedData.sharedInstance.downloadedImg!)
+        playerB = Player(firstName: "Other", lastName: "Player", score: 0, setsWon: 0, image: UIImage(named: "placeholder")!)
 
         firstPlayerImg.layer.cornerRadius = firstPlayerImg.frame.size.width / 2
         firstPlayerImg.clipsToBounds = true
@@ -117,28 +137,16 @@ class GameSetupVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSourc
 
                     }, completion: {
                         (value: Bool) in
-                        
                 })
-
         })
-        
-       
     }
-
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
     @IBAction func startBtnPressed(sender: AnyObject) {
+        
+        game = Game(date: NSDate(), pointsPerSet: selectedPoints, sets: setsSelected , playerA: playerA, playerB: playerB)
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        let vc = storyboard.instantiateViewControllerWithIdentifier("BoardVC")
+        let vc = storyboard.instantiateViewControllerWithIdentifier("BoardVC") as! BoardVC
+        vc.game = game
         //self.navigationController?.pushViewController(vc, animated: true)
         UIApplication.sharedApplication().setStatusBarStyle(.Default, animated: true)
         self.presentViewController(vc, animated: true, completion: nil)
@@ -160,7 +168,6 @@ class GameSetupVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSourc
         picker.reloadAllComponents()
         picker.selectRow(0, inComponent: 0, animated: false)
         scrollView.setContentOffset(CGPoint(x: 0, y: 80), animated: true)
-        
         
         UIView.animateWithDuration(0.2, delay: 0, options: [], animations: {
             self.pickerView.frame = CGRectMake(0, self.view.frame.size.height-200, self.view.frame.size.width, 200)
@@ -186,10 +193,12 @@ class GameSetupVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSourc
         if(activePicker == 1){
             
             gameToBtn.setTitle("Game to \(points[row])", forState: .Normal)
+            selectedPoints = points[row]
             
         }else{
             
-            setbtn.setTitle("\(sets[row])", forState: .Normal)
+            setbtn.setTitle("\(sets[row].stringToShow)", forState: .Normal)
+            setsSelected = sets[row]
         }
     }
     
@@ -203,7 +212,7 @@ class GameSetupVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSourc
         if(activePicker == 1){
             titleData = "Game to \(points[row])"
         }else {
-            titleData = "\(sets[row])"
+            titleData = "\(sets[row].stringToShow)"
         }
         
         let myTitle = NSAttributedString(string: titleData, attributes: [NSFontAttributeName:UIFont(name: "Open Sans", size: 15.0)!,NSForegroundColorAttributeName:BLACK_COLOR])

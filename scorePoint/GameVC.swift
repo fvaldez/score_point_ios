@@ -12,6 +12,7 @@ class GameVC: UIViewController {
 
     @IBOutlet weak var playerOneImg: UIImageView!
     @IBOutlet weak var playerTwoImg: UIImageView!
+
     
     override func viewDidLoad() {
         super.viewDidLoad()

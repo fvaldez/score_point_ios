@@ -31,6 +31,7 @@ class LoginVC: UIViewController, GIDSignInUIDelegate, GIDSignInDelegate {
     
     @IBAction func loginBtnPresed(sender: AnyObject) {
         loginGoogle()
+        //enterApp()
     }
     
     func loginGoogle(){
@@ -58,7 +59,7 @@ class LoginVC: UIViewController, GIDSignInUIDelegate, GIDSignInDelegate {
                 SharedData.sharedInstance.completeName = completename
                 
                 if("\(GIDSignIn.sharedInstance().currentUser.profile.imageURLWithDimension(100))" != nil){
-                    SharedData.sharedInstance.imgString = "\(GIDSignIn.sharedInstance().currentUser.profile.imageURLWithDimension(100))"
+                    SharedData.sharedInstance.imgString = "\(GIDSignIn.sharedInstance().currentUser.profile.imageURLWithDimension(200))"
                     let url = NSURL(string: SharedData.sharedInstance.imgString)
                     let data = NSData(contentsOfURL: url!)
                     SharedData.sharedInstance.downloadedImg = UIImage(data: data!)

@@ -8,8 +8,10 @@
 
 import UIKit
 
-class BoardVC: UIViewController {
+class BoardVC: UIViewController, ResultsDelegate {
 
+    @IBOutlet weak var txtFirstPlayer: UITextField!
+    @IBOutlet weak var txtSecondPlayer: UITextField!
     @IBOutlet weak var turnSecondPlayerImg: UIImageView!
     @IBOutlet weak var turnFirstPlayerImg: UIImageView!
     @IBOutlet weak var colorSecondPlayer: UIView!
@@ -21,11 +23,30 @@ class BoardVC: UIViewController {
     @IBOutlet weak var txtScoreSecond: UILabel!
     @IBOutlet weak var txtScoreFirst: UILabel!
     
+    @IBOutlet weak var txtSetsFirst: UILabel!
+    @IBOutlet weak var txtSetsSecond: UILabel!
+    @IBOutlet weak var setsViewfirst: UIView!
+    @IBOutlet weak var setsViewSecond: UIView!
+    
+    @IBOutlet weak var lblSetup: UILabel!
+    @IBOutlet weak var lblPTW: UILabel!
+    
+    @IBOutlet weak var serveFirst: UIImageView!
+    
+    @IBOutlet weak var serveSecond: UIImageView!
     var scoreFirst = 0
     var scoreSecond = 0
-
+    
+    var game: Game!
+    var serveCount = 0
+    
+    @IBOutlet weak var secondPlayerNameView: UIView!
+    @IBOutlet weak var firstPlayerNameView: UIView!
+    var gameResults: GameResults!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         
         let maskLayerFirst = CAShapeLayer()
         maskLayerFirst.path = UIBezierPath(roundedRect: colorFirstPlayer.bounds, byRoundingCorners: UIRectCorner.TopLeft.union(.BottomLeft), cornerRadii: CGSizeMake(5, 5)).CGPath
@@ -35,12 +56,44 @@ class BoardVC: UIViewController {
         maskLayerSecond.path = UIBezierPath(roundedRect: colorSecondPlayer.bounds, byRoundingCorners: UIRectCorner.TopLeft.union(.BottomLeft), cornerRadii: CGSizeMake(5, 5)).CGPath
         colorSecondPlayer.layer.mask = maskLayerSecond
         
+        
+        firstPlayerNameView.layer.cornerRadius = 5
+        firstPlayerNameView.clipsToBounds = true
+        secondPlayerNameView.layer.cornerRadius = 5
+        secondPlayerNameView.clipsToBounds = true
+
+        
         scoreSecondPlayer.layer.cornerRadius = 5
         scoreSecondPlayer.clipsToBounds = true
         scoreFirstPlayer.layer.cornerRadius = 5
         scoreFirstPlayer.clipsToBounds = true
+        setsViewfirst.layer.cornerRadius = 5
+        setsViewfirst.clipsToBounds = true
+        setsViewSecond.layer.cornerRadius = 5
+        setsViewSecond.clipsToBounds = true
         
+        
+        lblSetup.text = "Setup: \(game.sets.shortString)"
+        lblPTW.text = "Points to win: \(game.pointsPerSet)"
+        txtFirstPlayer.text = "\(game.playerA.firstName)"
+        txtSecondPlayer.text = "\(game.playerB.firstName)"
         addGestures()
+        
+        gameResults = NSBundle.mainBundle().loadNibNamed("GameResults", owner: self, options: nil).first as? GameResults
+        
+        gameResults.frame = CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height)
+        self.view.addSubview(gameResults)
+        gameResults.alpha = 0
+        gameResults.delegate = self
+        //self.view.translatesAutoresizingMaskIntoConstraints = false
+        self.view.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("H:|-0-[view]-0-|", options: NSLayoutFormatOptions(rawValue: 0), metrics: nil, views: ["view":gameResults]))
+        self.view.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("V:|-0-[view]-0-|", options: NSLayoutFormatOptions(rawValue: 0), metrics: nil, views: ["view":gameResults]))
+        gameResults.setup()
+
+        
+        
+
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -52,9 +105,34 @@ class BoardVC: UIViewController {
         return .Default
     }
 
+    @IBAction func restartBtnPressed(sender: AnyObject) {
+        game.clearAll()
+        updateBoard()
+    }
+    
     @IBAction func closeBtnPressed(sender: AnyObject) {
+        game.clearAll()
         self.dismissViewControllerAnimated(true, completion: nil)
 
+    }
+    
+    func closeResults(rematch: Bool) {
+        
+        game.clearAll()
+
+        if(rematch == true){
+            updateBoard()
+        }else{
+            self.dismissViewControllerAnimated(true, completion: nil)
+        }
+        closeResultsAnimation()
+        
+    }
+    
+    func closeResultsAnimation(){
+        UIView.animateWithDuration(0.4, animations: {
+            self.gameResults.alpha = 0
+        })
     }
     
     func respondToSwipeGestureFirst(gesture: UIGestureRecognizer) {
@@ -64,49 +142,58 @@ class BoardVC: UIViewController {
             
             switch swipeGesture.direction {
             case UISwipeGestureRecognizerDirection.Right:
-                scoreFirst++
+                game.scoreUpdatePlayerA(1)
+                updateBoard()
             case UISwipeGestureRecognizerDirection.Down:
-                if scoreFirst > 0{
-                    scoreFirst--
+                if game.playerA.score > 0{
+                    game.scoreUpdatePlayerA(-1)
+                    updateBoard()
                 }
             case UISwipeGestureRecognizerDirection.Left:
-                if scoreFirst > 0{
-                    scoreFirst--
+                if game.playerA.score > 0{
+                    game.scoreUpdatePlayerA(-1)
+                    updateBoard()
                 }
              case UISwipeGestureRecognizerDirection.Up:
-                scoreFirst++
+                    game.scoreUpdatePlayerA(1)
+                    updateBoard()
             default:
                 break
             }
         }
         
-        txtScoreFirst.text = "\(scoreFirst)"
     }
     
     func respondToSwipeGestureSecond(gesture: UIGestureRecognizer) {
         
         if let swipeGesture = gesture as? UISwipeGestureRecognizer {
             
-            
             switch swipeGesture.direction {
             case UISwipeGestureRecognizerDirection.Right:
-                scoreSecond++
+                game.scoreUpdatePlayerB(1)
+                updateBoard()
+
             case UISwipeGestureRecognizerDirection.Down:
-                if scoreSecond > 0{
-                    scoreSecond--
+                if game.playerB.score > 0{
+                    game.scoreUpdatePlayerB(-1)
+                    updateBoard()
+
                 }
             case UISwipeGestureRecognizerDirection.Left:
-                if scoreSecond > 0{
-                    scoreSecond--
+                if game.playerB.score > 0{
+                    game.scoreUpdatePlayerB(-1)
+                    updateBoard()
+
                 }
             case UISwipeGestureRecognizerDirection.Up:
-                scoreSecond++
+                game.scoreUpdatePlayerB(1)
+                updateBoard()
+
             default:
                 break
             }
         }
         
-        txtScoreSecond.text = "\(scoreSecond)"
     }
 
     
@@ -154,6 +241,48 @@ class BoardVC: UIViewController {
         scoreSecondPlayer.addGestureRecognizer(swipeUpSecond)
         scoreSecondPlayer.addGestureRecognizer(swipeDownSecond)
 
+    }
+    
+    func updateBoard(){
+        changeServe()
+        txtScoreFirst.text = "\(game.playerA.score)"
+        txtScoreSecond.text = "\(game.playerB.score)"
+        txtSetsFirst.text = "\(game.playerA.setsWon)"
+        txtSetsSecond.text = "\(game.playerB.setsWon)"
+        lblPTW.text = "Points to win: \(game.pointsPerSet)"
+        
+        if(game.gameEnded == true){
+            gameResults.photoView.image = game.winner.image
+            gameResults.namelbl.text = "\(game.winner.firstName) \(game.winner.lastName)"
+            UIView.animateWithDuration(0.4, animations: {
+                self.gameResults.alpha = 1
+            })
+
+        }
+    }
+    
+    func changeServe(){
+        serveCount = serveCount + 1
+        
+        if serveCount == 2 {
+            if serveFirst.alpha == 0{
+                
+                UIView.animateWithDuration(0.1, animations: {
+                    self.serveFirst.alpha = 1
+                    self.serveSecond.alpha = 0
+                })
+                
+            }else{
+                UIView.animateWithDuration(0.1, animations: {
+                    self.serveFirst.alpha = 0
+                    self.serveSecond.alpha = 1
+                })
+            }
+            serveCount = 0
+
+        }
+        
+        
     }
     
     /*
