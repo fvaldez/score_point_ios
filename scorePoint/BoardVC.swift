@@ -75,8 +75,8 @@ class BoardVC: UIViewController, ResultsDelegate {
         
         lblSetup.text = "Setup: \(game.sets.shortString)"
         lblPTW.text = "Points to win: \(game.pointsPerSet)"
-        txtFirstPlayer.text = "\(game.playerA.firstName)"
-        txtSecondPlayer.text = "\(game.playerB.firstName)"
+        txtFirstPlayer.text = "\(game.playerA.firstName) \(game.playerA.lastName)"
+        txtSecondPlayer.text = "\(game.playerB.firstName) \(game.playerB.lastName)"
         addGestures()
         
         gameResults = NSBundle.mainBundle().loadNibNamed("GameResults", owner: self, options: nil).first as? GameResults
@@ -107,7 +107,7 @@ class BoardVC: UIViewController, ResultsDelegate {
 
     @IBAction func restartBtnPressed(sender: AnyObject) {
         game.clearAll()
-        updateBoard()
+        updateBoard(addPoint: false)
     }
     
     @IBAction func closeBtnPressed(sender: AnyObject) {
@@ -121,7 +121,7 @@ class BoardVC: UIViewController, ResultsDelegate {
         game.clearAll()
 
         if(rematch == true){
-            updateBoard()
+            updateBoard(addPoint: false)
         }else{
             self.dismissViewControllerAnimated(true, completion: nil)
         }
@@ -141,22 +141,16 @@ class BoardVC: UIViewController, ResultsDelegate {
             
             
             switch swipeGesture.direction {
-            case UISwipeGestureRecognizerDirection.Right:
-                game.scoreUpdatePlayerA(1)
-                updateBoard()
             case UISwipeGestureRecognizerDirection.Down:
                 if game.playerA.score > 0{
                     game.scoreUpdatePlayerA(-1)
-                    updateBoard()
+                    updateBoard(addPoint: false)
                 }
             case UISwipeGestureRecognizerDirection.Left:
                 if game.playerA.score > 0{
                     game.scoreUpdatePlayerA(-1)
-                    updateBoard()
+                    updateBoard(addPoint: false)
                 }
-             case UISwipeGestureRecognizerDirection.Up:
-                    game.scoreUpdatePlayerA(1)
-                    updateBoard()
             default:
                 break
             }
@@ -169,25 +163,19 @@ class BoardVC: UIViewController, ResultsDelegate {
         if let swipeGesture = gesture as? UISwipeGestureRecognizer {
             
             switch swipeGesture.direction {
-            case UISwipeGestureRecognizerDirection.Right:
-                game.scoreUpdatePlayerB(1)
-                updateBoard()
-
+           
             case UISwipeGestureRecognizerDirection.Down:
                 if game.playerB.score > 0{
                     game.scoreUpdatePlayerB(-1)
-                    updateBoard()
+                    updateBoard(addPoint: false)
 
                 }
             case UISwipeGestureRecognizerDirection.Left:
                 if game.playerB.score > 0{
                     game.scoreUpdatePlayerB(-1)
-                    updateBoard()
+                    updateBoard(addPoint: false)
 
                 }
-            case UISwipeGestureRecognizerDirection.Up:
-                game.scoreUpdatePlayerB(1)
-                updateBoard()
 
             default:
                 break
@@ -240,11 +228,59 @@ class BoardVC: UIViewController, ResultsDelegate {
         scoreSecondPlayer.addGestureRecognizer(swipeLeftSecond)
         scoreSecondPlayer.addGestureRecognizer(swipeUpSecond)
         scoreSecondPlayer.addGestureRecognizer(swipeDownSecond)
+        
+        let tapFirst = UITapGestureRecognizer(target: self, action: #selector(BoardVC.addPointFirst))
+        scoreFirstPlayer.addGestureRecognizer(tapFirst)
+        
+        let tapSecond = UITapGestureRecognizer(target: self, action: #selector(BoardVC.addPointSecond))
+        scoreSecondPlayer.addGestureRecognizer(tapSecond)
+        
+        let tapServeFirst = UITapGestureRecognizer(target: self, action: #selector(BoardVC.toggleServe))
+        colorFirstPlayer.addGestureRecognizer(tapServeFirst)
+        
+        let tapServeSecond = UITapGestureRecognizer(target: self, action: #selector(BoardVC.toggleServe))
+        colorSecondPlayer.addGestureRecognizer(tapServeSecond)
 
     }
     
-    func updateBoard(){
-        changeServe()
+    func toggleServe(){
+
+        if serveFirst.alpha == 0{
+            
+            UIView.animateWithDuration(0.1, animations: {
+                self.serveFirst.alpha = 1
+                self.serveSecond.alpha = 0
+            })
+            
+        }else{
+            UIView.animateWithDuration(0.1, animations: {
+                self.serveFirst.alpha = 0
+                self.serveSecond.alpha = 1
+            })
+        }
+
+        
+    }
+    
+    func addPointFirst(){
+        game.scoreUpdatePlayerA(1)
+        updateBoard(addPoint: true)
+    }
+    
+    func addPointSecond(){
+        game.scoreUpdatePlayerB(1)
+        updateBoard(addPoint: true)
+    }
+    
+    func updateBoard(addPoint addPoint: Bool){
+        if(addPoint == true){
+            changeServe()
+            
+        }else{
+            if(serveCount >= 0){
+                serveCount = serveCount - 1
+            }
+        }
         txtScoreFirst.text = "\(game.playerA.score)"
         txtScoreSecond.text = "\(game.playerB.score)"
         txtSetsFirst.text = "\(game.playerA.setsWon)"
