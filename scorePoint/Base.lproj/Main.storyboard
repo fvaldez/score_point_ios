@@ -66,7 +66,7 @@
                                             <constraint firstAttribute="height" constant="200" id="g2B-Kd-cF6"/>
                                         </constraints>
                                     </imageView>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rFu-yu-hVt">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rFu-yu-hVt" customClass="CustomButton" customModule="scorePoint" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="200" width="250" height="50"/>
                                         <color key="backgroundColor" red="0.30588235289999999" green="0.36078431370000003" blue="0.59215686270000001" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
@@ -76,6 +76,11 @@
                                         <state key="normal" title="Login / Signup">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="fontColor">
+                                                <color key="value" red="0.90196078430000004" green="0.90196078430000004" blue="0.90196078430000004" alpha="1" colorSpace="calibratedRGB"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
                                         <connections>
                                             <action selector="loginBtnPresed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="1IP-3t-LRF"/>
                                         </connections>

@@ -61,7 +61,6 @@ class BoardVC: UIViewController, ResultsDelegate {
         firstPlayerNameView.clipsToBounds = true
         secondPlayerNameView.layer.cornerRadius = 5
         secondPlayerNameView.clipsToBounds = true
-
         
         scoreSecondPlayer.layer.cornerRadius = 5
         scoreSecondPlayer.clipsToBounds = true
@@ -85,14 +84,9 @@ class BoardVC: UIViewController, ResultsDelegate {
         self.view.addSubview(gameResults)
         gameResults.alpha = 0
         gameResults.delegate = self
-        //self.view.translatesAutoresizingMaskIntoConstraints = false
         self.view.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("H:|-0-[view]-0-|", options: NSLayoutFormatOptions(rawValue: 0), metrics: nil, views: ["view":gameResults]))
         self.view.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("V:|-0-[view]-0-|", options: NSLayoutFormatOptions(rawValue: 0), metrics: nil, views: ["view":gameResults]))
         gameResults.setup()
-
-        
-        
-
         
     }
 
@@ -321,14 +315,5 @@ class BoardVC: UIViewController, ResultsDelegate {
         
     }
     
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
+ 
 }

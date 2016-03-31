@@ -15,10 +15,9 @@ class LoginVC: UIViewController, GIDSignInUIDelegate, GIDSignInDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        loginBtn.layer.cornerRadius = 5
+        //loginBtn.layer.cornerRadius = 5
         UIApplication.sharedApplication().setStatusBarStyle(.Default, animated: false)
 
-        
         GIDSignIn.sharedInstance().delegate = self
         GIDSignIn.sharedInstance().uiDelegate = self
         
@@ -43,11 +42,6 @@ class LoginVC: UIViewController, GIDSignInUIDelegate, GIDSignInDelegate {
     func signIn(signIn: GIDSignIn!, didSignInForUser user: GIDGoogleUser!,
         withError error: NSError!) {
             if (error == nil) {
-                // Perform any operations on signed in user here.
-//                let userId = user.userID
-//                let idToken = user.authentication.idToken
-//                let name = user.profile.name
-//                let email = user.profile.email
                 
                 let completename = GIDSignIn.sharedInstance().currentUser.profile.name
                 let fullNameArr = completename.characters.split{$0 == " "}.map(String.init)
@@ -76,7 +70,6 @@ class LoginVC: UIViewController, GIDSignInUIDelegate, GIDSignInDelegate {
     func signIn(signIn: GIDSignIn!, didDisconnectWithUser user:GIDGoogleUser!,
         withError error: NSError!) {
             // Perform any operations when the user disconnects from app here.
-            // ...
     }
     
     func enterApp(){
@@ -109,15 +102,5 @@ class LoginVC: UIViewController, GIDSignInUIDelegate, GIDSignInDelegate {
         SharedData.sharedInstance.downloadedImg = image
         
     }
-
-    /*
-     MARK: - Navigation
-
-     In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-         Get the new view controller using segue.destinationViewController.
-         Pass the selected object to the new view controller.
-    }
-    */
 
 }
