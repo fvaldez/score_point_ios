@@ -46,7 +46,6 @@ class GameResults: UIView {
         
         rematchBtn.layer.cornerRadius = 5
         rematchBtn.layer.masksToBounds = true
-        
         closeBtn.layer.cornerRadius = 5
         closeBtn.layer.masksToBounds = true
         
@@ -61,11 +60,21 @@ class GameResults: UIView {
     }
     
     @IBAction func rematchBtnPressed(sender: AnyObject) {
-        self.delegate?.closeResults(true)
+        let delay = 0.3 * Double(NSEC_PER_SEC)
+        let time = dispatch_time(DISPATCH_TIME_NOW, Int64(delay))
+        dispatch_after(time, dispatch_get_main_queue()) {
+            self.delegate?.closeResults(true)
+        }
+
     }
     
     @IBAction func closeBtnPressed(sender: AnyObject) {
-        self.delegate?.closeResults(false)
+        let delay = 0.3 * Double(NSEC_PER_SEC)
+        let time = dispatch_time(DISPATCH_TIME_NOW, Int64(delay))
+        dispatch_after(time, dispatch_get_main_queue()) {
+            self.delegate?.closeResults(false)
+        }
+
 
     }
     

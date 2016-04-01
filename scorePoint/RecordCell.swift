@@ -32,6 +32,7 @@ class RecordCell: UITableViewCell {
     }
     
     @IBAction func matchBtnPressed(sender: AnyObject) {
+       
         self.delegate?.matchSelected()
     }
     

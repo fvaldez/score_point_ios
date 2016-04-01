@@ -72,7 +72,7 @@
                                                 <constraint firstItem="u2M-u5-AIr" firstAttribute="top" secondItem="HSR-pl-10D" secondAttribute="top" constant="5" id="wYb-mH-0bl"/>
                                             </constraints>
                                         </view>
-                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jRv-fZ-VGo">
+                                        <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="jRv-fZ-VGo">
                                             <rect key="frame" x="130" y="0.0" width="20" height="110"/>
                                         </view>
                                     </subviews>
@@ -116,10 +116,10 @@
                             </constraints>
                         </stackView>
                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="She-YY-Z6O">
-                            <rect key="frame" x="10" y="290" width="180" height="90"/>
+                            <rect key="frame" x="15" y="285" width="170" height="90"/>
                             <subviews>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZPu-pD-NqR">
-                                    <rect key="frame" x="0.0" y="0.0" width="180" height="40"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="170" height="40"/>
                                     <color key="backgroundColor" red="0.30588235289999999" green="0.36078431370000003" blue="0.59215686270000001" alpha="1" colorSpace="calibratedRGB"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="40" id="JGa-Sd-zBQ"/>
@@ -133,7 +133,7 @@
                                     </connections>
                                 </button>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="g0M-vv-BV6">
-                                    <rect key="frame" x="0.0" y="50" width="180" height="40"/>
+                                    <rect key="frame" x="0.0" y="50" width="170" height="40"/>
                                     <color key="backgroundColor" red="0.88235294119999996" green="0.22352941179999999" blue="0.086274509799999996" alpha="1" colorSpace="calibratedRGB"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="40" id="Pez-9S-ziP"/>
@@ -164,16 +164,16 @@
                         <constraint firstItem="d4N-TE-oFF" firstAttribute="top" secondItem="hOW-rz-CXO" secondAttribute="top" id="Bbh-6j-yXZ"/>
                         <constraint firstAttribute="height" constant="400" id="D1l-Lf-D80"/>
                         <constraint firstAttribute="bottom" secondItem="d4N-TE-oFF" secondAttribute="bottom" id="Mq1-Z3-6iJ"/>
-                        <constraint firstItem="She-YY-Z6O" firstAttribute="leading" secondItem="hOW-rz-CXO" secondAttribute="leading" constant="10" id="Ou9-lH-oDI"/>
+                        <constraint firstItem="She-YY-Z6O" firstAttribute="leading" secondItem="hOW-rz-CXO" secondAttribute="leading" constant="15" id="Ou9-lH-oDI"/>
                         <constraint firstAttribute="height" constant="390" id="XIh-ab-tge"/>
                         <constraint firstItem="She-YY-Z6O" firstAttribute="centerX" secondItem="hOW-rz-CXO" secondAttribute="centerX" id="fxK-6l-dgK"/>
-                        <constraint firstAttribute="bottom" secondItem="She-YY-Z6O" secondAttribute="bottom" constant="10" id="iY7-8B-pY7"/>
+                        <constraint firstAttribute="bottom" secondItem="She-YY-Z6O" secondAttribute="bottom" constant="15" id="iY7-8B-pY7"/>
                         <constraint firstItem="d4N-TE-oFF" firstAttribute="leading" secondItem="hOW-rz-CXO" secondAttribute="leading" id="mrh-qr-INP"/>
                         <constraint firstAttribute="trailing" secondItem="d4N-TE-oFF" secondAttribute="trailing" id="n47-Vu-dGX"/>
                         <constraint firstItem="4VI-ur-ugX" firstAttribute="centerX" secondItem="hOW-rz-CXO" secondAttribute="centerX" id="nWY-y1-RGv"/>
                         <constraint firstItem="4VI-ur-ugX" firstAttribute="centerY" secondItem="hOW-rz-CXO" secondAttribute="centerY" id="s4X-mQ-fR1"/>
                         <constraint firstItem="4VI-ur-ugX" firstAttribute="top" secondItem="hOW-rz-CXO" secondAttribute="top" constant="20" id="uaZ-kI-37g"/>
-                        <constraint firstAttribute="trailing" secondItem="She-YY-Z6O" secondAttribute="trailing" constant="10" id="why-y2-Y6M"/>
+                        <constraint firstAttribute="trailing" secondItem="She-YY-Z6O" secondAttribute="trailing" constant="15" id="why-y2-Y6M"/>
                         <constraint firstAttribute="width" constant="300" id="xdH-GO-gv6"/>
                     </constraints>
                     <variation key="default">
@@ -209,11 +209,11 @@
             </variation>
             <connections>
                 <outlet property="backView" destination="d4N-TE-oFF" id="XSt-Cl-KyA"/>
-                <outlet property="closeBtn" destination="g0M-vv-BV6" id="q1O-UX-Djs"/>
+                <outlet property="closeBtn" destination="g0M-vv-BV6" id="14V-ZX-7Bu"/>
                 <outlet property="imgView" destination="HSR-pl-10D" id="utH-Hp-KiL"/>
                 <outlet property="namelbl" destination="Dng-I8-4l4" id="gjU-g2-1LZ"/>
                 <outlet property="photoView" destination="u2M-u5-AIr" id="5b6-Z3-LUp"/>
-                <outlet property="rematchBtn" destination="ZPu-pD-NqR" id="rb3-qp-Ltv"/>
+                <outlet property="rematchBtn" destination="ZPu-pD-NqR" id="IbW-r2-GhS"/>
                 <outlet property="winnerlbl" destination="WGL-B3-GJf" id="7dl-Db-xt3"/>
             </connections>
         </view>

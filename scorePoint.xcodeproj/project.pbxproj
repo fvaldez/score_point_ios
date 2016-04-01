@@ -34,6 +34,7 @@
 		3F49B4581CAAE912005D1811 /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F49B4571CAAE912005D1811 /* Player.swift */; };
 		3F4CA5051CADEF5500D4B8CE /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F4CA5041CADEF5500D4B8CE /* CustomButton.swift */; };
 		3F4CF7071C932FCC00FD04B8 /* BoardVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F4CF7061C932FCC00FD04B8 /* BoardVC.swift */; };
+		3F67FAC51CAF1A05002F1A24 /* AnimationEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F67FAC41CAF1A05002F1A24 /* AnimationEngine.swift */; };
 		3F6A68D51C8DDF34009F05D7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F6A68D41C8DDF34009F05D7 /* AppDelegate.swift */; };
 		3F6A68D71C8DDF34009F05D7 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F6A68D61C8DDF34009F05D7 /* ViewController.swift */; };
 		3F6A68DA1C8DDF34009F05D7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3F6A68D81C8DDF34009F05D7 /* Main.storyboard */; };
@@ -81,6 +82,7 @@
 		3F49B4571CAAE912005D1811 /* Player.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
 		3F4CA5041CADEF5500D4B8CE /* CustomButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
 		3F4CF7061C932FCC00FD04B8 /* BoardVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BoardVC.swift; sourceTree = "<group>"; };
+		3F67FAC41CAF1A05002F1A24 /* AnimationEngine.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnimationEngine.swift; sourceTree = "<group>"; };
 		3F6A68D11C8DDF34009F05D7 /* scorePoint.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = scorePoint.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3F6A68D41C8DDF34009F05D7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3F6A68D61C8DDF34009F05D7 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -246,6 +248,7 @@
 		3FC00D0F1CAC7EC900425BFD /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				3F67FAC41CAF1A05002F1A24 /* AnimationEngine.swift */,
 				3FB6CEC11C92194700662C18 /* Colors.swift */,
 			);
 			name = Utils;
@@ -419,6 +422,7 @@
 				3F08E78C1C9B4883001D4A60 /* RecordCell.swift in Sources */,
 				3F6A68D51C8DDF34009F05D7 /* AppDelegate.swift in Sources */,
 				3F49B4581CAAE912005D1811 /* Player.swift in Sources */,
+				3F67FAC51CAF1A05002F1A24 /* AnimationEngine.swift in Sources */,
 				3F49B4561CAAE749005D1811 /* Game.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -14,18 +14,15 @@ class DashboardVC: UIViewController, UITableViewDelegate, UITableViewDataSource,
     
     @IBOutlet weak var playerOneImg: UIImageView!
     @IBOutlet weak var playerTwoImg: UIImageView!
-    @IBOutlet weak var joinBtn: UIButton!
     @IBOutlet weak var playingNowView: UIView!
     @IBOutlet weak var view1: UIView!
     @IBOutlet weak var view2: UIView!
     
+    @IBOutlet weak var waitingLbl: UILabel!
     @IBOutlet weak var tableView: UITableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        joinBtn.layer.cornerRadius = 5
-        joinBtn.layer.masksToBounds = true
         
         playingNowView.layer.cornerRadius = 5
         playingNowView.layer.masksToBounds = true
@@ -114,15 +111,7 @@ class DashboardVC: UIViewController, UITableViewDelegate, UITableViewDataSource,
         self.presentViewController(vc, animated: true, completion: nil)
 
     }
-    
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+   
+    @IBAction func joinBtnPressed(sender: AnyObject) {
     }
-    */
-
 }

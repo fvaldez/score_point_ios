@@ -18,22 +18,21 @@ struct SetType {
 class GameSetupVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
 
     @IBOutlet weak var logoback: UIView!
+    @IBOutlet weak var firstPlayerImg: UIImageView!
+    @IBOutlet weak var secondPlayerImg: UIImageView!
+    @IBOutlet weak var gameToBtn: UIButton!
+    @IBOutlet weak var setbtn: UIButton!
+    @IBOutlet weak var scrollView: UIScrollView!
+    @IBOutlet weak var titlelbl: UILabel!
+    @IBOutlet weak var firstPlayerConstraint: NSLayoutConstraint!
+    @IBOutlet weak var secondPlayerConstraint: NSLayoutConstraint!
+    @IBOutlet weak var firstPlayerLbl: UILabel!
+    @IBOutlet weak var secondPlayerLbl: UILabel!
+    @IBOutlet weak var cancelBtn: UIButton!
     @IBOutlet weak var startBtn: UIButton!
     
-    @IBOutlet weak var cancelBtn: UIButton!
-    
-    @IBOutlet weak var firstPlayerImg: UIImageView!
-    
-    @IBOutlet weak var secondPlayerImg: UIImageView!
-    
-    @IBOutlet weak var gameToBtn: UIButton!
-    
-    @IBOutlet weak var setbtn: UIButton!
-    
-    @IBOutlet weak var scrollView: UIScrollView!
-    
-    @IBOutlet weak var titlelbl: UILabel!
-    
+    var animEngine: AnimationEngine!
+
     var pickerView: UIView!
     var picker: UIPickerView!
     var activePicker = 1
@@ -52,8 +51,14 @@ class GameSetupVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSourc
     var playerA: Player!
     var playerB: Player!
     
+    var gameVC: BoardVC!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        gameVC = storyboard.instantiateViewControllerWithIdentifier("BoardVC") as! BoardVC
+        
         setsSelected = sets[0]
         playerA = Player(firstName: SharedData.sharedInstance.firstName, lastName: SharedData.sharedInstance.lastName, score: 0, setsWon: 0, image: SharedData.sharedInstance.downloadedImg!)
         playerB = Player(firstName: "Other", lastName: "Player", score: 0, setsWon: 0, image: UIImage(named: "placeholder")!)
@@ -65,17 +70,27 @@ class GameSetupVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSourc
         secondPlayerImg.clipsToBounds = true
 
        
-        startBtn.layer.cornerRadius = 5
-        cancelBtn.layer.cornerRadius = 5
         gameToBtn.layer.cornerRadius = 5
         setbtn.layer.cornerRadius = 5
+        cancelBtn.layer.cornerRadius = 5
+        startBtn.layer.cornerRadius = 5
 
         let attr = NSDictionary(object: UIFont(name: "Open Sans", size: 15.0)!, forKey: NSFontAttributeName)
         UISegmentedControl.appearance().setTitleTextAttributes(attr as [NSObject : AnyObject] , forState: .Normal)
         createPicker()
+        
+        self.animEngine = AnimationEngine(constraints: [firstPlayerConstraint, secondPlayerConstraint])
+        
+        firstPlayerImg.image = SharedData.sharedInstance.downloadedImg
+        firstPlayerLbl.text = "\(SharedData.sharedInstance.firstName) \(SharedData.sharedInstance.lastName)"
+    
+
 
     }
     
+    override func viewDidAppear(animated: Bool) {
+        self.animEngine.animateOnScreen(0)
+    }
     
     override func viewWillAppear(animated: Bool) {
         UIApplication.sharedApplication().setStatusBarStyle(.LightContent, animated: true)
@@ -144,16 +159,27 @@ class GameSetupVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSourc
     @IBAction func startBtnPressed(sender: AnyObject) {
         
         game = Game(date: NSDate(), pointsPerSet: selectedPoints, sets: setsSelected , playerA: playerA, playerB: playerB)
-        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        let vc = storyboard.instantiateViewControllerWithIdentifier("BoardVC") as! BoardVC
-        vc.game = game
+        
+        gameVC.game = game
         //self.navigationController?.pushViewController(vc, animated: true)
         UIApplication.sharedApplication().setStatusBarStyle(.Default, animated: true)
-        self.presentViewController(vc, animated: true, completion: nil)
+        let delay = 0.3 * Double(NSEC_PER_SEC)
+        let time = dispatch_time(DISPATCH_TIME_NOW, Int64(delay))
+        dispatch_after(time, dispatch_get_main_queue()) {
+            dispatch_async(dispatch_get_main_queue()) { [unowned self] in
+                self.presentViewController(self.gameVC, animated: true, completion: nil)
+            }
+        }
     }
     
     @IBAction func cancelBtnPressed(sender: AnyObject) {
-        self.dismissViewControllerAnimated(true, completion: nil)
+        
+        let delay = 0.3 * Double(NSEC_PER_SEC)
+        let time = dispatch_time(DISPATCH_TIME_NOW, Int64(delay))
+        dispatch_after(time, dispatch_get_main_queue()) {
+            self.dismissViewControllerAnimated(true, completion: nil)
+        }
+
 
     }
     

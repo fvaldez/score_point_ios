@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import pop
 
 class BoardVC: UIViewController, ResultsDelegate {
 
@@ -106,6 +107,7 @@ class BoardVC: UIViewController, ResultsDelegate {
     
     @IBAction func closeBtnPressed(sender: AnyObject) {
         game.clearAll()
+        updateBoard(addPoint: false)
         self.dismissViewControllerAnimated(true, completion: nil)
 
     }
@@ -259,11 +261,22 @@ class BoardVC: UIViewController, ResultsDelegate {
     func addPointFirst(){
         game.scoreUpdatePlayerA(1)
         updateBoard(addPoint: true)
+        let scaleAnim = POPSpringAnimation(propertyNamed: kPOPLayerScaleXY)
+        scaleAnim.velocity = NSValue(CGSize: CGSizeMake(3.0, 3.0))
+        scaleAnim.toValue = NSValue(CGSize: CGSizeMake(1.0, 1.0))
+        scaleAnim.springBounciness = 18
+        txtScoreFirst.layer.pop_addAnimation(scaleAnim, forKey: "layerScaleSpringAnimation")
+
     }
     
     func addPointSecond(){
         game.scoreUpdatePlayerB(1)
         updateBoard(addPoint: true)
+        let scaleAnim = POPSpringAnimation(propertyNamed: kPOPLayerScaleXY)
+        scaleAnim.velocity = NSValue(CGSize: CGSizeMake(3.0, 3.0))
+        scaleAnim.toValue = NSValue(CGSize: CGSizeMake(1.0, 1.0))
+        scaleAnim.springBounciness = 18
+        txtScoreSecond.layer.pop_addAnimation(scaleAnim, forKey: "layerScaleSpringAnimation")
     }
     
     func updateBoard(addPoint addPoint: Bool){
