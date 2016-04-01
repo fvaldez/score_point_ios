@@ -8,7 +8,7 @@
 
 import UIKit
 
-class RecordVC: UIViewController, UITableViewDelegate, UITableViewDataSource, MDRotatingPieChartDelegate, MDRotatingPieChartDataSource {
+class RecordVC: UIViewController, UITableViewDelegate, UITableViewDataSource, MDRotatingPieChartDelegate, MDRotatingPieChartDataSource, matchSelectedDelegate {
 
     @IBOutlet weak var userImg: UIImageView!
     @IBOutlet weak var tableView: UITableView!
@@ -111,11 +111,13 @@ class RecordVC: UIViewController, UITableViewDelegate, UITableViewDataSource, MD
         let player = playersArray[indexPath.row]
         if let cell = tableView.dequeueReusableCellWithIdentifier("RecordCell") as? RecordCell {
             cell.configureCell(player)
+            cell.delegate = self
             cell.selectionStyle = .None
             return cell
         }else {
             let cell = RecordCell()
             cell.configureCell(player)
+            cell.delegate = self
             cell.selectionStyle = .None
             return cell
         }
@@ -202,6 +204,14 @@ class RecordVC: UIViewController, UITableViewDelegate, UITableViewDataSource, MD
             }, completion: nil)
 
     }
+    
+    func matchSelected() {
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let vc = storyboard.instantiateViewControllerWithIdentifier("GameSetupVC")
+        //self.navigationController?.pushViewController(vc, animated: true)
+        self.presentViewController(vc, animated: true, completion: nil)
+    }
+    
     
 }
 
