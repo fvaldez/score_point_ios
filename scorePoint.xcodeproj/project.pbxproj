@@ -43,7 +43,9 @@
 		3F6A68E71C8DE556009F05D7 /* DashboardVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F6A68E61C8DE556009F05D7 /* DashboardVC.swift */; };
 		3F6A68EB1C8DE6A0009F05D7 /* VSCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F6A68E91C8DE6A0009F05D7 /* VSCell.swift */; };
 		3F6A68EC1C8DE6A0009F05D7 /* VSCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3F6A68EA1C8DE6A0009F05D7 /* VSCell.xib */; };
-		3F6A68F01C8E1F04009F05D7 /* GameVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F6A68EF1C8E1F04009F05D7 /* GameVC.swift */; };
+		3F777B1A1CB30D8300FB9BFF /* RequestsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F777B191CB30D8300FB9BFF /* RequestsVC.swift */; };
+		3F777B1D1CB3107D00FB9BFF /* RequestCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F777B1B1CB3107D00FB9BFF /* RequestCell.swift */; };
+		3F777B201CB310D100FB9BFF /* RequestCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3F777B1F1CB310D100FB9BFF /* RequestCell.xib */; };
 		3FB6CEBE1C91FDA800662C18 /* RecordVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FB6CEBD1C91FDA800662C18 /* RecordVC.swift */; };
 		3FB6CEC01C91FDB600662C18 /* LeaderBoardVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FB6CEBF1C91FDB600662C18 /* LeaderBoardVC.swift */; };
 		3FB6CEC21C92194700662C18 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FB6CEC11C92194700662C18 /* Colors.swift */; };
@@ -93,7 +95,9 @@
 		3F6A68E61C8DE556009F05D7 /* DashboardVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DashboardVC.swift; sourceTree = "<group>"; };
 		3F6A68E91C8DE6A0009F05D7 /* VSCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VSCell.swift; sourceTree = "<group>"; };
 		3F6A68EA1C8DE6A0009F05D7 /* VSCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = VSCell.xib; sourceTree = "<group>"; };
-		3F6A68EF1C8E1F04009F05D7 /* GameVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameVC.swift; sourceTree = "<group>"; };
+		3F777B191CB30D8300FB9BFF /* RequestsVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RequestsVC.swift; sourceTree = "<group>"; };
+		3F777B1B1CB3107D00FB9BFF /* RequestCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RequestCell.swift; sourceTree = "<group>"; };
+		3F777B1F1CB310D100FB9BFF /* RequestCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RequestCell.xib; sourceTree = "<group>"; };
 		3FB6CEBD1C91FDA800662C18 /* RecordVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecordVC.swift; sourceTree = "<group>"; };
 		3FB6CEBF1C91FDB600662C18 /* LeaderBoardVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LeaderBoardVC.swift; sourceTree = "<group>"; };
 		3FB6CEC11C92194700662C18 /* Colors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
@@ -210,13 +214,13 @@
 			isa = PBXGroup;
 			children = (
 				3F6A68D61C8DDF34009F05D7 /* ViewController.swift */,
+				3F463F091C9CB503004E9CDD /* LoginVC.swift */,
 				3F6A68E61C8DE556009F05D7 /* DashboardVC.swift */,
 				3FB6CEBF1C91FDB600662C18 /* LeaderBoardVC.swift */,
 				3FB6CEBD1C91FDA800662C18 /* RecordVC.swift */,
-				3F6A68EF1C8E1F04009F05D7 /* GameVC.swift */,
+				3F777B191CB30D8300FB9BFF /* RequestsVC.swift */,
 				3FB6CEC51C92241E00662C18 /* GameSetupVC.swift */,
 				3F4CF7061C932FCC00FD04B8 /* BoardVC.swift */,
-				3F463F091C9CB503004E9CDD /* LoginVC.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -241,6 +245,8 @@
 				3F08CF121C97671900B71936 /* RankCell.xib */,
 				3F08E78B1C9B4883001D4A60 /* RecordCell.swift */,
 				3F08E78D1C9B48B3001D4A60 /* RecordCell.xib */,
+				3F777B1B1CB3107D00FB9BFF /* RequestCell.swift */,
+				3F777B1F1CB310D100FB9BFF /* RequestCell.xib */,
 			);
 			name = Cells;
 			sourceTree = "<group>";
@@ -334,6 +340,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3F6A68EC1C8DE6A0009F05D7 /* VSCell.xib in Resources */,
+				3F777B201CB310D100FB9BFF /* RequestCell.xib in Resources */,
 				3F6A68DF1C8DDF34009F05D7 /* LaunchScreen.storyboard in Resources */,
 				3F463EFD1C9CB04B004E9CDD /* GoogleSignIn.bundle in Resources */,
 				3F0A2F0E1CAC730800D7F5A3 /* GameResults.xib in Resources */,
@@ -404,6 +411,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3F777B1A1CB30D8300FB9BFF /* RequestsVC.swift in Sources */,
+				3F777B1D1CB3107D00FB9BFF /* RequestCell.swift in Sources */,
 				3F0A2F0C1CAC72F000D7F5A3 /* GameResults.swift in Sources */,
 				3F4CA5051CADEF5500D4B8CE /* CustomButton.swift in Sources */,
 				3F6A68EB1C8DE6A0009F05D7 /* VSCell.swift in Sources */,
@@ -418,7 +427,6 @@
 				3FB6CEBE1C91FDA800662C18 /* RecordVC.swift in Sources */,
 				3F08CF0E1C9766A200B71936 /* RankCell.swift in Sources */,
 				3F4CF7071C932FCC00FD04B8 /* BoardVC.swift in Sources */,
-				3F6A68F01C8E1F04009F05D7 /* GameVC.swift in Sources */,
 				3F08E78C1C9B4883001D4A60 /* RecordCell.swift in Sources */,
 				3F6A68D51C8DDF34009F05D7 /* AppDelegate.swift in Sources */,
 				3F49B4581CAAE912005D1811 /* Player.swift in Sources */,

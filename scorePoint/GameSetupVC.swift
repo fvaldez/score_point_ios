@@ -31,6 +31,8 @@ class GameSetupVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSourc
     @IBOutlet weak var cancelBtn: UIButton!
     @IBOutlet weak var startBtn: UIButton!
     
+    var sendingRequest = true
+    
     var animEngine: AnimationEngine!
 
     var pickerView: UIView!
@@ -68,12 +70,19 @@ class GameSetupVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSourc
 
         secondPlayerImg.layer.cornerRadius = secondPlayerImg.frame.size.width / 2
         secondPlayerImg.clipsToBounds = true
-
        
         gameToBtn.layer.cornerRadius = 5
         setbtn.layer.cornerRadius = 5
         cancelBtn.layer.cornerRadius = 5
         startBtn.layer.cornerRadius = 5
+        
+        if(sendingRequest == true) {
+            startBtn.setTitle("SEND", forState: .Normal)
+        }else{
+            gameToBtn.userInteractionEnabled = false
+            setbtn.userInteractionEnabled = false
+            startBtn.setTitle("START", forState: .Normal)
+        }
 
         let attr = NSDictionary(object: UIFont(name: "Open Sans", size: 15.0)!, forKey: NSFontAttributeName)
         UISegmentedControl.appearance().setTitleTextAttributes(attr as [NSObject : AnyObject] , forState: .Normal)
@@ -84,7 +93,6 @@ class GameSetupVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSourc
         firstPlayerImg.image = SharedData.sharedInstance.downloadedImg
         firstPlayerLbl.text = "\(SharedData.sharedInstance.firstName) \(SharedData.sharedInstance.lastName)"
     
-
 
     }
     
@@ -158,17 +166,32 @@ class GameSetupVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSourc
 
     @IBAction func startBtnPressed(sender: AnyObject) {
         
-        game = Game(date: NSDate(), pointsPerSet: selectedPoints, sets: setsSelected , playerA: playerA, playerB: playerB)
-        
-        gameVC.game = game
-        //self.navigationController?.pushViewController(vc, animated: true)
-        UIApplication.sharedApplication().setStatusBarStyle(.Default, animated: true)
-        let delay = 0.3 * Double(NSEC_PER_SEC)
-        let time = dispatch_time(DISPATCH_TIME_NOW, Int64(delay))
-        dispatch_after(time, dispatch_get_main_queue()) {
-            dispatch_async(dispatch_get_main_queue()) { [unowned self] in
-                self.presentViewController(self.gameVC, animated: true, completion: nil)
+        if(sendingRequest == true){
+            let delay = 0.3 * Double(NSEC_PER_SEC)
+            let time = dispatch_time(DISPATCH_TIME_NOW, Int64(delay))
+            dispatch_after(time, dispatch_get_main_queue()) {
+                
+                self.dismissViewControllerAnimated(true, completion: {
+                    
+                    let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+                    appDelegate.showAlert("Match request sent", vc: self)
+                    }
+                )
             }
+        }else{
+            game = Game(date: NSDate(), pointsPerSet: selectedPoints, sets: setsSelected , playerA: playerA, playerB: playerB)
+            
+            gameVC.game = game
+            //self.navigationController?.pushViewController(vc, animated: true)
+            UIApplication.sharedApplication().setStatusBarStyle(.Default, animated: true)
+            let delay = 0.3 * Double(NSEC_PER_SEC)
+            let time = dispatch_time(DISPATCH_TIME_NOW, Int64(delay))
+            dispatch_after(time, dispatch_get_main_queue()) {
+                dispatch_async(dispatch_get_main_queue()) { [unowned self] in
+                    self.presentViewController(self.gameVC, animated: true, completion: nil)
+                }
+            }
+
         }
     }
     

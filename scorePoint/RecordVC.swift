@@ -89,7 +89,7 @@ class RecordVC: UIViewController, UITableViewDelegate, UITableViewDataSource, MD
 
         lblChart1.text = "60%\nWon"
         lblChart2.text = "40%\nLost"
-
+        refresh()
 
     }
 
@@ -188,7 +188,7 @@ class RecordVC: UIViewController, UITableViewDelegate, UITableViewDataSource, MD
 
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
-        refresh()
+       
     }
 
 

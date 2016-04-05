@@ -23,26 +23,31 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UITabBarControllerDelegat
         let dashboardVC = storyboard.instantiateViewControllerWithIdentifier("DashboardVC")
         let leaderBoardVC = storyboard.instantiateViewControllerWithIdentifier("LeaderboardVC")
         let recordVC = storyboard.instantiateViewControllerWithIdentifier("RecordVC")
+        let requestsVC = storyboard.instantiateViewControllerWithIdentifier("RequestsVC")
         loginVC = storyboard.instantiateViewControllerWithIdentifier("LoginVC")
 
         let dashboardImg = UIImage(named: "vs-icon")
         let leaderBoardImg = UIImage(named: "leaderboard-icon")
         let recordImg = UIImage(named: "clock-icon")
-        
+        let requestsImg = UIImage(named: "bell-icon")
+
         dashboardVC.tabBarItem = UITabBarItem(title: "", image: dashboardImg, tag: 1)
         leaderBoardVC.tabBarItem = UITabBarItem(title: "", image: leaderBoardImg, tag:2)
         recordVC.tabBarItem = UITabBarItem(title: "", image: recordImg, tag: 3)
+        requestsVC.tabBarItem = UITabBarItem(title: "", image: requestsImg, tag: 4)
         
         let navController1 = UINavigationController(rootViewController: dashboardVC)
         let navController2 = UINavigationController(rootViewController: leaderBoardVC)
         let navController3 = UINavigationController(rootViewController: recordVC)
+        let navController4 = UINavigationController(rootViewController: requestsVC)
         
         dashboardVC.tabBarItem.imageInsets = UIEdgeInsets(top: 5.5, left: 0, bottom: -5.5, right: 0)
         leaderBoardVC.tabBarItem.imageInsets = UIEdgeInsets(top: 5.5, left: 0, bottom: -5.5, right: 0)
         recordVC.tabBarItem.imageInsets = UIEdgeInsets(top: 5.5, left: 0, bottom: -5.5, right: 0)
-        
+        requestsVC.tabBarItem.imageInsets = UIEdgeInsets(top: 5.5, left: 0, bottom: -5.5, right: 0)
+
         tabBarController.delegate = self
-        tabBarController.viewControllers = [navController1, navController2, navController3]
+        tabBarController.viewControllers = [navController1, navController2, navController3, navController4]
         
         UITabBar.appearance().barTintColor = PURPLE_COLOR
         UITabBar.appearance().translucent = false 
@@ -111,6 +116,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UITabBarControllerDelegat
         withError error: NSError!) {
             // Perform any operations when the user disconnects from app here.
             // ...
+    }
+    
+    func showAlert(message: NSString, vc: UIViewController){
+        
+        let alertController = UIAlertController(title: "Message", message: message as String, preferredStyle: .Alert)
+        
+        let OKAction = UIAlertAction(title: "OK", style: .Default) { (action) in
+        }
+        alertController.addAction(OKAction)
+        
+        self.window?.rootViewController?.presentViewController(alertController, animated: true, completion: nil)
     }
 }
 
