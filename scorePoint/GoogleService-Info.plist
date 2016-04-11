@@ -3,9 +3,9 @@
 <plist version="1.0">
 <dict>
 	<key>CLIENT_ID</key>
-	<string>635021225752-5tde2pol0vr2dqhfm3r3c12qgtgja215.apps.googleusercontent.com</string>
+	<string>543549798477-t7subuthvsceif8eiqh9k9b5vr0osci2.apps.googleusercontent.com</string>
 	<key>REVERSED_CLIENT_ID</key>
-	<string>com.googleusercontent.apps.635021225752-5tde2pol0vr2dqhfm3r3c12qgtgja215</string>
+	<string>com.googleusercontent.apps.543549798477-t7subuthvsceif8eiqh9k9b5vr0osci2</string>
 	<key>PLIST_VERSION</key>
 	<string>1</string>
 	<key>BUNDLE_ID</key>
@@ -21,8 +21,8 @@
 	<key>IS_SIGNIN_ENABLED</key>
 	<true/>
 	<key>GOOGLE_APP_ID</key>
-	<string>1:635021225752:ios:51cdf9573f8bd0d7</string>
+	<string>1:543549798477:ios:51cdf9573f8bd0d7</string>
 	<key>PROJECT_ID</key>
-	<string>score-point</string>
+	<string>scoreboard-1273</string>
 </dict>
 </plist>

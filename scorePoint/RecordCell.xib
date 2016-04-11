@@ -79,7 +79,7 @@
                         </constraints>
                         <fontDescription key="fontDescription" name="OpenSans" family="Open Sans" pointSize="15"/>
                         <state key="normal" title="Rematch">
-                            <color key="titleColor" red="0.88235294117647056" green="0.22352941176470587" blue="0.086274509803921567" alpha="1" colorSpace="calibratedRGB"/>
+                            <color key="titleColor" red="0.90196078430000004" green="0.33725490200000002" blue="0.14117647059999999" alpha="1" colorSpace="calibratedRGB"/>
                         </state>
                         <connections>
                             <action selector="matchBtnPressed:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="kb0-JE-Bo0"/>

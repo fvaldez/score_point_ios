@@ -51,7 +51,7 @@ class LoginVC: UIViewController, GIDSignInUIDelegate, GIDSignInDelegate {
                 SharedData.sharedInstance.firstName = fullNameArr[0]
                 SharedData.sharedInstance.lastName = fullNameArr[1]
                 SharedData.sharedInstance.completeName = completename
-                
+                print("token: \(user.authentication.accessToken)")
                 if("\(GIDSignIn.sharedInstance().currentUser.profile.imageURLWithDimension(100))" != nil){
                     SharedData.sharedInstance.imgString = "\(GIDSignIn.sharedInstance().currentUser.profile.imageURLWithDimension(200))"
                     let url = NSURL(string: SharedData.sharedInstance.imgString)

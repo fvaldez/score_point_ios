@@ -64,7 +64,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UITabBarControllerDelegat
         ]
         UINavigationBar.appearance().titleTextAttributes = attributes
         
-        GIDSignIn.sharedInstance().clientID = "635021225752-5tde2pol0vr2dqhfm3r3c12qgtgja215.apps.googleusercontent.com"
+        GIDSignIn.sharedInstance().clientID = "543549798477-t7subuthvsceif8eiqh9k9b5vr0osci2.apps.googleusercontent.com"
 
         
         return true
