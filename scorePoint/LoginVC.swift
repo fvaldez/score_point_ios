@@ -15,19 +15,13 @@ class LoginVC: UIViewController, GIDSignInUIDelegate, GIDSignInDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        //loginBtn.layer.cornerRadius = 5
-        UIApplication.sharedApplication().setStatusBarStyle(.Default, animated: false)
+        UIApplication.sharedApplication().statusBarStyle = UIStatusBarStyle.Default
 
         GIDSignIn.sharedInstance().delegate = self
         GIDSignIn.sharedInstance().uiDelegate = self
         
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
     @IBAction func loginBtnPresed(sender: AnyObject) {
         loginGoogle()
         //enterApp()
@@ -35,7 +29,8 @@ class LoginVC: UIViewController, GIDSignInUIDelegate, GIDSignInDelegate {
     
     func loginGoogle(){
         GIDSignIn.sharedInstance().signIn()
-        UIApplication.sharedApplication().setStatusBarStyle(.Default, animated: true)
+        //UIApplication.sharedApplication().setStatusBarStyle(.Default, animated: true)
+        UIApplication.sharedApplication().statusBarStyle = UIStatusBarStyle.Default
 
     }
     

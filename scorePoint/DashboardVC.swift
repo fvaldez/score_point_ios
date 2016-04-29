@@ -54,14 +54,10 @@ class DashboardVC: UIViewController, UITableViewDelegate, UITableViewDataSource,
         self.tableView.registerNib(nibName, forCellReuseIdentifier: "VSCell")
        
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
     
     override func viewWillAppear(animated: Bool) {
-        UIApplication.sharedApplication().setStatusBarStyle(.LightContent, animated: false)
+        //UIApplication.sharedApplication().setStatusBarStyle(.LightContent, animated: false)
+        UIApplication.sharedApplication().statusBarStyle = UIStatusBarStyle.LightContent
 
     }
     

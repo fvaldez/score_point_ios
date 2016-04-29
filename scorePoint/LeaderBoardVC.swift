@@ -15,10 +15,17 @@ class LeaderBoardVC: UIViewController, UITableViewDataSource, UITableViewDelegat
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var tableView: UITableView!
     
+    override func viewWillAppear(animated: Bool) {
+        self.title = "Leaderboard"
+    }
+    
+    override func viewWillDisappear(animated: Bool) {
+        self.title = ""
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        self.title = "Leaderboard"
         self.tabBarItem.title = ""
         
         let backView = UIView(frame: self.tableView.bounds)
@@ -34,11 +41,6 @@ class LeaderBoardVC: UIViewController, UITableViewDataSource, UITableViewDelegat
         searchBar.backgroundColor = UIColor.whiteColor()
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         return 1
     }
@@ -85,4 +87,10 @@ class LeaderBoardVC: UIViewController, UITableViewDataSource, UITableViewDelegat
         return 80.0
     }
 
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let vc = storyboard.instantiateViewControllerWithIdentifier("VersusVC")
+        self.navigationController?.pushViewController(vc, animated: true)
+        //self.presentViewController(vc, animated: true, completion: nil)
+    }
 }

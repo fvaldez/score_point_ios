@@ -191,9 +191,11 @@ class MDRotatingPieChart: UIControl {
         var currentStartAngle:CGFloat = 0
         var angleSum:CGFloat = 0
         
-        for (var index = 0; index < datasource?.numberOfSlices(); index += 1) {
-            prepareSlice(&angleSum, currentStartAngle: &currentStartAngle, total: total, index: index)
+        for i in 0..<datasource.numberOfSlices(){
+            prepareSlice(&angleSum, currentStartAngle: &currentStartAngle, total: total, index: i)
+            
         }
+
     }
     
     /**
@@ -294,9 +296,12 @@ class MDRotatingPieChart: UIControl {
     */
     func computeTotal() -> CGFloat {
         var total:CGFloat = 0
-        for (var index=0; index < datasource.numberOfSlices(); index += 1) {
-            total = total + datasource.valueForSliceAtIndex(index)
+        
+        for i in 0..<datasource.numberOfSlices(){
+            total = total + datasource.valueForSliceAtIndex(i)
+            
         }
+        
         return total;
     }
     
@@ -327,18 +332,20 @@ class MDRotatingPieChart: UIControl {
         labelCenter.center = centerTmp
         
         labelCenter.hidden = false
-        var cpt = 0;
-        for (; cpt < datasource?.numberOfSlices(); cpt += 1) {
+
+        for cpt in 0..<datasource.numberOfSlices(){
             if(!frameFitInPath(labelCenter.frame, path: slicesArray[cpt].paths.bezierPath, inside:false)) {
                 labelCenter.hidden = true
                 break;
             }
+            
         }
         
+
+        
         //move
-        var i=0
         var angleSum:CGFloat = 0
-        for(i=0; i<index; i += 1) {
+        for i in 0..<index{
             angleSum += slicesArray[i].angle
         }
         angleSum += slicesArray[index].angle/2.0

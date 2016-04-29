@@ -90,11 +90,6 @@ class BoardVC: UIViewController, ResultsDelegate {
         gameResults.setup()
         
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
     
     override func preferredStatusBarStyle() -> UIStatusBarStyle {
         return .Default
@@ -164,23 +159,19 @@ class BoardVC: UIViewController, ResultsDelegate {
                 if game.playerB.score > 0{
                     game.scoreUpdatePlayerB(-1)
                     updateBoard(addPoint: false)
-
                 }
             case UISwipeGestureRecognizerDirection.Left:
                 if game.playerB.score > 0{
                     game.scoreUpdatePlayerB(-1)
                     updateBoard(addPoint: false)
-
                 }
 
             default:
                 break
             }
         }
-        
     }
 
-    
     func addGestures() {
         
         let swipeRightFirst = UISwipeGestureRecognizer(target: self, action: #selector(BoardVC.respondToSwipeGestureFirst(_:)))
@@ -254,8 +245,6 @@ class BoardVC: UIViewController, ResultsDelegate {
                 self.serveSecond.alpha = 1
             })
         }
-
-        
     }
     
     func addPointFirst(){
@@ -322,11 +311,6 @@ class BoardVC: UIViewController, ResultsDelegate {
                 })
             }
             serveCount = 0
-
         }
-        
-        
     }
-    
- 
 }

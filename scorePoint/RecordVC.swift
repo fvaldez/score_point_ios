@@ -29,13 +29,11 @@ class RecordVC: UIViewController, UITableViewDelegate, UITableViewDataSource, MD
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        
-        let logoutBtn : UIBarButtonItem = UIBarButtonItem(title: "Logout", style: UIBarButtonItemStyle.Plain, target: self, action: "logout")
+        let logoutBtn : UIBarButtonItem = UIBarButtonItem(title: "Logout", style: UIBarButtonItemStyle.Plain, target: self, action: #selector(RecordVC.logout))
         self.navigationItem.rightBarButtonItem = logoutBtn
 
         self.title = "Record"
         self.tabBarItem.title = ""
-        
         
         backView.layer.cornerRadius = 5
         backView.layer.masksToBounds = true
@@ -43,7 +41,6 @@ class RecordVC: UIViewController, UITableViewDelegate, UITableViewDataSource, MD
         userImg.image = SharedData.sharedInstance.downloadedImg
         userImg.layer.cornerRadius = userImg.frame.size.width / 2
         userImg.clipsToBounds = true
-        
         
         lblName.text = SharedData.sharedInstance.completeName
         
@@ -93,11 +90,6 @@ class RecordVC: UIViewController, UITableViewDelegate, UITableViewDataSource, MD
 
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         return 1
     }

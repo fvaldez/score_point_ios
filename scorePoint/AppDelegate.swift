@@ -102,10 +102,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UITabBarControllerDelegat
         withError error: NSError!) {
             if (error == nil) {
                 // Perform any operations on signed in user here.
-                let userId = user.userID                  // For client-side use only!
-                let idToken = user.authentication.idToken // Safe to send to the server
-                let name = user.profile.name
-                let email = user.profile.email
+                //let userId = user.userID                  // For client-side use only!
+                //let idToken = user.authentication.idToken // Safe to send to the server
+                //let name = user.profile.name
+                //let email = user.profile.email
                 // ...
             } else {
                 print("\(error.localizedDescription)")

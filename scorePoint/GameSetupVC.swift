@@ -101,14 +101,10 @@ class GameSetupVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSourc
     }
     
     override func viewWillAppear(animated: Bool) {
-        UIApplication.sharedApplication().setStatusBarStyle(.LightContent, animated: true)
+        UIApplication.sharedApplication().statusBarStyle = UIStatusBarStyle.LightContent
+
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
     override func preferredStatusBarStyle() -> UIStatusBarStyle {
         return .LightContent
     }
@@ -183,7 +179,7 @@ class GameSetupVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSourc
             
             gameVC.game = game
             //self.navigationController?.pushViewController(vc, animated: true)
-            UIApplication.sharedApplication().setStatusBarStyle(.Default, animated: true)
+            UIApplication.sharedApplication().statusBarStyle = UIStatusBarStyle.Default
             let delay = 0.3 * Double(NSEC_PER_SEC)
             let time = dispatch_time(DISPATCH_TIME_NOW, Int64(delay))
             dispatch_after(time, dispatch_get_main_queue()) {

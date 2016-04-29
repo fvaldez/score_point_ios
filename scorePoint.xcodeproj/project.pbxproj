@@ -34,6 +34,7 @@
 		3F49B4581CAAE912005D1811 /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F49B4571CAAE912005D1811 /* Player.swift */; };
 		3F4CA5051CADEF5500D4B8CE /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F4CA5041CADEF5500D4B8CE /* CustomButton.swift */; };
 		3F4CF7071C932FCC00FD04B8 /* BoardVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F4CF7061C932FCC00FD04B8 /* BoardVC.swift */; };
+		3F5DAC021CD26A8B002CC4D1 /* VersusVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F5DAC011CD26A8B002CC4D1 /* VersusVC.swift */; };
 		3F67FAC51CAF1A05002F1A24 /* AnimationEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F67FAC41CAF1A05002F1A24 /* AnimationEngine.swift */; };
 		3F6A68D51C8DDF34009F05D7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F6A68D41C8DDF34009F05D7 /* AppDelegate.swift */; };
 		3F6A68D71C8DDF34009F05D7 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F6A68D61C8DDF34009F05D7 /* ViewController.swift */; };
@@ -84,6 +85,7 @@
 		3F49B4571CAAE912005D1811 /* Player.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
 		3F4CA5041CADEF5500D4B8CE /* CustomButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
 		3F4CF7061C932FCC00FD04B8 /* BoardVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BoardVC.swift; sourceTree = "<group>"; };
+		3F5DAC011CD26A8B002CC4D1 /* VersusVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VersusVC.swift; sourceTree = "<group>"; };
 		3F67FAC41CAF1A05002F1A24 /* AnimationEngine.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnimationEngine.swift; sourceTree = "<group>"; };
 		3F6A68D11C8DDF34009F05D7 /* scorePoint.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = scorePoint.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3F6A68D41C8DDF34009F05D7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -221,6 +223,7 @@
 				3F777B191CB30D8300FB9BFF /* RequestsVC.swift */,
 				3FB6CEC51C92241E00662C18 /* GameSetupVC.swift */,
 				3F4CF7061C932FCC00FD04B8 /* BoardVC.swift */,
+				3F5DAC011CD26A8B002CC4D1 /* VersusVC.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -425,6 +428,7 @@
 				3F6A68D71C8DDF34009F05D7 /* ViewController.swift in Sources */,
 				3F6A68E71C8DE556009F05D7 /* DashboardVC.swift in Sources */,
 				3FB6CEBE1C91FDA800662C18 /* RecordVC.swift in Sources */,
+				3F5DAC021CD26A8B002CC4D1 /* VersusVC.swift in Sources */,
 				3F08CF0E1C9766A200B71936 /* RankCell.swift in Sources */,
 				3F4CF7071C932FCC00FD04B8 /* BoardVC.swift in Sources */,
 				3F08E78C1C9B4883001D4A60 /* RecordCell.swift in Sources */,
@@ -553,6 +557,8 @@
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -563,6 +569,7 @@
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_BUNDLE_IDENTIFIER = com.ipointsystems.scorepoint;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				SWIFT_INSTALL_OBJC_HEADER = YES;
 				SWIFT_OBJC_BRIDGING_HEADER = "scorePoint/scorePoint-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -577,6 +584,8 @@
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -587,6 +596,7 @@
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_BUNDLE_IDENTIFIER = com.ipointsystems.scorepoint;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				SWIFT_INSTALL_OBJC_HEADER = YES;
 				SWIFT_OBJC_BRIDGING_HEADER = "scorePoint/scorePoint-Bridging-Header.h";
 				TARGETED_DEVICE_FAMILY = 1;

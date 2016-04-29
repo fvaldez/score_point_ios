@@ -16,7 +16,7 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         
         loginBtn.layer.cornerRadius = 5
-        UIApplication.sharedApplication().setStatusBarStyle(.Default, animated: false)
+        UIApplication.sharedApplication().statusBarStyle = UIStatusBarStyle.Default
 
     }
 

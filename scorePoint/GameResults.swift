@@ -54,8 +54,6 @@ class GameResults: UIView {
         
         photoView.layer.cornerRadius = photoView.frame.size.width/2
         photoView.layer.masksToBounds = true
-
-
     
     }
     
@@ -65,7 +63,6 @@ class GameResults: UIView {
         dispatch_after(time, dispatch_get_main_queue()) {
             self.delegate?.closeResults(true)
         }
-
     }
     
     @IBAction func closeBtnPressed(sender: AnyObject) {
@@ -74,9 +71,5 @@ class GameResults: UIView {
         dispatch_after(time, dispatch_get_main_queue()) {
             self.delegate?.closeResults(false)
         }
-
-
     }
-    
-    
 }
