@@ -20,7 +20,7 @@
                 <rect key="frame" x="0.0" y="0.0" width="324" height="81"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="b78-Bi-GFk">
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="placeholder" translatesAutoresizingMaskIntoConstraints="NO" id="b78-Bi-GFk" customClass="RoundImageView" customModule="scorePoint" customModuleProvider="target">
                         <rect key="frame" x="8" y="8" width="65" height="65"/>
                         <constraints>
                             <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="65" id="IxB-su-z17"/>
@@ -45,11 +45,17 @@
                         <state key="normal" title="Accept">
                             <color key="titleColor" white="0.8958512931" alpha="1" colorSpace="calibratedWhite"/>
                         </state>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                <real key="value" value="5"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="boolean" keyPath="withAnimation" value="NO"/>
+                        </userDefinedRuntimeAttributes>
                         <connections>
                             <action selector="requestBtnPressed:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="Mkm-BF-bch"/>
                         </connections>
                     </button>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hwO-Os-vN3">
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hwO-Os-vN3">
                         <rect key="frame" x="81" y="29" width="157" height="24"/>
                         <fontDescription key="fontDescription" name="OpenSans" family="Open Sans" pointSize="17"/>
                         <color key="textColor" red="0.20000000000000001" green="0.21176470589999999" blue="0.2274509804" alpha="1" colorSpace="calibratedRGB"/>
@@ -76,4 +82,7 @@
             <point key="canvasLocation" x="456" y="452"/>
         </tableViewCell>
     </objects>
+    <resources>
+        <image name="placeholder" width="150" height="150"/>
+    </resources>
 </document>

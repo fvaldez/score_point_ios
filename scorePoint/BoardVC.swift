@@ -18,16 +18,16 @@ class BoardVC: UIViewController, ResultsDelegate {
     @IBOutlet weak var colorSecondPlayer: UIView!
     @IBOutlet weak var colorFirstPlayer: UIView!
     
-    @IBOutlet weak var scoreSecondPlayer: UIView!
-    @IBOutlet weak var scoreFirstPlayer: UIView!
+    @IBOutlet weak var scoreSecondPlayer: RoundView!
+    @IBOutlet weak var scoreFirstPlayer: RoundView!
     
     @IBOutlet weak var txtScoreSecond: UILabel!
     @IBOutlet weak var txtScoreFirst: UILabel!
     
     @IBOutlet weak var txtSetsFirst: UILabel!
     @IBOutlet weak var txtSetsSecond: UILabel!
-    @IBOutlet weak var setsViewfirst: UIView!
-    @IBOutlet weak var setsViewSecond: UIView!
+    @IBOutlet weak var setsViewfirst: RoundView!
+    @IBOutlet weak var setsViewSecond: RoundView!
     
     @IBOutlet weak var lblSetup: UILabel!
     @IBOutlet weak var lblPTW: UILabel!
@@ -41,13 +41,18 @@ class BoardVC: UIViewController, ResultsDelegate {
     var game: Game!
     var serveCount = 0
     
-    @IBOutlet weak var secondPlayerNameView: UIView!
-    @IBOutlet weak var firstPlayerNameView: UIView!
+    @IBOutlet weak var secondPlayerNameView: RoundView!
+    @IBOutlet weak var firstPlayerNameView: RoundView!
     var gameResults: GameResults!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        txtScoreFirst.adjustsFontSizeToFitWidth = true
+        txtScoreFirst.numberOfLines = 0
+        
+        txtScoreSecond.adjustsFontSizeToFitWidth = true
+        txtScoreSecond.numberOfLines = 0
         
         let maskLayerFirst = CAShapeLayer()
         maskLayerFirst.path = UIBezierPath(roundedRect: colorFirstPlayer.bounds, byRoundingCorners: UIRectCorner.TopLeft.union(.BottomLeft), cornerRadii: CGSizeMake(5, 5)).CGPath
@@ -56,22 +61,6 @@ class BoardVC: UIViewController, ResultsDelegate {
         let maskLayerSecond = CAShapeLayer()
         maskLayerSecond.path = UIBezierPath(roundedRect: colorSecondPlayer.bounds, byRoundingCorners: UIRectCorner.TopLeft.union(.BottomLeft), cornerRadii: CGSizeMake(5, 5)).CGPath
         colorSecondPlayer.layer.mask = maskLayerSecond
-        
-        
-        firstPlayerNameView.layer.cornerRadius = 5
-        firstPlayerNameView.clipsToBounds = true
-        secondPlayerNameView.layer.cornerRadius = 5
-        secondPlayerNameView.clipsToBounds = true
-        
-        scoreSecondPlayer.layer.cornerRadius = 5
-        scoreSecondPlayer.clipsToBounds = true
-        scoreFirstPlayer.layer.cornerRadius = 5
-        scoreFirstPlayer.clipsToBounds = true
-        setsViewfirst.layer.cornerRadius = 5
-        setsViewfirst.clipsToBounds = true
-        setsViewSecond.layer.cornerRadius = 5
-        setsViewSecond.clipsToBounds = true
-        
         
         lblSetup.text = "Setup: \(game.sets.shortString)"
         lblPTW.text = "Points to win: \(game.pointsPerSet)"

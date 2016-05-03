@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3F00181F1CD94A6B00794E1F /* RoundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F00181E1CD94A6B00794E1F /* RoundView.swift */; };
+		3F0018211CD94BCE00794E1F /* RoundImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F0018201CD94BCE00794E1F /* RoundImageView.swift */; };
 		3F08CF051C975C0000B71936 /* OpenSans-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 3F08CF041C975C0000B71936 /* OpenSans-Bold.ttf */; };
 		3F08CF071C975C0D00B71936 /* OpenSans-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 3F08CF061C975C0D00B71936 /* OpenSans-Regular.ttf */; };
 		3F08CF091C975C1300B71936 /* OpenSans-Semibold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 3F08CF081C975C1300B71936 /* OpenSans-Semibold.ttf */; };
@@ -57,6 +59,8 @@
 /* Begin PBXFileReference section */
 		0B58073BB93BE9550016A832 /* Pods_scorePoint.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_scorePoint.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		2F49AA64D0B28375171377EB /* Pods-scorePoint.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-scorePoint.release.xcconfig"; path = "Pods/Target Support Files/Pods-scorePoint/Pods-scorePoint.release.xcconfig"; sourceTree = "<group>"; };
+		3F00181E1CD94A6B00794E1F /* RoundView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoundView.swift; sourceTree = "<group>"; };
+		3F0018201CD94BCE00794E1F /* RoundImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoundImageView.swift; sourceTree = "<group>"; };
 		3F08CF041C975C0000B71936 /* OpenSans-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-Bold.ttf"; sourceTree = "<group>"; };
 		3F08CF061C975C0D00B71936 /* OpenSans-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-Regular.ttf"; sourceTree = "<group>"; };
 		3F08CF081C975C1300B71936 /* OpenSans-Semibold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-Semibold.ttf"; sourceTree = "<group>"; };
@@ -231,6 +235,8 @@
 		3F6A68ED1C8DE6AB009F05D7 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				3F0018201CD94BCE00794E1F /* RoundImageView.swift */,
+				3F00181E1CD94A6B00794E1F /* RoundView.swift */,
 				3F4CA5041CADEF5500D4B8CE /* CustomButton.swift */,
 				3F0A2F0D1CAC730800D7F5A3 /* GameResults.xib */,
 				3F0A2F0B1CAC72F000D7F5A3 /* GameResults.swift */,
@@ -419,6 +425,7 @@
 				3F0A2F0C1CAC72F000D7F5A3 /* GameResults.swift in Sources */,
 				3F4CA5051CADEF5500D4B8CE /* CustomButton.swift in Sources */,
 				3F6A68EB1C8DE6A0009F05D7 /* VSCell.swift in Sources */,
+				3F0018211CD94BCE00794E1F /* RoundImageView.swift in Sources */,
 				3F08E7A81C9B5CD4001D4A60 /* MDRotatingPieChart.swift in Sources */,
 				3F463F0A1C9CB503004E9CDD /* LoginVC.swift in Sources */,
 				3F463F191C9CC942004E9CDD /* SharedData.swift in Sources */,
@@ -426,6 +433,7 @@
 				3FB6CEC01C91FDB600662C18 /* LeaderBoardVC.swift in Sources */,
 				3FB6CEC61C92241E00662C18 /* GameSetupVC.swift in Sources */,
 				3F6A68D71C8DDF34009F05D7 /* ViewController.swift in Sources */,
+				3F00181F1CD94A6B00794E1F /* RoundView.swift in Sources */,
 				3F6A68E71C8DE556009F05D7 /* DashboardVC.swift in Sources */,
 				3FB6CEBE1C91FDA800662C18 /* RecordVC.swift in Sources */,
 				3F5DAC021CD26A8B002CC4D1 /* VersusVC.swift in Sources */,

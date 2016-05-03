@@ -35,13 +35,7 @@ class RecordVC: UIViewController, UITableViewDelegate, UITableViewDataSource, MD
         self.title = "Record"
         self.tabBarItem.title = ""
         
-        backView.layer.cornerRadius = 5
-        backView.layer.masksToBounds = true
-        
         userImg.image = SharedData.sharedInstance.downloadedImg
-        userImg.layer.cornerRadius = userImg.frame.size.width / 2
-        userImg.clipsToBounds = true
-        
         lblName.text = SharedData.sharedInstance.completeName
         
         tableView.delegate = self

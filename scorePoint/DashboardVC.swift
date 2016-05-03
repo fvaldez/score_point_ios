@@ -24,21 +24,6 @@ class DashboardVC: UIViewController, UITableViewDelegate, UITableViewDataSource,
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        playingNowView.layer.cornerRadius = 5
-        playingNowView.layer.masksToBounds = true
-        
-        playerOneImg.layer.cornerRadius = playerOneImg.frame.size.width/2
-        playerOneImg.layer.masksToBounds = true
-        
-        playerTwoImg.layer.cornerRadius = playerTwoImg.frame.size.width/2
-        playerTwoImg.layer.masksToBounds = true
-        
-        view1.layer.cornerRadius = view1.frame.size.width/2
-        view1.layer.masksToBounds = true
-        
-        view2.layer.cornerRadius = view2.frame.size.width/2
-        view2.layer.masksToBounds = true
-        
         let value = UIInterfaceOrientation.Portrait.rawValue
         UIDevice.currentDevice().setValue(value, forKey: "orientation")
               

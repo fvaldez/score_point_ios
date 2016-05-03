@@ -12,18 +12,26 @@ import pop
 @IBDesignable
 class CustomButton: UIButton{
     
+    var willAnimate: Bool = false
+    
     @IBInspectable var cornerRadius: CGFloat = 3.0 {
         didSet{
             setupView()
         }
     }
-    
+
     @IBInspectable var fontColor: UIColor = UIColor.whiteColor(){
         didSet{
             self.tintColor = fontColor
         }
     }
     
+    @IBInspectable var withAnimation: Bool = false {
+        didSet{
+           self.willAnimate = withAnimation
+        }
+    }
+
     override func awakeFromNib() {
         setupView()
     }
@@ -35,9 +43,12 @@ class CustomButton: UIButton{
     
     func setupView(){
         self.layer.cornerRadius = cornerRadius
-        self.addTarget(self, action: #selector(CustomButton.scaleAnimation), forControlEvents: .TouchUpInside)
-        self.addTarget(self, action: #selector(CustomButton.scaleDefault), forControlEvents: .TouchDragExit)
 
+        if(willAnimate == true){
+            self.addTarget(self, action: #selector(CustomButton.scaleAnimation), forControlEvents: .TouchUpInside)
+            self.addTarget(self, action: #selector(CustomButton.scaleDefault), forControlEvents: .TouchDragExit)
+        }
+       
     }
     
     func scaleToSmall(){

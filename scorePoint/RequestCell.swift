@@ -22,8 +22,6 @@ class RequestCell: UITableViewCell {
 
     override func awakeFromNib() {
         super.awakeFromNib()
-        playerImg.layer.cornerRadius = playerImg.frame.size.width / 2
-        playerImg.clipsToBounds = true
     }
 
     override func setSelected(selected: Bool, animated: Bool) {

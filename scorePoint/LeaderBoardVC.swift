@@ -17,6 +17,7 @@ class LeaderBoardVC: UIViewController, UITableViewDataSource, UITableViewDelegat
     
     override func viewWillAppear(animated: Bool) {
         self.title = "Leaderboard"
+        self.tabBarItem.title = ""
     }
     
     override func viewWillDisappear(animated: Bool) {
@@ -27,7 +28,7 @@ class LeaderBoardVC: UIViewController, UITableViewDataSource, UITableViewDelegat
         super.viewDidLoad()
 
         self.tabBarItem.title = ""
-        
+
         let backView = UIView(frame: self.tableView.bounds)
         backView.backgroundColor = UIColor.clearColor()
         self.tableView.backgroundView = backView

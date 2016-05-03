@@ -17,7 +17,6 @@ struct SetType {
 
 class GameSetupVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
 
-    @IBOutlet weak var logoback: UIView!
     @IBOutlet weak var firstPlayerImg: UIImageView!
     @IBOutlet weak var secondPlayerImg: UIImageView!
     @IBOutlet weak var gameToBtn: UIButton!
@@ -65,17 +64,6 @@ class GameSetupVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSourc
         playerA = Player(firstName: SharedData.sharedInstance.firstName, lastName: SharedData.sharedInstance.lastName, score: 0, setsWon: 0, image: SharedData.sharedInstance.downloadedImg!)
         playerB = Player(firstName: "Other", lastName: "Player", score: 0, setsWon: 0, image: UIImage(named: "placeholder")!)
 
-        firstPlayerImg.layer.cornerRadius = firstPlayerImg.frame.size.width / 2
-        firstPlayerImg.clipsToBounds = true
-
-        secondPlayerImg.layer.cornerRadius = secondPlayerImg.frame.size.width / 2
-        secondPlayerImg.clipsToBounds = true
-       
-        gameToBtn.layer.cornerRadius = 5
-        setbtn.layer.cornerRadius = 5
-        cancelBtn.layer.cornerRadius = 5
-        startBtn.layer.cornerRadius = 5
-        
         if(sendingRequest == true) {
             startBtn.setTitle("SEND", forState: .Normal)
         }else{

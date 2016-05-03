@@ -20,7 +20,7 @@
                 <rect key="frame" x="0.0" y="0.0" width="324" height="81"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="b78-Bi-GFk">
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="placeholder" translatesAutoresizingMaskIntoConstraints="NO" id="b78-Bi-GFk" customClass="RoundImageView" customModule="scorePoint" customModuleProvider="target">
                         <rect key="frame" x="8" y="8" width="65" height="65"/>
                         <constraints>
                             <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="65" id="IxB-su-z17"/>
@@ -44,6 +44,9 @@
                         <state key="normal" image="paddlesmini">
                             <color key="titleColor" red="0.88235294117647056" green="0.22352941176470587" blue="0.086274509803921567" alpha="1" colorSpace="calibratedRGB"/>
                         </state>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="boolean" keyPath="withAnimation" value="YES"/>
+                        </userDefinedRuntimeAttributes>
                         <connections>
                             <action selector="matchBtnPressed:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="kb0-JE-Bo0"/>
                         </connections>
@@ -76,5 +79,6 @@
     </objects>
     <resources>
         <image name="paddlesmini" width="50" height="34"/>
+        <image name="placeholder" width="150" height="150"/>
     </resources>
 </document>

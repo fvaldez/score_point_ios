@@ -19,9 +19,7 @@ class RankCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        playerImg.layer.cornerRadius = playerImg.frame.size.width / 2
-        playerImg.clipsToBounds = true
-        
+
         rankView.layer.cornerRadius = rankView.frame.size.width / 2
         rankView.clipsToBounds = true
 

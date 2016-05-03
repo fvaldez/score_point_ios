@@ -21,7 +21,7 @@
                 <rect key="frame" x="0.0" y="0.0" width="324" height="81"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="b78-Bi-GFk">
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="placeholder" translatesAutoresizingMaskIntoConstraints="NO" id="b78-Bi-GFk" customClass="RoundImageView" customModule="scorePoint" customModuleProvider="target">
                         <rect key="frame" x="8" y="8" width="65" height="65"/>
                         <constraints>
                             <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="65" id="IxB-su-z17"/>
@@ -37,14 +37,14 @@
                             </mask>
                         </variation>
                     </imageView>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hwO-Os-vN3">
-                        <rect key="frame" x="81" y="8" width="161" height="65"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hwO-Os-vN3">
+                        <rect key="frame" x="81" y="16" width="157" height="49"/>
                         <fontDescription key="fontDescription" name="OpenSans" family="Open Sans" pointSize="17"/>
                         <color key="textColor" red="0.20000000000000001" green="0.21176470589999999" blue="0.2274509804" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="badge-1" translatesAutoresizingMaskIntoConstraints="NO" id="gy2-uf-IQx">
-                        <rect key="frame" x="246" y="4" width="70" height="73"/>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="badge-1" translatesAutoresizingMaskIntoConstraints="NO" id="gy2-uf-IQx">
+                        <rect key="frame" x="246" y="0.0" width="70" height="81"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="70" id="RWi-wb-ixX"/>
                         </constraints>
@@ -78,18 +78,22 @@
                     <constraint firstItem="hwO-Os-vN3" firstAttribute="leading" secondItem="b78-Bi-GFk" secondAttribute="trailing" constant="8" id="0RI-Vz-waZ"/>
                     <constraint firstItem="gy2-uf-IQx" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="2pN-gz-Zrw"/>
                     <constraint firstItem="gy2-uf-IQx" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="8i2-Iq-RDs"/>
+                    <constraint firstItem="hwO-Os-vN3" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="8" id="8rT-ge-5nU"/>
                     <constraint firstItem="hwO-Os-vN3" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="MJH-Gg-Kcv"/>
                     <constraint firstItem="b78-Bi-GFk" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="Mj1-vK-Hdh"/>
                     <constraint firstItem="gy2-uf-IQx" firstAttribute="leading" secondItem="hwO-Os-vN3" secondAttribute="trailing" constant="8" id="Nmc-uY-324"/>
                     <constraint firstItem="gy2-uf-IQx" firstAttribute="trailing" secondItem="H2p-sc-9uM" secondAttribute="trailingMargin" id="aAq-jz-XvM"/>
                     <constraint firstItem="b78-Bi-GFk" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" id="cjc-3y-t8Q"/>
                     <constraint firstItem="b78-Bi-GFk" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" id="ixO-Q1-SYf"/>
+                    <constraint firstItem="gy2-uf-IQx" firstAttribute="leading" secondItem="hwO-Os-vN3" secondAttribute="trailing" constant="8" id="pJ8-Se-Gt2"/>
                     <constraint firstItem="b78-Bi-GFk" firstAttribute="bottom" secondItem="H2p-sc-9uM" secondAttribute="bottomMargin" id="pdl-zz-D3m"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="hwO-Os-vN3" secondAttribute="bottom" constant="8" id="r1k-ub-kcf"/>
                     <constraint firstItem="0fN-75-B6I" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="tTM-MR-TdK"/>
                     <constraint firstItem="0fN-75-B6I" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="weR-J7-9Di"/>
                 </constraints>
                 <variation key="default">
                     <mask key="constraints">
+                        <exclude reference="MJH-Gg-Kcv"/>
                         <exclude reference="Nmc-uY-324"/>
                     </mask>
                 </variation>
@@ -106,5 +110,6 @@
     </objects>
     <resources>
         <image name="badge-1" width="85" height="70"/>
+        <image name="placeholder" width="150" height="150"/>
     </resources>
 </document>

@@ -87,12 +87,16 @@
                                         </constraints>
                                         <fontDescription key="fontDescription" name="OpenSans" family="Open Sans" pointSize="16"/>
                                         <state key="normal" title="Login / Signup">
-                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            <color key="titleColor" white="0.8958512931" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="color" keyPath="fontColor">
                                                 <color key="value" red="0.90196078430000004" green="0.90196078430000004" blue="0.90196078430000004" alpha="1" colorSpace="calibratedRGB"/>
                                             </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                <real key="value" value="5"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="boolean" keyPath="withAnimation" value="YES"/>
                                         </userDefinedRuntimeAttributes>
                                         <connections>
                                             <action selector="loginBtnPresed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="1IP-3t-LRF"/>
@@ -139,7 +143,7 @@
                                     <rect key="frame" x="0.0" y="0.0" width="560" height="181"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <subviews>
-                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tfv-5h-Wkd">
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tfv-5h-Wkd" customClass="RoundView" customModule="scorePoint" customModuleProvider="target">
                                             <rect key="frame" x="0.0" y="0.0" width="560" height="151"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" alpha="0.0" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Waiting turn in current game" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vA5-sb-6bM">
@@ -165,27 +169,42 @@
                                                 <constraint firstItem="vA5-sb-6bM" firstAttribute="centerY" secondItem="tfv-5h-Wkd" secondAttribute="centerY" id="yTT-Pq-R5y"/>
                                                 <constraint firstItem="vA5-sb-6bM" firstAttribute="leading" secondItem="tfv-5h-Wkd" secondAttribute="leading" constant="5" id="zXE-U4-Aef"/>
                                             </constraints>
+                                            <userDefinedRuntimeAttributes>
+                                                <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                    <real key="value" value="5"/>
+                                                </userDefinedRuntimeAttribute>
+                                                <userDefinedRuntimeAttribute type="boolean" keyPath="fullCircle" value="NO"/>
+                                            </userDefinedRuntimeAttributes>
                                             <variation key="default">
                                                 <mask key="constraints">
                                                     <exclude reference="OEL-Ah-Yjl"/>
                                                 </mask>
                                             </variation>
                                         </view>
-                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7Du-Jp-Gwb">
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7Du-Jp-Gwb" customClass="RoundView" customModule="scorePoint" customModuleProvider="target">
                                             <rect key="frame" x="152" y="38" width="75" height="75"/>
                                             <color key="backgroundColor" red="0.54901960780000003" green="0.73725490199999999" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="75" id="KpB-bl-jW7"/>
                                                 <constraint firstAttribute="height" constant="75" id="pZ9-9w-mPr"/>
                                             </constraints>
+                                            <userDefinedRuntimeAttributes>
+                                                <userDefinedRuntimeAttribute type="boolean" keyPath="fullCircle" value="YES"/>
+                                                <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                    <real key="value" value="5"/>
+                                                </userDefinedRuntimeAttribute>
+                                            </userDefinedRuntimeAttributes>
                                         </view>
-                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ppx-kN-klz">
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ppx-kN-klz" customClass="RoundView" customModule="scorePoint" customModuleProvider="target">
                                             <rect key="frame" x="335" y="38" width="75" height="75"/>
                                             <color key="backgroundColor" red="0.54901960780000003" green="0.73725490199999999" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="75" id="BNs-5j-5hA"/>
                                                 <constraint firstAttribute="height" constant="75" id="Zg1-Se-Ygn"/>
                                             </constraints>
+                                            <userDefinedRuntimeAttributes>
+                                                <userDefinedRuntimeAttribute type="boolean" keyPath="fullCircle" value="YES"/>
+                                            </userDefinedRuntimeAttributes>
                                         </view>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Playing Now" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="a4x-qb-iaI">
                                             <rect key="frame" x="229" y="10" width="103" height="25"/>
@@ -193,14 +212,14 @@
                                             <color key="textColor" red="0.54901960780000003" green="0.73725490199999999" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="placeholder" translatesAutoresizingMaskIntoConstraints="NO" id="6uW-fj-Itg">
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="placeholder" translatesAutoresizingMaskIntoConstraints="NO" id="6uW-fj-Itg" customClass="RoundImageView" customModule="scorePoint" customModuleProvider="target">
                                             <rect key="frame" x="154" y="40" width="70" height="70"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="70" id="cDl-bg-uJo"/>
                                                 <constraint firstAttribute="height" constant="70" id="df5-gE-HYG"/>
                                             </constraints>
                                         </imageView>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="placeholder" translatesAutoresizingMaskIntoConstraints="NO" id="LXs-Vh-q4t">
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="placeholder" translatesAutoresizingMaskIntoConstraints="NO" id="LXs-Vh-q4t" customClass="RoundImageView" customModule="scorePoint" customModuleProvider="target">
                                             <rect key="frame" x="337" y="40" width="70" height="70"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="70" id="3oz-78-Zby"/>
@@ -221,6 +240,10 @@
                                             <userDefinedRuntimeAttributes>
                                                 <userDefinedRuntimeAttribute type="color" keyPath="fontColor">
                                                     <color key="value" red="0.90196078430000004" green="0.90196078430000004" blue="0.90196078430000004" alpha="1" colorSpace="calibratedRGB"/>
+                                                </userDefinedRuntimeAttribute>
+                                                <userDefinedRuntimeAttribute type="boolean" keyPath="withAnimation" value="YES"/>
+                                                <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                    <real key="value" value="5"/>
                                                 </userDefinedRuntimeAttribute>
                                             </userDefinedRuntimeAttributes>
                                             <connections>
@@ -363,8 +386,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" misplaced="YES" axis="vertical" distribution="fillEqually" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="8GG-3n-Ru2">
-                                <rect key="frame" x="30" y="486" width="205" height="94"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="8GG-3n-Ru2">
+                                <rect key="frame" x="30" y="476" width="205" height="94"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="13" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cDk-fd-MYT">
                                         <rect key="frame" x="0.0" y="0.0" width="205" height="28"/>
@@ -394,8 +417,8 @@
                                     </label>
                                 </subviews>
                             </stackView>
-                            <stackView opaque="NO" contentMode="scaleToFill" misplaced="YES" axis="vertical" distribution="fillEqually" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="M0r-ls-ABi">
-                                <rect key="frame" x="365" y="486" width="205" height="94"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="M0r-ls-ABi">
+                                <rect key="frame" x="365" y="476" width="205" height="94"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZLb-hz-T0d">
                                         <rect key="frame" x="0.0" y="0.0" width="205" height="28"/>
@@ -437,7 +460,7 @@
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="86u-b9-8zc">
                                                         <rect key="frame" x="0.0" y="0.0" width="183" height="200"/>
                                                         <subviews>
-                                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="placeholder" translatesAutoresizingMaskIntoConstraints="NO" id="SOd-Rc-xhj">
+                                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="placeholder" translatesAutoresizingMaskIntoConstraints="NO" id="SOd-Rc-xhj" customClass="RoundImageView" customModule="scorePoint" customModuleProvider="target">
                                                                 <rect key="frame" x="0.0" y="0.0" width="183" height="183"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="width" secondItem="SOd-Rc-xhj" secondAttribute="height" multiplier="1:1" id="Z3Q-F1-Z7v"/>
@@ -510,7 +533,7 @@
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="eOZ-Mv-amf">
                                                         <rect key="frame" x="0.0" y="0.0" width="183" height="200"/>
                                                         <subviews>
-                                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="placeholder" translatesAutoresizingMaskIntoConstraints="NO" id="tuO-Vs-THw">
+                                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="placeholder" translatesAutoresizingMaskIntoConstraints="NO" id="tuO-Vs-THw" customClass="RoundImageView" customModule="scorePoint" customModuleProvider="target">
                                                                 <rect key="frame" x="0.0" y="0.0" width="183" height="183"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="width" secondItem="tuO-Vs-THw" secondAttribute="height" multiplier="1:1" id="h8D-QM-RNK"/>
@@ -566,7 +589,7 @@
                                             </mask>
                                         </variation>
                                     </stackView>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="06D-b8-yOn">
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="06D-b8-yOn" customClass="RoundView" customModule="scorePoint" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="210" width="560" height="200"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="Hjz-SM-XD4">
@@ -641,6 +664,12 @@
                                             <constraint firstAttribute="bottom" secondItem="Hjz-SM-XD4" secondAttribute="bottom" constant="10" id="VMl-AH-6Uo"/>
                                             <constraint firstItem="Hjz-SM-XD4" firstAttribute="top" secondItem="06D-b8-yOn" secondAttribute="top" constant="10" id="pcn-qe-iCC"/>
                                         </constraints>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                <real key="value" value="5"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="boolean" keyPath="fullCircle" value="NO"/>
+                                        </userDefinedRuntimeAttributes>
                                         <variation key="default">
                                             <mask key="constraints">
                                                 <exclude reference="0aG-P8-hme"/>
@@ -746,22 +775,6 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="p3c-Te-pjd">
                                 <rect key="frame" x="0.0" y="500" width="600" height="100"/>
                                 <subviews>
-                                    <stackView hidden="YES" opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="29A-5p-QGM">
-                                        <rect key="frame" x="0.0" y="0.0" width="50" height="100"/>
-                                        <subviews>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="AmF-66-qok">
-                                                <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
-                                                <color key="backgroundColor" red="0.88235294119999996" green="0.22352941179999999" blue="0.086274509799999996" alpha="1" colorSpace="calibratedRGB"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="width" constant="50" id="2qn-be-E4D"/>
-                                                </constraints>
-                                            </view>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cuR-UN-xC8">
-                                                <rect key="frame" x="0.0" y="50" width="50" height="50"/>
-                                                <color key="backgroundColor" red="0.19215686274509802" green="0.6588235294117647" blue="0.4823529411764706" alpha="1" colorSpace="calibratedRGB"/>
-                                            </view>
-                                        </subviews>
-                                    </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="B8O-21-OfD">
                                         <rect key="frame" x="550" y="15" width="30" height="70"/>
                                         <subviews>
@@ -794,57 +807,10 @@
                                             </button>
                                         </subviews>
                                     </stackView>
-                                    <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dPl-7H-ajC">
-                                        <rect key="frame" x="50" y="49" width="210" height="2"/>
-                                        <color key="backgroundColor" red="0.96756810900000001" green="0.96756810900000001" blue="0.96756810900000001" alpha="1" colorSpace="calibratedRGB"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="2" id="LEg-XZ-0X2"/>
-                                        </constraints>
-                                    </view>
-                                    <stackView hidden="YES" opaque="NO" contentMode="scaleToFill" spacing="40" translatesAutoresizingMaskIntoConstraints="NO" id="9az-51-dFe">
-                                        <rect key="frame" x="90" y="0.0" width="170" height="100"/>
-                                        <subviews>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cms-4u-CaV">
-                                                <rect key="frame" x="0.0" y="0.0" width="2" height="100"/>
-                                                <color key="backgroundColor" red="0.96756810900000001" green="0.96756810900000001" blue="0.96756810900000001" alpha="1" colorSpace="calibratedRGB"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="width" constant="2" id="yuw-aQ-d42"/>
-                                                </constraints>
-                                            </view>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Q1O-cz-ZdW">
-                                                <rect key="frame" x="42" y="0.0" width="2" height="100"/>
-                                                <color key="backgroundColor" red="0.96756810900000001" green="0.96756810900000001" blue="0.96756810900000001" alpha="1" colorSpace="calibratedRGB"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="width" constant="2" id="KrA-ve-EMm"/>
-                                                </constraints>
-                                            </view>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="We7-6s-4QP">
-                                                <rect key="frame" x="84" y="0.0" width="2" height="100"/>
-                                                <color key="backgroundColor" red="0.96756810900000001" green="0.96756810900000001" blue="0.96756810900000001" alpha="1" colorSpace="calibratedRGB"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="width" constant="2" id="nBd-fJ-Qdd"/>
-                                                </constraints>
-                                            </view>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wan-NI-t7O">
-                                                <rect key="frame" x="126" y="0.0" width="2" height="100"/>
-                                                <color key="backgroundColor" red="0.96756810900000001" green="0.96756810900000001" blue="0.96756810900000001" alpha="1" colorSpace="calibratedRGB"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="width" constant="2" id="jbi-vu-3I5"/>
-                                                </constraints>
-                                            </view>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eaC-mR-chV">
-                                                <rect key="frame" x="168" y="0.0" width="2" height="100"/>
-                                                <color key="backgroundColor" red="0.96756810900000001" green="0.96756810900000001" blue="0.96756810900000001" alpha="1" colorSpace="calibratedRGB"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="width" constant="2" id="7n0-UP-zXq"/>
-                                                </constraints>
-                                            </view>
-                                        </subviews>
-                                    </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="bks-PL-BJF">
                                         <rect key="frame" x="20" y="15" width="130" height="70"/>
                                         <subviews>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UOh-JV-TcH">
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UOh-JV-TcH" customClass="RoundView" customModule="scorePoint" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="0.0" width="60" height="70"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rfL-x6-D7V">
@@ -867,6 +833,12 @@
                                                     <constraint firstItem="rfL-x6-D7V" firstAttribute="leading" secondItem="UOh-JV-TcH" secondAttribute="leading" id="z19-HE-5Vm"/>
                                                     <constraint firstAttribute="height" constant="80" id="zjX-tG-v2L"/>
                                                 </constraints>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                        <real key="value" value="5"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="fullCircle" value="NO"/>
+                                                </userDefinedRuntimeAttributes>
                                                 <variation key="default">
                                                     <mask key="constraints">
                                                         <exclude reference="zjX-tG-v2L"/>
@@ -877,7 +849,7 @@
                                                     </mask>
                                                 </variation>
                                             </view>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lWp-K8-KFO">
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lWp-K8-KFO" customClass="RoundView" customModule="scorePoint" customModuleProvider="target">
                                                 <rect key="frame" x="70" y="0.0" width="60" height="70"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Pl3-3r-P8C">
@@ -896,6 +868,12 @@
                                                     <constraint firstItem="Pl3-3r-P8C" firstAttribute="leading" secondItem="lWp-K8-KFO" secondAttribute="leading" id="aXW-W2-Rnu"/>
                                                     <constraint firstAttribute="height" constant="80" id="hlA-3M-bK6"/>
                                                 </constraints>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                        <real key="value" value="5"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="fullCircle" value="NO"/>
+                                                </userDefinedRuntimeAttributes>
                                                 <variation key="default">
                                                     <mask key="constraints">
                                                         <exclude reference="hlA-3M-bK6"/>
@@ -943,22 +921,13 @@
                                 <color key="backgroundColor" red="0.33725490200000002" green="0.33725490200000002" blue="0.33725490200000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstItem="bks-PL-BJF" firstAttribute="top" secondItem="p3c-Te-pjd" secondAttribute="top" constant="15" id="39o-db-8mK"/>
-                                    <constraint firstAttribute="bottom" secondItem="9az-51-dFe" secondAttribute="bottom" id="5GO-LD-8dK"/>
                                     <constraint firstItem="bks-PL-BJF" firstAttribute="leading" secondItem="p3c-Te-pjd" secondAttribute="leading" constant="20" id="8JL-Bu-ZEx"/>
-                                    <constraint firstItem="9az-51-dFe" firstAttribute="trailing" secondItem="dPl-7H-ajC" secondAttribute="trailing" id="Gte-mf-WVz"/>
                                     <constraint firstItem="aIy-X0-CBC" firstAttribute="top" secondItem="p3c-Te-pjd" secondAttribute="top" constant="20" id="KGN-af-3vf"/>
-                                    <constraint firstItem="29A-5p-QGM" firstAttribute="leading" secondItem="p3c-Te-pjd" secondAttribute="leading" id="Kuv-BG-ltl"/>
-                                    <constraint firstAttribute="bottom" secondItem="29A-5p-QGM" secondAttribute="bottom" id="SkB-qg-Ji6"/>
-                                    <constraint firstItem="dPl-7H-ajC" firstAttribute="leading" secondItem="29A-5p-QGM" secondAttribute="trailing" id="XpU-fN-RQK"/>
-                                    <constraint firstItem="9az-51-dFe" firstAttribute="top" secondItem="p3c-Te-pjd" secondAttribute="top" id="ZZh-GZ-cAf"/>
                                     <constraint firstItem="B8O-21-OfD" firstAttribute="top" secondItem="p3c-Te-pjd" secondAttribute="top" constant="15" id="ely-aY-S0a"/>
                                     <constraint firstAttribute="bottom" secondItem="aIy-X0-CBC" secondAttribute="bottom" constant="20" id="hBL-er-Bdl"/>
                                     <constraint firstAttribute="trailing" secondItem="B8O-21-OfD" secondAttribute="trailing" constant="20" id="ksy-dU-YDn"/>
                                     <constraint firstAttribute="height" constant="100" id="mFl-ka-2Uc"/>
-                                    <constraint firstItem="29A-5p-QGM" firstAttribute="top" secondItem="p3c-Te-pjd" secondAttribute="top" id="n8p-26-VXe"/>
-                                    <constraint firstItem="9az-51-dFe" firstAttribute="leading" secondItem="29A-5p-QGM" secondAttribute="trailing" constant="40" id="qFX-kv-KOK"/>
                                     <constraint firstAttribute="bottom" secondItem="bks-PL-BJF" secondAttribute="bottom" constant="15" id="sCi-0h-Ly8"/>
-                                    <constraint firstItem="dPl-7H-ajC" firstAttribute="centerY" secondItem="p3c-Te-pjd" secondAttribute="centerY" id="wDi-Ys-pG1"/>
                                     <constraint firstAttribute="bottom" secondItem="B8O-21-OfD" secondAttribute="bottom" constant="15" id="xre-o5-MnG"/>
                                     <constraint firstItem="aIy-X0-CBC" firstAttribute="leading" secondItem="bks-PL-BJF" secondAttribute="trailing" constant="10" id="yZe-vc-SVv"/>
                                 </constraints>
@@ -1022,12 +991,17 @@
                                                                     </mask>
                                                                 </variation>
                                                             </textField>
-                                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nIZ-n5-yRM">
+                                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nIZ-n5-yRM" customClass="RoundView" customModule="scorePoint" customModuleProvider="target">
                                                                 <rect key="frame" x="470" y="0.0" width="10" height="40"/>
                                                                 <color key="backgroundColor" red="0.96756810900000001" green="0.96756810900000001" blue="0.96756810900000001" alpha="1" colorSpace="calibratedRGB"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="width" constant="10" id="5tw-yh-XhO"/>
                                                                 </constraints>
+                                                                <userDefinedRuntimeAttributes>
+                                                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                                        <real key="value" value="5"/>
+                                                                    </userDefinedRuntimeAttribute>
+                                                                </userDefinedRuntimeAttributes>
                                                             </view>
                                                         </subviews>
                                                         <constraints>
@@ -1038,38 +1012,55 @@
                                                             <constraint firstAttribute="height" constant="40" id="zNg-bP-MEw"/>
                                                         </constraints>
                                                     </stackView>
-                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IpL-sw-YxG">
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IpL-sw-YxG" customClass="RoundView" customModule="scorePoint" customModuleProvider="target">
                                                         <rect key="frame" x="0.0" y="55" width="480" height="136"/>
                                                         <subviews>
-                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TaY-Wb-1X1">
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="20" translatesAutoresizingMaskIntoConstraints="NO" id="TaY-Wb-1X1">
                                                                 <rect key="frame" x="0.0" y="0.0" width="480" height="136"/>
+                                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="width" constant="150" id="ewf-T3-Nqj"/>
+                                                                </constraints>
                                                                 <fontDescription key="fontDescription" name="OpenSans-Semibold" family="Open Sans" pointSize="120"/>
                                                                 <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                                                 <nil key="highlightedColor"/>
-                                                                <userDefinedRuntimeAttributes>
-                                                                    <userDefinedRuntimeAttribute type="color" keyPath="fontColor">
-                                                                        <color key="value" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
-                                                                    </userDefinedRuntimeAttribute>
-                                                                </userDefinedRuntimeAttributes>
+                                                                <variation key="default">
+                                                                    <mask key="constraints">
+                                                                        <exclude reference="ewf-T3-Nqj"/>
+                                                                    </mask>
+                                                                </variation>
                                                             </label>
                                                         </subviews>
                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                         <constraints>
+                                                            <constraint firstAttribute="trailing" secondItem="TaY-Wb-1X1" secondAttribute="trailing" id="5hP-61-8y4"/>
                                                             <constraint firstItem="TaY-Wb-1X1" firstAttribute="top" secondItem="IpL-sw-YxG" secondAttribute="top" id="Cyf-3x-4n4"/>
+                                                            <constraint firstItem="TaY-Wb-1X1" firstAttribute="centerX" secondItem="IpL-sw-YxG" secondAttribute="centerX" id="JhT-dz-BzX"/>
                                                             <constraint firstItem="TaY-Wb-1X1" firstAttribute="centerX" secondItem="IpL-sw-YxG" secondAttribute="centerX" id="Lu1-Nr-cfZ"/>
                                                             <constraint firstAttribute="height" constant="120" id="NeH-8W-U8z"/>
-                                                            <constraint firstItem="TaY-Wb-1X1" firstAttribute="leading" secondItem="IpL-sw-YxG" secondAttribute="leading" id="PPF-uS-b4V"/>
+                                                            <constraint firstItem="TaY-Wb-1X1" firstAttribute="leading" secondItem="IpL-sw-YxG" secondAttribute="leading" constant="50" id="PPF-uS-b4V"/>
                                                             <constraint firstAttribute="height" constant="120" id="Uex-Iq-quZ"/>
-                                                            <constraint firstAttribute="trailing" secondItem="TaY-Wb-1X1" secondAttribute="trailing" id="YOs-BO-NSW"/>
+                                                            <constraint firstAttribute="trailing" secondItem="TaY-Wb-1X1" secondAttribute="trailing" constant="50" id="YOs-BO-NSW"/>
                                                             <constraint firstAttribute="bottom" secondItem="TaY-Wb-1X1" secondAttribute="bottom" id="boR-Dv-czE"/>
+                                                            <constraint firstItem="TaY-Wb-1X1" firstAttribute="leading" secondItem="IpL-sw-YxG" secondAttribute="leading" id="ia7-ab-wZW"/>
                                                             <constraint firstAttribute="width" constant="180" id="lIm-Pa-0va"/>
                                                             <constraint firstItem="TaY-Wb-1X1" firstAttribute="centerY" secondItem="IpL-sw-YxG" secondAttribute="centerY" id="oKE-zt-Xv4"/>
                                                         </constraints>
+                                                        <userDefinedRuntimeAttributes>
+                                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                                <real key="value" value="5"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                        </userDefinedRuntimeAttributes>
                                                         <variation key="default">
                                                             <mask key="constraints">
                                                                 <exclude reference="NeH-8W-U8z"/>
                                                                 <exclude reference="Uex-Iq-quZ"/>
                                                                 <exclude reference="lIm-Pa-0va"/>
+                                                                <exclude reference="JhT-dz-BzX"/>
+                                                                <exclude reference="Lu1-Nr-cfZ"/>
+                                                                <exclude reference="PPF-uS-b4V"/>
+                                                                <exclude reference="YOs-BO-NSW"/>
+                                                                <exclude reference="oKE-zt-Xv4"/>
                                                             </mask>
                                                         </variation>
                                                     </view>
@@ -1086,11 +1077,12 @@
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="rr6-bE-scy">
                                                 <rect key="frame" x="0.0" y="221" width="480" height="190"/>
                                                 <subviews>
-                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dhq-Mc-nzU" customClass="UILabel">
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dhq-Mc-nzU" customClass="RoundView" customModule="scorePoint" customModuleProvider="target">
                                                         <rect key="frame" x="0.0" y="0.0" width="480" height="135"/>
                                                         <subviews>
-                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="l8y-za-tWY">
-                                                                <rect key="frame" x="206" y="-15" width="69" height="164"/>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="20" translatesAutoresizingMaskIntoConstraints="NO" id="l8y-za-tWY">
+                                                                <rect key="frame" x="0.0" y="0.0" width="480" height="135"/>
+                                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                                 <fontDescription key="fontDescription" name="OpenSans-Semibold" family="Open Sans" pointSize="120"/>
                                                                 <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                                                 <nil key="highlightedColor"/>
@@ -1098,14 +1090,25 @@
                                                         </subviews>
                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                         <constraints>
+                                                            <constraint firstAttribute="bottom" secondItem="l8y-za-tWY" secondAttribute="bottom" id="1eh-FU-6Ha"/>
+                                                            <constraint firstItem="l8y-za-tWY" firstAttribute="leading" secondItem="dhq-Mc-nzU" secondAttribute="leading" id="62Q-dI-snI"/>
                                                             <constraint firstItem="l8y-za-tWY" firstAttribute="centerX" secondItem="dhq-Mc-nzU" secondAttribute="centerX" id="Chm-T0-EcE"/>
                                                             <constraint firstItem="l8y-za-tWY" firstAttribute="centerY" secondItem="dhq-Mc-nzU" secondAttribute="centerY" id="MGq-Uc-lyz"/>
+                                                            <constraint firstItem="l8y-za-tWY" firstAttribute="top" secondItem="dhq-Mc-nzU" secondAttribute="top" id="aRE-uh-eUM"/>
+                                                            <constraint firstAttribute="trailing" secondItem="l8y-za-tWY" secondAttribute="trailing" id="fUY-MO-oD8"/>
                                                         </constraints>
                                                         <userDefinedRuntimeAttributes>
-                                                            <userDefinedRuntimeAttribute type="color" keyPath="fontColor">
-                                                                <color key="value" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                                <real key="value" value="5"/>
                                                             </userDefinedRuntimeAttribute>
+                                                            <userDefinedRuntimeAttribute type="boolean" keyPath="fullCircle" value="NO"/>
                                                         </userDefinedRuntimeAttributes>
+                                                        <variation key="default">
+                                                            <mask key="constraints">
+                                                                <exclude reference="Chm-T0-EcE"/>
+                                                                <exclude reference="MGq-Uc-lyz"/>
+                                                            </mask>
+                                                        </variation>
                                                     </view>
                                                     <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6rg-kf-5Ij">
                                                         <rect key="frame" x="0.0" y="150" width="480" height="40"/>
@@ -1137,12 +1140,17 @@
                                                                 <fontDescription key="fontDescription" name="OpenSans" family="Open Sans" pointSize="16"/>
                                                                 <textInputTraits key="textInputTraits"/>
                                                             </textField>
-                                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mYY-VM-3CH">
+                                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mYY-VM-3CH" customClass="RoundView" customModule="scorePoint" customModuleProvider="target">
                                                                 <rect key="frame" x="470" y="0.0" width="10" height="40"/>
                                                                 <color key="backgroundColor" red="0.96756810900000001" green="0.96756810900000001" blue="0.96756810900000001" alpha="1" colorSpace="calibratedRGB"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="width" constant="10" id="8ZM-cN-7Eg"/>
                                                                 </constraints>
+                                                                <userDefinedRuntimeAttributes>
+                                                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                                        <real key="value" value="5"/>
+                                                                    </userDefinedRuntimeAttribute>
+                                                                </userDefinedRuntimeAttributes>
                                                             </view>
                                                         </subviews>
                                                         <constraints>
@@ -1309,14 +1317,20 @@
                                     <rect key="frame" x="0.0" y="0.0" width="560" height="270"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <subviews>
-                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="G8q-eT-HmB">
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="G8q-eT-HmB" customClass="RoundView" customModule="scorePoint" customModuleProvider="target">
                                             <rect key="frame" x="0.0" y="0.0" width="560" height="240"/>
                                             <color key="backgroundColor" red="0.96756810900000001" green="0.96756810900000001" blue="0.96756810900000001" alpha="1" colorSpace="calibratedRGB"/>
+                                            <userDefinedRuntimeAttributes>
+                                                <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                    <real key="value" value="5"/>
+                                                </userDefinedRuntimeAttribute>
+                                                <userDefinedRuntimeAttribute type="boolean" keyPath="fullCircle" value="NO"/>
+                                            </userDefinedRuntimeAttributes>
                                         </view>
                                         <stackView opaque="NO" contentMode="scaleToFill" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="iJG-nu-c4g">
                                             <rect key="frame" x="150" y="20" width="260" height="111"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="placeholder" translatesAutoresizingMaskIntoConstraints="NO" id="Eta-VI-wGw">
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="placeholder" translatesAutoresizingMaskIntoConstraints="NO" id="Eta-VI-wGw" customClass="RoundImageView" customModule="scorePoint" customModuleProvider="target">
                                                     <rect key="frame" x="0.0" y="0.0" width="75" height="75"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="75" id="60A-kD-5qB"/>
@@ -1617,7 +1631,7 @@
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="v1F-Do-P5L">
                                                         <rect key="frame" x="42" y="258" width="210" height="100"/>
                                                         <subviews>
-                                                            <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="V7W-ki-lua">
+                                                            <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="V7W-ki-lua" customClass="CustomButton" customModule="scorePoint" customModuleProvider="target">
                                                                 <rect key="frame" x="0.0" y="0.0" width="210" height="40"/>
                                                                 <color key="backgroundColor" red="0.27450980390000002" green="0.79607843140000001" blue="0.85882352939999995" alpha="1" colorSpace="calibratedRGB"/>
                                                                 <constraints>
@@ -1628,6 +1642,15 @@
                                                                 <state key="normal" title="Game to 11">
                                                                     <color key="titleColor" red="0.96756810900000001" green="0.96756810900000001" blue="0.96756810900000001" alpha="1" colorSpace="calibratedRGB"/>
                                                                 </state>
+                                                                <userDefinedRuntimeAttributes>
+                                                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                                        <real key="value" value="5"/>
+                                                                    </userDefinedRuntimeAttribute>
+                                                                    <userDefinedRuntimeAttribute type="color" keyPath="fontColor">
+                                                                        <color key="value" white="0.8958512931" alpha="1" colorSpace="calibratedWhite"/>
+                                                                    </userDefinedRuntimeAttribute>
+                                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="withAnimation" value="NO"/>
+                                                                </userDefinedRuntimeAttributes>
                                                                 <variation key="default">
                                                                     <mask key="constraints">
                                                                         <exclude reference="j9e-D5-zVS"/>
@@ -1637,7 +1660,7 @@
                                                                     <action selector="setupBtnPressed:" destination="7On-Da-Iqn" eventType="touchUpInside" id="1mb-pz-LsV"/>
                                                                 </connections>
                                                             </button>
-                                                            <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5Ph-av-Pzg">
+                                                            <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5Ph-av-Pzg" customClass="CustomButton" customModule="scorePoint" customModuleProvider="target">
                                                                 <rect key="frame" x="0.0" y="60" width="210" height="40"/>
                                                                 <color key="backgroundColor" red="0.27450980390000002" green="0.79607843140000001" blue="0.85882352939999995" alpha="1" colorSpace="calibratedRGB"/>
                                                                 <constraints>
@@ -1647,6 +1670,15 @@
                                                                 <state key="normal" title="Single set">
                                                                     <color key="titleColor" red="0.96756810900000001" green="0.96756810900000001" blue="0.96756810900000001" alpha="1" colorSpace="calibratedRGB"/>
                                                                 </state>
+                                                                <userDefinedRuntimeAttributes>
+                                                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                                        <real key="value" value="5"/>
+                                                                    </userDefinedRuntimeAttribute>
+                                                                    <userDefinedRuntimeAttribute type="color" keyPath="fontColor">
+                                                                        <color key="value" white="0.8958512931" alpha="1" colorSpace="calibratedWhite"/>
+                                                                    </userDefinedRuntimeAttribute>
+                                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="withAnimation" value="NO"/>
+                                                                </userDefinedRuntimeAttributes>
                                                                 <connections>
                                                                     <action selector="setupBtnPressed:" destination="7On-Da-Iqn" eventType="touchUpInside" id="vub-lC-2NP"/>
                                                                 </connections>
@@ -1656,7 +1688,7 @@
                                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="Vtx-2p-nGl">
                                                         <rect key="frame" x="42" y="398" width="210" height="40"/>
                                                         <subviews>
-                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5Xr-1N-K98">
+                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5Xr-1N-K98" customClass="CustomButton" customModule="scorePoint" customModuleProvider="target">
                                                                 <rect key="frame" x="0.0" y="0.0" width="100" height="40"/>
                                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                                 <constraints>
@@ -1668,11 +1700,20 @@
                                                                 <state key="normal" title="CANCEL">
                                                                     <color key="titleColor" red="0.90196078430000004" green="0.33725490200000002" blue="0.14117647059999999" alpha="1" colorSpace="calibratedRGB"/>
                                                                 </state>
+                                                                <userDefinedRuntimeAttributes>
+                                                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                                        <real key="value" value="5"/>
+                                                                    </userDefinedRuntimeAttribute>
+                                                                    <userDefinedRuntimeAttribute type="color" keyPath="fontColor">
+                                                                        <color key="value" red="0.90196078430000004" green="0.33725490200000002" blue="0.14117647059999999" alpha="1" colorSpace="calibratedRGB"/>
+                                                                    </userDefinedRuntimeAttribute>
+                                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="withAnimation" value="NO"/>
+                                                                </userDefinedRuntimeAttributes>
                                                                 <connections>
                                                                     <action selector="cancelBtnPressed:" destination="7On-Da-Iqn" eventType="touchUpInside" id="o9n-4s-tze"/>
                                                                 </connections>
                                                             </button>
-                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LRO-vu-MPd">
+                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LRO-vu-MPd" customClass="CustomButton" customModule="scorePoint" customModuleProvider="target">
                                                                 <rect key="frame" x="110" y="0.0" width="100" height="40"/>
                                                                 <color key="backgroundColor" red="0.90196078430000004" green="0.33725490200000002" blue="0.14117647059999999" alpha="1" colorSpace="calibratedRGB"/>
                                                                 <constraints>
@@ -1682,6 +1723,15 @@
                                                                 <state key="normal" title="SEND">
                                                                     <color key="titleColor" white="0.8958512931" alpha="1" colorSpace="calibratedWhite"/>
                                                                 </state>
+                                                                <userDefinedRuntimeAttributes>
+                                                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                                        <real key="value" value="5"/>
+                                                                    </userDefinedRuntimeAttribute>
+                                                                    <userDefinedRuntimeAttribute type="color" keyPath="fontColor">
+                                                                        <color key="value" white="0.8958512931" alpha="1" colorSpace="calibratedWhite"/>
+                                                                    </userDefinedRuntimeAttribute>
+                                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="withAnimation" value="NO"/>
+                                                                </userDefinedRuntimeAttributes>
                                                                 <connections>
                                                                     <action selector="startBtnPressed:" destination="7On-Da-Iqn" eventType="touchUpInside" id="rbi-uG-egD"/>
                                                                 </connections>
@@ -1696,7 +1746,7 @@
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="Co9-Qi-zHb">
                                                 <rect key="frame" x="153" y="149" width="120" height="150"/>
                                                 <subviews>
-                                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="placeholder" translatesAutoresizingMaskIntoConstraints="NO" id="Y7H-io-xRW">
+                                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="placeholder" translatesAutoresizingMaskIntoConstraints="NO" id="Y7H-io-xRW" customClass="RoundImageView" customModule="scorePoint" customModuleProvider="target">
                                                         <rect key="frame" x="15" y="0.0" width="90" height="90"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="90" id="5Yh-Te-KVL"/>
@@ -1728,7 +1778,7 @@
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="L8A-p1-rEn">
                                                 <rect key="frame" x="327" y="149" width="120" height="150"/>
                                                 <subviews>
-                                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="placeholder" translatesAutoresizingMaskIntoConstraints="NO" id="tQA-cl-hC5">
+                                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="placeholder" translatesAutoresizingMaskIntoConstraints="NO" id="tQA-cl-hC5" customClass="RoundImageView" customModule="scorePoint" customModuleProvider="target">
                                                         <rect key="frame" x="15" y="0.0" width="90" height="90"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" constant="90" id="8Kl-vn-KdY"/>

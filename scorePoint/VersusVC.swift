@@ -55,8 +55,7 @@ class VersusVC: UIViewController, MDRotatingPieChartDelegate, MDRotatingPieChart
         properties.bigRadius = 55
         properties.expand = 10
         properties.animationDuration = 1.0
-        
-        
+
         pieChart.properties = properties
         chartView.addSubview(pieChart)
 
