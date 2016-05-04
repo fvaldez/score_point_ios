@@ -451,23 +451,23 @@
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="BQM-Wk-Vjn">
                                 <rect key="frame" x="20" y="40" width="560" height="410"/>
                                 <subviews>
-                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="DOM-G3-ELb">
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="DOM-G3-ELb">
                                         <rect key="frame" x="0.0" y="0.0" width="560" height="200"/>
                                         <subviews>
-                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="jTD-HS-vTs">
-                                                <rect key="frame" x="0.0" y="0.0" width="183" height="200"/>
+                                            <stackView opaque="NO" contentMode="scaleToFill" misplaced="YES" axis="vertical" distribution="fillProportionally" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="jTD-HS-vTs">
+                                                <rect key="frame" x="0.0" y="0.0" width="187" height="200"/>
                                                 <subviews>
-                                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="86u-b9-8zc">
-                                                        <rect key="frame" x="0.0" y="0.0" width="183" height="200"/>
+                                                    <stackView opaque="NO" contentMode="scaleToFill" misplaced="YES" axis="vertical" distribution="fillProportionally" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="86u-b9-8zc">
+                                                        <rect key="frame" x="0.0" y="0.0" width="187" height="200"/>
                                                         <subviews>
-                                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="placeholder" translatesAutoresizingMaskIntoConstraints="NO" id="SOd-Rc-xhj" customClass="RoundImageView" customModule="scorePoint" customModuleProvider="target">
-                                                                <rect key="frame" x="0.0" y="0.0" width="183" height="183"/>
+                                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="placeholder" translatesAutoresizingMaskIntoConstraints="NO" id="SOd-Rc-xhj" customClass="RoundImageView" customModule="scorePoint" customModuleProvider="target">
+                                                                <rect key="frame" x="0.0" y="0.0" width="187" height="187"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="width" secondItem="SOd-Rc-xhj" secondAttribute="height" multiplier="1:1" id="Z3Q-F1-Z7v"/>
                                                                 </constraints>
                                                             </imageView>
-                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="First Player" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="12" translatesAutoresizingMaskIntoConstraints="NO" id="B44-dR-KRl">
-                                                                <rect key="frame" x="0.0" y="193" width="183" height="7"/>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="First Player" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="12" translatesAutoresizingMaskIntoConstraints="NO" id="B44-dR-KRl">
+                                                                <rect key="frame" x="0.0" y="197" width="187" height="3"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="height" constant="40" id="3b2-fG-Fge"/>
                                                                     <constraint firstAttribute="height" constant="24" id="QJg-78-PQv"/>
@@ -505,8 +505,8 @@
                                                 </subviews>
                                                 <color key="backgroundColor" red="0.1911440855704698" green="0.22352941179999999" blue="0.95522231543624159" alpha="1" colorSpace="calibratedRGB"/>
                                             </stackView>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="VS" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MWZ-QR-oJf">
-                                                <rect key="frame" x="188" y="0.0" width="184" height="200"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="VS" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MWZ-QR-oJf">
+                                                <rect key="frame" x="187" y="0.0" width="186" height="200"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="40" id="5Q3-MF-pgY"/>
                                                     <constraint firstAttribute="width" constant="46" id="bNx-LH-X5K"/>
@@ -527,20 +527,20 @@
                                                     </mask>
                                                 </variation>
                                             </label>
-                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="yiG-Cm-Axs">
-                                                <rect key="frame" x="377" y="0.0" width="183" height="200"/>
+                                            <stackView opaque="NO" contentMode="scaleToFill" misplaced="YES" axis="vertical" distribution="fillProportionally" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="yiG-Cm-Axs">
+                                                <rect key="frame" x="373" y="0.0" width="187" height="200"/>
                                                 <subviews>
-                                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="eOZ-Mv-amf">
-                                                        <rect key="frame" x="0.0" y="0.0" width="183" height="200"/>
+                                                    <stackView opaque="NO" contentMode="scaleToFill" misplaced="YES" axis="vertical" distribution="fillProportionally" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="eOZ-Mv-amf">
+                                                        <rect key="frame" x="0.0" y="0.0" width="187" height="200"/>
                                                         <subviews>
-                                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="placeholder" translatesAutoresizingMaskIntoConstraints="NO" id="tuO-Vs-THw" customClass="RoundImageView" customModule="scorePoint" customModuleProvider="target">
-                                                                <rect key="frame" x="0.0" y="0.0" width="183" height="183"/>
+                                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="placeholder" translatesAutoresizingMaskIntoConstraints="NO" id="tuO-Vs-THw" customClass="RoundImageView" customModule="scorePoint" customModuleProvider="target">
+                                                                <rect key="frame" x="0.0" y="0.0" width="187" height="187"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="width" secondItem="tuO-Vs-THw" secondAttribute="height" multiplier="1:1" id="h8D-QM-RNK"/>
                                                                 </constraints>
                                                             </imageView>
-                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Second Player" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="12" translatesAutoresizingMaskIntoConstraints="NO" id="ePG-7C-axl">
-                                                                <rect key="frame" x="0.0" y="193" width="183" height="7"/>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Second Player" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="12" translatesAutoresizingMaskIntoConstraints="NO" id="ePG-7C-axl">
+                                                                <rect key="frame" x="0.0" y="197" width="187" height="3"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="height" constant="40" id="aUX-Tc-SSy"/>
                                                                 </constraints>

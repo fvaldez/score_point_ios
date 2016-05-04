@@ -19,24 +19,18 @@ class VersusVC: UIViewController, MDRotatingPieChartDelegate, MDRotatingPieChart
     @IBOutlet weak var secondPlayerImg: UIImageView!
     @IBOutlet weak var firstPlayerLbl: UILabel!
     
-    override func viewDidAppear(animated: Bool) {
-        
-    }
- 
-    override func viewDidLayoutSubviews() {
-        firstPlayerImg.layer.cornerRadius = firstPlayerImg.frame.size.width/2
-        firstPlayerImg.layer.masksToBounds = true
-        secondPlayerImg.layer.cornerRadius = secondPlayerImg.frame.size.width/2
-        secondPlayerImg.layer.masksToBounds = true
 
-    }
-    
     override func viewDidLoad() {
         super.viewDidLoad()
-
         self.title = "Head 2 Head"
         rankView.layer.cornerRadius = 5
         rankView.layer.masksToBounds = true
+        dispatch_async(dispatch_get_main_queue()) {
+            self.firstPlayerImg.layer.cornerRadius = self.firstPlayerImg.frame.size.width/2
+            self.firstPlayerImg.layer.masksToBounds = true
+            self.secondPlayerImg.layer.cornerRadius = self.secondPlayerImg.frame.size.width/2
+            self.secondPlayerImg.layer.masksToBounds = true
+        }
 
     
         pieChart = MDRotatingPieChart(frame: CGRectMake(0, 0, chartView.frame.width, chartView.frame.width))
