@@ -25,7 +25,7 @@ class VersusVC: UIViewController, MDRotatingPieChartDelegate, MDRotatingPieChart
         self.title = "Head 2 Head"
         rankView.layer.cornerRadius = 5
         rankView.layer.masksToBounds = true
-        dispatch_async(dispatch_get_main_queue()) {
+        DispatchQueue.main.async {
             self.firstPlayerImg.layer.cornerRadius = self.firstPlayerImg.frame.size.width/2
             self.firstPlayerImg.layer.masksToBounds = true
             self.secondPlayerImg.layer.cornerRadius = self.secondPlayerImg.frame.size.width/2
@@ -33,14 +33,14 @@ class VersusVC: UIViewController, MDRotatingPieChartDelegate, MDRotatingPieChart
         }
 
     
-        pieChart = MDRotatingPieChart(frame: CGRectMake(0, 0, chartView.frame.width, chartView.frame.width))
+        pieChart = MDRotatingPieChart(frame: CGRect(x: 0, y: 0, width: chartView.frame.width, height: chartView.frame.width))
 
 
         slicesData = [
             Data(myValue: 93.0, myColor: GREEN_COLOR, myLabel:""),
             Data(myValue: 3.0, myColor: RED_COLOR, myLabel:""),
         ]
-        pieChart.userInteractionEnabled = false
+        pieChart.isUserInteractionEnabled = false
         pieChart.datasource = self
         
         var properties = Properties()
@@ -60,16 +60,16 @@ class VersusVC: UIViewController, MDRotatingPieChartDelegate, MDRotatingPieChart
 
     }
     //Datasource
-    func colorForSliceAtIndex(index:Int) -> UIColor {
+    func colorForSliceAtIndex(_ index:Int) -> UIColor {
         return slicesData[index].color
     }
     
-    func valueForSliceAtIndex(index:Int) -> CGFloat {
+    func valueForSliceAtIndex(_ index:Int) -> CGFloat {
         return slicesData[index].value
         
     }
     
-    func labelForSliceAtIndex(index:Int) -> String {
+    func labelForSliceAtIndex(_ index:Int) -> String {
         return slicesData[index].label
         
     }
@@ -87,19 +87,19 @@ class VersusVC: UIViewController, MDRotatingPieChartDelegate, MDRotatingPieChart
     
     //Delegate
     //some sample messages when actions are triggered (open/close slices)
-    func didOpenSliceAtIndex(index: Int) {
+    func didOpenSliceAtIndex(_ index: Int) {
         print("Open slice at \(index)")
     }
     
-    func didCloseSliceAtIndex(index: Int) {
+    func didCloseSliceAtIndex(_ index: Int) {
         print("Close slice at \(index)")
     }
     
-    func willOpenSliceAtIndex(index: Int) {
+    func willOpenSliceAtIndex(_ index: Int) {
         print("Will open slice at \(index)")
     }
     
-    func willCloseSliceAtIndex(index: Int) {
+    func willCloseSliceAtIndex(_ index: Int) {
         print("Will close slice at \(index)")
     }
 

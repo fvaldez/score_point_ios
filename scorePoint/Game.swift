@@ -10,16 +10,16 @@ import Foundation
 
 class Game {
     
-    private var _date: NSDate
-    private var _pointsPerSet = 0
-    private var _totalSets = 0
-    private var _setsToWin = 0
-    private var _sets: SetType!
-    private var _playerA: Player
-    private var _playerB: Player
-    private var _winner: Player?
-    private var _originalPointsPerSet = 0
-    private var _gameEnded = false
+    fileprivate var _date: Date
+    fileprivate var _pointsPerSet = 0
+    fileprivate var _totalSets = 0
+    fileprivate var _setsToWin = 0
+    fileprivate var _sets: SetType!
+    fileprivate var _playerA: Player
+    fileprivate var _playerB: Player
+    fileprivate var _winner: Player?
+    fileprivate var _originalPointsPerSet = 0
+    fileprivate var _gameEnded = false
 
     var pointsPerSet: Int{
         get {
@@ -66,7 +66,7 @@ class Game {
     }
 
     
-    init(date: NSDate, pointsPerSet: Int, sets: SetType, playerA: Player, playerB: Player){
+    init(date: Date, pointsPerSet: Int, sets: SetType, playerA: Player, playerB: Player){
         self._date = date
         self._pointsPerSet = pointsPerSet
         self._totalSets = sets.totalSets
@@ -77,7 +77,7 @@ class Game {
         self._originalPointsPerSet = pointsPerSet
     }
     
-    func scoreUpdatePlayerA(amount: Int){
+    func scoreUpdatePlayerA(_ amount: Int){
         // Add 1 point to Player A
         self._playerA.updateScore(amount)
         print("Score A: \(self._playerA.score)   Score B: \(self._playerB.score)")
@@ -93,7 +93,7 @@ class Game {
 
     }
     
-    func scoreUpdatePlayerB(amount: Int){
+    func scoreUpdatePlayerB(_ amount: Int){
         // Add 1 point to Player b
         self._playerB.updateScore(amount)
         print("Score A: \(self._playerA.score)   Score B: \(self._playerB.score)")

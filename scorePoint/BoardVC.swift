@@ -55,11 +55,11 @@ class BoardVC: UIViewController, ResultsDelegate {
         txtScoreSecond.numberOfLines = 0
         
         let maskLayerFirst = CAShapeLayer()
-        maskLayerFirst.path = UIBezierPath(roundedRect: colorFirstPlayer.bounds, byRoundingCorners: UIRectCorner.TopLeft.union(.BottomLeft), cornerRadii: CGSizeMake(5, 5)).CGPath
+        maskLayerFirst.path = UIBezierPath(roundedRect: colorFirstPlayer.bounds, byRoundingCorners: UIRectCorner.topLeft.union(.bottomLeft), cornerRadii: CGSize(width: 5, height: 5)).cgPath
         colorFirstPlayer.layer.mask = maskLayerFirst
       
         let maskLayerSecond = CAShapeLayer()
-        maskLayerSecond.path = UIBezierPath(roundedRect: colorSecondPlayer.bounds, byRoundingCorners: UIRectCorner.TopLeft.union(.BottomLeft), cornerRadii: CGSizeMake(5, 5)).CGPath
+        maskLayerSecond.path = UIBezierPath(roundedRect: colorSecondPlayer.bounds, byRoundingCorners: UIRectCorner.topLeft.union(.bottomLeft), cornerRadii: CGSize(width: 5, height: 5)).cgPath
         colorSecondPlayer.layer.mask = maskLayerSecond
         
         lblSetup.text = "Setup: \(game.sets.shortString)"
@@ -68,65 +68,65 @@ class BoardVC: UIViewController, ResultsDelegate {
         txtSecondPlayer.text = "\(game.playerB.firstName) \(game.playerB.lastName)"
         addGestures()
         
-        gameResults = NSBundle.mainBundle().loadNibNamed("GameResults", owner: self, options: nil).first as? GameResults
+        gameResults = Bundle.main.loadNibNamed("GameResults", owner: self, options: nil)?.first as? GameResults
         
-        gameResults.frame = CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height)
+        gameResults.frame = CGRect(x: 0, y: 0, width: self.view.frame.size.width, height: self.view.frame.size.height)
         self.view.addSubview(gameResults)
         gameResults.alpha = 0
         gameResults.delegate = self
-        self.view.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("H:|-0-[view]-0-|", options: NSLayoutFormatOptions(rawValue: 0), metrics: nil, views: ["view":gameResults]))
-        self.view.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("V:|-0-[view]-0-|", options: NSLayoutFormatOptions(rawValue: 0), metrics: nil, views: ["view":gameResults]))
+        self.view.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:|-0-[view]-0-|", options: NSLayoutFormatOptions(rawValue: 0), metrics: nil, views: ["view":gameResults]))
+        self.view.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:|-0-[view]-0-|", options: NSLayoutFormatOptions(rawValue: 0), metrics: nil, views: ["view":gameResults]))
         gameResults.setup()
         
     }
     
-    override func preferredStatusBarStyle() -> UIStatusBarStyle {
-        return .Default
+    override var preferredStatusBarStyle : UIStatusBarStyle {
+        return .default
     }
 
-    @IBAction func restartBtnPressed(sender: AnyObject) {
+    @IBAction func restartBtnPressed(_ sender: AnyObject) {
         game.clearAll()
         updateBoard(addPoint: false)
     }
     
-    @IBAction func closeBtnPressed(sender: AnyObject) {
+    @IBAction func closeBtnPressed(_ sender: AnyObject) {
         game.clearAll()
         updateBoard(addPoint: false)
-        self.dismissViewControllerAnimated(true, completion: nil)
+        self.dismiss(animated: true, completion: nil)
 
     }
     
-    func closeResults(rematch: Bool) {
+    func closeResults(_ rematch: Bool) {
         
         game.clearAll()
 
         if(rematch == true){
             updateBoard(addPoint: false)
         }else{
-            self.dismissViewControllerAnimated(true, completion: nil)
+            self.dismiss(animated: true, completion: nil)
         }
         closeResultsAnimation()
         
     }
     
     func closeResultsAnimation(){
-        UIView.animateWithDuration(0.4, animations: {
+        UIView.animate(withDuration: 0.4, animations: {
             self.gameResults.alpha = 0
         })
     }
     
-    func respondToSwipeGestureFirst(gesture: UIGestureRecognizer) {
+    func respondToSwipeGestureFirst(_ gesture: UIGestureRecognizer) {
         
         if let swipeGesture = gesture as? UISwipeGestureRecognizer {
             
             
             switch swipeGesture.direction {
-            case UISwipeGestureRecognizerDirection.Down:
+            case UISwipeGestureRecognizerDirection.down:
                 if game.playerA.score > 0{
                     game.scoreUpdatePlayerA(-1)
                     updateBoard(addPoint: false)
                 }
-            case UISwipeGestureRecognizerDirection.Left:
+            case UISwipeGestureRecognizerDirection.left:
                 if game.playerA.score > 0{
                     game.scoreUpdatePlayerA(-1)
                     updateBoard(addPoint: false)
@@ -138,18 +138,18 @@ class BoardVC: UIViewController, ResultsDelegate {
         
     }
     
-    func respondToSwipeGestureSecond(gesture: UIGestureRecognizer) {
+    func respondToSwipeGestureSecond(_ gesture: UIGestureRecognizer) {
         
         if let swipeGesture = gesture as? UISwipeGestureRecognizer {
             
             switch swipeGesture.direction {
            
-            case UISwipeGestureRecognizerDirection.Down:
+            case UISwipeGestureRecognizerDirection.down:
                 if game.playerB.score > 0{
                     game.scoreUpdatePlayerB(-1)
                     updateBoard(addPoint: false)
                 }
-            case UISwipeGestureRecognizerDirection.Left:
+            case UISwipeGestureRecognizerDirection.left:
                 if game.playerB.score > 0{
                     game.scoreUpdatePlayerB(-1)
                     updateBoard(addPoint: false)
@@ -164,19 +164,19 @@ class BoardVC: UIViewController, ResultsDelegate {
     func addGestures() {
         
         let swipeRightFirst = UISwipeGestureRecognizer(target: self, action: #selector(BoardVC.respondToSwipeGestureFirst(_:)))
-        swipeRightFirst.direction = UISwipeGestureRecognizerDirection.Right
+        swipeRightFirst.direction = UISwipeGestureRecognizerDirection.right
         self.view.addGestureRecognizer(swipeRightFirst)
         
         let swipeLeftFirst = UISwipeGestureRecognizer(target: self, action: #selector(BoardVC.respondToSwipeGestureFirst(_:)))
-        swipeLeftFirst.direction = UISwipeGestureRecognizerDirection.Left
+        swipeLeftFirst.direction = UISwipeGestureRecognizerDirection.left
         self.view.addGestureRecognizer(swipeLeftFirst)
         
         let swipeUpFirst = UISwipeGestureRecognizer(target: self, action: #selector(BoardVC.respondToSwipeGestureFirst(_:)))
-        swipeUpFirst.direction = UISwipeGestureRecognizerDirection.Up
+        swipeUpFirst.direction = UISwipeGestureRecognizerDirection.up
         self.view.addGestureRecognizer(swipeUpFirst)
         
         let swipeDownFirst = UISwipeGestureRecognizer(target: self, action: #selector(BoardVC.respondToSwipeGestureFirst(_:)))
-        swipeDownFirst.direction = UISwipeGestureRecognizerDirection.Down
+        swipeDownFirst.direction = UISwipeGestureRecognizerDirection.down
         self.view.addGestureRecognizer(swipeDownFirst)
         
         scoreFirstPlayer.addGestureRecognizer(swipeRightFirst)
@@ -185,19 +185,19 @@ class BoardVC: UIViewController, ResultsDelegate {
         scoreFirstPlayer.addGestureRecognizer(swipeDownFirst)
         
         let swipeRightSecond = UISwipeGestureRecognizer(target: self, action: #selector(BoardVC.respondToSwipeGestureSecond(_:)))
-        swipeRightSecond.direction = UISwipeGestureRecognizerDirection.Right
+        swipeRightSecond.direction = UISwipeGestureRecognizerDirection.right
         self.view.addGestureRecognizer(swipeRightSecond)
         
         let swipeLeftSecond = UISwipeGestureRecognizer(target: self, action: #selector(BoardVC.respondToSwipeGestureSecond(_:)))
-        swipeLeftSecond.direction = UISwipeGestureRecognizerDirection.Left
+        swipeLeftSecond.direction = UISwipeGestureRecognizerDirection.left
         self.view.addGestureRecognizer(swipeLeftSecond)
         
         let swipeUpSecond = UISwipeGestureRecognizer(target: self, action: #selector(BoardVC.respondToSwipeGestureSecond(_:)))
-        swipeUpSecond.direction = UISwipeGestureRecognizerDirection.Up
+        swipeUpSecond.direction = UISwipeGestureRecognizerDirection.up
         self.view.addGestureRecognizer(swipeUpSecond)
         
         let swipeDownSecond = UISwipeGestureRecognizer(target: self, action: #selector(BoardVC.respondToSwipeGestureSecond(_:)))
-        swipeDownSecond.direction = UISwipeGestureRecognizerDirection.Down
+        swipeDownSecond.direction = UISwipeGestureRecognizerDirection.down
         self.view.addGestureRecognizer(swipeDownSecond)
         
         scoreSecondPlayer.addGestureRecognizer(swipeRightSecond)
@@ -223,13 +223,13 @@ class BoardVC: UIViewController, ResultsDelegate {
 
         if serveFirst.alpha == 0{
             
-            UIView.animateWithDuration(0.1, animations: {
+            UIView.animate(withDuration: 0.1, animations: {
                 self.serveFirst.alpha = 1
                 self.serveSecond.alpha = 0
             })
             
         }else{
-            UIView.animateWithDuration(0.1, animations: {
+            UIView.animate(withDuration: 0.1, animations: {
                 self.serveFirst.alpha = 0
                 self.serveSecond.alpha = 1
             })
@@ -240,10 +240,10 @@ class BoardVC: UIViewController, ResultsDelegate {
         game.scoreUpdatePlayerA(1)
         updateBoard(addPoint: true)
         let scaleAnim = POPSpringAnimation(propertyNamed: kPOPLayerScaleXY)
-        scaleAnim.velocity = NSValue(CGSize: CGSizeMake(3.0, 3.0))
-        scaleAnim.toValue = NSValue(CGSize: CGSizeMake(1.0, 1.0))
-        scaleAnim.springBounciness = 18
-        txtScoreFirst.layer.pop_addAnimation(scaleAnim, forKey: "layerScaleSpringAnimation")
+        scaleAnim?.velocity = NSValue(cgSize: CGSize(width: 3.0, height: 3.0))
+        scaleAnim?.toValue = NSValue(cgSize: CGSize(width: 1.0, height: 1.0))
+        scaleAnim?.springBounciness = 18
+        txtScoreFirst.layer.pop_add(scaleAnim, forKey: "layerScaleSpringAnimation")
 
     }
     
@@ -251,13 +251,13 @@ class BoardVC: UIViewController, ResultsDelegate {
         game.scoreUpdatePlayerB(1)
         updateBoard(addPoint: true)
         let scaleAnim = POPSpringAnimation(propertyNamed: kPOPLayerScaleXY)
-        scaleAnim.velocity = NSValue(CGSize: CGSizeMake(3.0, 3.0))
-        scaleAnim.toValue = NSValue(CGSize: CGSizeMake(1.0, 1.0))
-        scaleAnim.springBounciness = 18
-        txtScoreSecond.layer.pop_addAnimation(scaleAnim, forKey: "layerScaleSpringAnimation")
+        scaleAnim?.velocity = NSValue(cgSize: CGSize(width: 3.0, height: 3.0))
+        scaleAnim?.toValue = NSValue(cgSize: CGSize(width: 1.0, height: 1.0))
+        scaleAnim?.springBounciness = 18
+        txtScoreSecond.layer.pop_add(scaleAnim, forKey: "layerScaleSpringAnimation")
     }
     
-    func updateBoard(addPoint addPoint: Bool){
+    func updateBoard(addPoint: Bool){
         if(addPoint == true){
             changeServe()
             
@@ -275,7 +275,7 @@ class BoardVC: UIViewController, ResultsDelegate {
         if(game.gameEnded == true){
             gameResults.photoView.image = game.winner.image
             gameResults.namelbl.text = "\(game.winner.firstName) \(game.winner.lastName)"
-            UIView.animateWithDuration(0.4, animations: {
+            UIView.animate(withDuration: 0.4, animations: {
                 self.gameResults.alpha = 1
             })
 
@@ -288,13 +288,13 @@ class BoardVC: UIViewController, ResultsDelegate {
         if serveCount == 2 {
             if serveFirst.alpha == 0{
                 
-                UIView.animateWithDuration(0.1, animations: {
+                UIView.animate(withDuration: 0.1, animations: {
                     self.serveFirst.alpha = 1
                     self.serveSecond.alpha = 0
                 })
                 
             }else{
-                UIView.animateWithDuration(0.1, animations: {
+                UIView.animate(withDuration: 0.1, animations: {
                     self.serveFirst.alpha = 0
                     self.serveSecond.alpha = 1
                 })

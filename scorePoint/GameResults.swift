@@ -9,7 +9,7 @@
 import UIKit
 
 protocol ResultsDelegate: class {
-    func closeResults(rematch:Bool)
+    func closeResults(_ rematch:Bool)
 }
 
 class GameResults: UIView {
@@ -40,18 +40,18 @@ class GameResults: UIView {
         
     }
     
-    @IBAction func rematchBtnPressed(sender: AnyObject) {
+    @IBAction func rematchBtnPressed(_ sender: AnyObject) {
         let delay = 0.3 * Double(NSEC_PER_SEC)
-        let time = dispatch_time(DISPATCH_TIME_NOW, Int64(delay))
-        dispatch_after(time, dispatch_get_main_queue()) {
+        let time = DispatchTime.now() + Double(Int64(delay)) / Double(NSEC_PER_SEC)
+        DispatchQueue.main.asyncAfter(deadline: time) {
             self.delegate?.closeResults(true)
         }
     }
     
-    @IBAction func closeBtnPressed(sender: AnyObject) {
+    @IBAction func closeBtnPressed(_ sender: AnyObject) {
         let delay = 0.3 * Double(NSEC_PER_SEC)
-        let time = dispatch_time(DISPATCH_TIME_NOW, Int64(delay))
-        dispatch_after(time, dispatch_get_main_queue()) {
+        let time = DispatchTime.now() + Double(Int64(delay)) / Double(NSEC_PER_SEC)
+        DispatchQueue.main.asyncAfter(deadline: time) {
             self.delegate?.closeResults(false)
         }
     }

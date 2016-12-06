@@ -58,22 +58,22 @@ class GameSetupVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSourc
         super.viewDidLoad()
         
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        gameVC = storyboard.instantiateViewControllerWithIdentifier("BoardVC") as! BoardVC
+        gameVC = storyboard.instantiateViewController(withIdentifier: "BoardVC") as! BoardVC
         
         setsSelected = sets[0]
         playerA = Player(firstName: SharedData.sharedInstance.firstName, lastName: SharedData.sharedInstance.lastName, score: 0, setsWon: 0, image: SharedData.sharedInstance.downloadedImg!)
         playerB = Player(firstName: "Other", lastName: "Player", score: 0, setsWon: 0, image: UIImage(named: "placeholder")!)
 
         if(sendingRequest == true) {
-            startBtn.setTitle("SEND", forState: .Normal)
+            startBtn.setTitle("SEND", for: UIControlState())
         }else{
-            gameToBtn.userInteractionEnabled = false
-            setbtn.userInteractionEnabled = false
-            startBtn.setTitle("START", forState: .Normal)
+            gameToBtn.isUserInteractionEnabled = false
+            setbtn.isUserInteractionEnabled = false
+            startBtn.setTitle("START", for: UIControlState())
         }
 
-        let attr = NSDictionary(object: UIFont(name: "Open Sans", size: 15.0)!, forKey: NSFontAttributeName)
-        UISegmentedControl.appearance().setTitleTextAttributes(attr as [NSObject : AnyObject] , forState: .Normal)
+        let attr = NSDictionary(object: UIFont(name: "Open Sans", size: 15.0)!, forKey: NSFontAttributeName as NSCopying)
+        UISegmentedControl.appearance().setTitleTextAttributes(attr as! [AnyHashable: Any] , for: UIControlState())
         createPicker()
         
         self.animEngine = AnimationEngine(constraints: [firstPlayerConstraint, secondPlayerConstraint])
@@ -84,25 +84,25 @@ class GameSetupVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSourc
 
     }
     
-    override func viewDidAppear(animated: Bool) {
+    override func viewDidAppear(_ animated: Bool) {
         self.animEngine.animateOnScreen(0)
     }
     
-    override func viewWillAppear(animated: Bool) {
-        UIApplication.sharedApplication().statusBarStyle = UIStatusBarStyle.LightContent
+    override func viewWillAppear(_ animated: Bool) {
+        UIApplication.shared.statusBarStyle = UIStatusBarStyle.lightContent
 
     }
 
-    override func preferredStatusBarStyle() -> UIStatusBarStyle {
-        return .LightContent
+    override var preferredStatusBarStyle : UIStatusBarStyle {
+        return .lightContent
     }
     
     func createPicker(){
         
-        pickerView = UIView(frame:CGRectMake(0, self.view.frame.size.height, self.view.frame.size.width, 200))
-        pickerView.backgroundColor = UIColor.whiteColor()
+        pickerView = UIView(frame:CGRect(x: 0, y: self.view.frame.size.height, width: self.view.frame.size.width, height: 200))
+        pickerView.backgroundColor = UIColor.white
         
-        picker = UIPickerView(frame: CGRectMake(0, 0, 320, 200))
+        picker = UIPickerView(frame: CGRect(x: 0, y: 0, width: 320, height: 200))
         picker.delegate = self
         picker.dataSource = self
         picker.tintColor = GREEN_COLOR
@@ -111,7 +111,7 @@ class GameSetupVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSourc
         
         let toolbar = UIToolbar()
         toolbar.barTintColor = LIGHT_GRAY
-        toolbar.frame = CGRectMake(0, 0, self.view.frame.size.width, 44)
+        toolbar.frame = CGRect(x: 0, y: 0, width: self.view.frame.size.width, height: 44)
         
         
         let close = UIBarButtonItem()
@@ -133,12 +133,12 @@ class GameSetupVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSourc
     func closePicker(){
         scrollView.setContentOffset(CGPoint(x: 0, y: 0), animated: true)
 
-        UIView.animateWithDuration(0.2, animations: {
+        UIView.animate(withDuration: 0.2, animations: {
             
-            self.pickerView.frame = CGRectMake(0, self.view.frame.size.height, self.view.frame.size.width, 200)
+            self.pickerView.frame = CGRect(x: 0, y: self.view.frame.size.height, width: self.view.frame.size.width, height: 200)
             }, completion: {
                 (value: Bool) in
-                UIView.animateWithDuration(0.2, animations: {
+                UIView.animate(withDuration: 0.2, animations: {
                     
                     self.titlelbl.alpha = 1
 
@@ -148,49 +148,49 @@ class GameSetupVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSourc
         })
     }
 
-    @IBAction func startBtnPressed(sender: AnyObject) {
+    @IBAction func startBtnPressed(_ sender: AnyObject) {
         
         if(sendingRequest == true){
             let delay = 0.3 * Double(NSEC_PER_SEC)
-            let time = dispatch_time(DISPATCH_TIME_NOW, Int64(delay))
-            dispatch_after(time, dispatch_get_main_queue()) {
+            let time = DispatchTime.now() + Double(Int64(delay)) / Double(NSEC_PER_SEC)
+            DispatchQueue.main.asyncAfter(deadline: time) {
                 
-                self.dismissViewControllerAnimated(true, completion: {
+                self.dismiss(animated: true, completion: {
                     
-                    let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+                    let appDelegate = UIApplication.shared.delegate as! AppDelegate
                     appDelegate.showAlert("Match request sent", vc: self)
                     }
                 )
             }
         }else{
-            game = Game(date: NSDate(), pointsPerSet: selectedPoints, sets: setsSelected , playerA: playerA, playerB: playerB)
+            game = Game(date: Date(), pointsPerSet: selectedPoints, sets: setsSelected , playerA: playerA, playerB: playerB)
             
             gameVC.game = game
             //self.navigationController?.pushViewController(vc, animated: true)
-            UIApplication.sharedApplication().statusBarStyle = UIStatusBarStyle.Default
+            UIApplication.shared.statusBarStyle = UIStatusBarStyle.default
             let delay = 0.3 * Double(NSEC_PER_SEC)
-            let time = dispatch_time(DISPATCH_TIME_NOW, Int64(delay))
-            dispatch_after(time, dispatch_get_main_queue()) {
-                dispatch_async(dispatch_get_main_queue()) { [unowned self] in
-                    self.presentViewController(self.gameVC, animated: true, completion: nil)
+            let time = DispatchTime.now() + Double(Int64(delay)) / Double(NSEC_PER_SEC)
+            DispatchQueue.main.asyncAfter(deadline: time) {
+                DispatchQueue.main.async { [unowned self] in
+                    self.present(self.gameVC, animated: true, completion: nil)
                 }
             }
 
         }
     }
     
-    @IBAction func cancelBtnPressed(sender: AnyObject) {
+    @IBAction func cancelBtnPressed(_ sender: AnyObject) {
         
         let delay = 0.3 * Double(NSEC_PER_SEC)
-        let time = dispatch_time(DISPATCH_TIME_NOW, Int64(delay))
-        dispatch_after(time, dispatch_get_main_queue()) {
-            self.dismissViewControllerAnimated(true, completion: nil)
+        let time = DispatchTime.now() + Double(Int64(delay)) / Double(NSEC_PER_SEC)
+        DispatchQueue.main.asyncAfter(deadline: time) {
+            self.dismiss(animated: true, completion: nil)
         }
 
 
     }
     
-    @IBAction func setupBtnPressed(sender: AnyObject) {
+    @IBAction func setupBtnPressed(_ sender: AnyObject) {
         if(sender.tag == 1) {
             activePicker = 1
         }else{
@@ -202,19 +202,19 @@ class GameSetupVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSourc
         picker.selectRow(0, inComponent: 0, animated: false)
         scrollView.setContentOffset(CGPoint(x: 0, y: 80), animated: true)
         
-        UIView.animateWithDuration(0.2, delay: 0, options: [], animations: {
-            self.pickerView.frame = CGRectMake(0, self.view.frame.size.height-200, self.view.frame.size.width, 200)
+        UIView.animate(withDuration: 0.2, delay: 0, options: [], animations: {
+            self.pickerView.frame = CGRect(x: 0, y: self.view.frame.size.height-200, width: self.view.frame.size.width, height: 200)
             }, completion: nil)
 
     }
     
     //MARK: - PickerView delegate
     
-    func numberOfComponentsInPickerView(pickerView: UIPickerView) -> Int {
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
     }
     
-    func pickerView(pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int{
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int{
         if(activePicker == 1){
             return points.count
         }else {
@@ -222,20 +222,20 @@ class GameSetupVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSourc
         }
     }
     
-    func pickerView(pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int){
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int){
         if(activePicker == 1){
             
-            gameToBtn.setTitle("Game to \(points[row])", forState: .Normal)
+            gameToBtn.setTitle("Game to \(points[row])", for: UIControlState())
             selectedPoints = points[row]
             
         }else{
             
-            setbtn.setTitle("\(sets[row].stringToShow)", forState: .Normal)
+            setbtn.setTitle("\(sets[row].stringToShow)", for: UIControlState())
             setsSelected = sets[row]
         }
     }
     
-    func pickerView(pickerView: UIPickerView, viewForRow row: Int, forComponent component: Int, reusingView view: UIView?) -> UIView{
+    func pickerView(_ pickerView: UIPickerView, viewForRow row: Int, forComponent component: Int, reusing view: UIView?) -> UIView{
         
         var pickerLabel = view as! UILabel!
         if view == nil {  //if no label there yet
@@ -250,16 +250,16 @@ class GameSetupVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSourc
         
         let myTitle = NSAttributedString(string: titleData, attributes: [NSFontAttributeName:UIFont(name: "Open Sans", size: 15.0)!,NSForegroundColorAttributeName:BLACK_COLOR])
         pickerLabel!.attributedText = myTitle
-        pickerLabel!.textAlignment = .Center
-        return pickerLabel
+        pickerLabel!.textAlignment = .center
+        return pickerLabel!
         
     }
     
-    func pickerView(pickerView: UIPickerView, rowHeightForComponent component: Int) -> CGFloat {
+    func pickerView(_ pickerView: UIPickerView, rowHeightForComponent component: Int) -> CGFloat {
         return 40.0
     }
     
-    func pickerView(pickerView: UIPickerView, widthForComponent component: Int) -> CGFloat {
+    func pickerView(_ pickerView: UIPickerView, widthForComponent component: Int) -> CGFloat {
         return self.view.frame.size.width
     }
 

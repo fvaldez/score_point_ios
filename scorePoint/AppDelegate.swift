@@ -10,21 +10,21 @@ import UIKit
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate, UITabBarControllerDelegate, GIDSignInDelegate  {
-
+    
     var window: UIWindow?
     let tabBarController = UITabBarController()
     var loginVC : UIViewController!
 
-    func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
+    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         
-        application.statusBarStyle = UIStatusBarStyle.LightContent
+        application.statusBarStyle = UIStatusBarStyle.lightContent
 
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        let dashboardVC = storyboard.instantiateViewControllerWithIdentifier("DashboardVC")
-        let leaderBoardVC = storyboard.instantiateViewControllerWithIdentifier("LeaderboardVC")
-        let recordVC = storyboard.instantiateViewControllerWithIdentifier("RecordVC")
-        let requestsVC = storyboard.instantiateViewControllerWithIdentifier("RequestsVC")
-        loginVC = storyboard.instantiateViewControllerWithIdentifier("LoginVC")
+        let dashboardVC = storyboard.instantiateViewController(withIdentifier: "DashboardVC")
+        let leaderBoardVC = storyboard.instantiateViewController(withIdentifier: "LeaderboardVC")
+        let recordVC = storyboard.instantiateViewController(withIdentifier: "RecordVC")
+        let requestsVC = storyboard.instantiateViewController(withIdentifier: "RequestsVC")
+        loginVC = storyboard.instantiateViewController(withIdentifier: "LoginVC")
 
         let dashboardImg = UIImage(named: "vs-icon")
         let leaderBoardImg = UIImage(named: "leaderboard-icon")
@@ -50,16 +50,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UITabBarControllerDelegat
         tabBarController.viewControllers = [navController1, navController2, navController3, navController4]
         
         UITabBar.appearance().barTintColor = PURPLE_COLOR
-        UITabBar.appearance().translucent = false 
+        UITabBar.appearance().isTranslucent = false 
         //TabBar items selected color
-        UITabBar.appearance().tintColor = UIColor.whiteColor()
+        UITabBar.appearance().tintColor = UIColor.white
         
         UINavigationBar.appearance().barTintColor = PURPLE_COLOR
-        UINavigationBar.appearance().tintColor = UIColor.whiteColor()
-        UINavigationBar.appearance().translucent = false
+        UINavigationBar.appearance().tintColor = UIColor.white
+        UINavigationBar.appearance().isTranslucent = false
         
         let attributes = [
-            NSForegroundColorAttributeName: UIColor.whiteColor(),
+            NSForegroundColorAttributeName: UIColor.white,
             NSFontAttributeName: UIFont(name: "Open Sans", size: 18)!
         ]
         UINavigationBar.appearance().titleTextAttributes = attributes
@@ -70,35 +70,35 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UITabBarControllerDelegat
         return true
     }
 
-    func applicationWillResignActive(application: UIApplication) {
+    func applicationWillResignActive(_ application: UIApplication) {
         // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
         // Use this method to pause ongoing tasks, disable timers, and throttle down OpenGL ES frame rates. Games should use this method to pause the game.
     }
 
-    func applicationDidEnterBackground(application: UIApplication) {
+    func applicationDidEnterBackground(_ application: UIApplication) {
         // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.
         // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
     }
 
-    func applicationWillEnterForeground(application: UIApplication) {
+    func applicationWillEnterForeground(_ application: UIApplication) {
         // Called as part of the transition from the background to the inactive state; here you can undo many of the changes made on entering the background.
     }
 
-    func applicationDidBecomeActive(application: UIApplication) {
+    func applicationDidBecomeActive(_ application: UIApplication) {
         // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
     }
 
-    func applicationWillTerminate(application: UIApplication) {
+    func applicationWillTerminate(_ application: UIApplication) {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
 
-    func application(application: UIApplication, openURL url: NSURL, sourceApplication: String?, annotation: AnyObject) -> Bool {
+    func application(_ application: UIApplication, open url: URL, sourceApplication: String?, annotation: Any) -> Bool {
         
-        return  GIDSignIn.sharedInstance().handleURL(url, sourceApplication: sourceApplication, annotation: annotation)
+        return  GIDSignIn.sharedInstance().handle(url, sourceApplication: sourceApplication, annotation: annotation)
         
     }
     
-    func signIn(signIn: GIDSignIn!, didSignInForUser user: GIDGoogleUser!,
+    func sign(_ signIn: GIDSignIn!, didSignInFor user: GIDGoogleUser!,
         withError error: NSError!) {
             if (error == nil) {
                 // Perform any operations on signed in user here.
@@ -112,21 +112,27 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UITabBarControllerDelegat
             }
     }
     
-    func signIn(signIn: GIDSignIn!, didDisconnectWithUser user:GIDGoogleUser!,
+    func sign(_ signIn: GIDSignIn!, didDisconnectWith user:GIDGoogleUser!,
         withError error: NSError!) {
             // Perform any operations when the user disconnects from app here.
             // ...
     }
     
-    func showAlert(message: NSString, vc: UIViewController){
+    func showAlert(_ message: NSString, vc: UIViewController){
         
-        let alertController = UIAlertController(title: "Message", message: message as String, preferredStyle: .Alert)
+        let alertController = UIAlertController(title: "Message", message: message as String, preferredStyle: .alert)
         
-        let OKAction = UIAlertAction(title: "OK", style: .Default) { (action) in
+        let OKAction = UIAlertAction(title: "OK", style: .default) { (action) in
         }
         alertController.addAction(OKAction)
         
-        self.window?.rootViewController?.presentViewController(alertController, animated: true, completion: nil)
+        self.window?.rootViewController?.present(alertController, animated: true, completion: nil)
     }
+    
+    public func sign(_ signIn: GIDSignIn!, didSignInFor user: GIDGoogleUser!, withError error: Error!) {
+        
+    }
+    
+
 }
 

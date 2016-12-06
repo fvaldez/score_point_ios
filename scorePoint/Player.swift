@@ -10,11 +10,11 @@ import Foundation
 
 class Player {
     
-     private var _firstName = ""
-     private var _lastName = ""
-     private var _score = 0
-     private var _setsWon = 0
-     private var _image: UIImage!
+     fileprivate var _firstName = ""
+     fileprivate var _lastName = ""
+     fileprivate var _score = 0
+     fileprivate var _setsWon = 0
+     fileprivate var _image: UIImage!
     
     var score: Int {
         get{
@@ -54,7 +54,7 @@ class Player {
         self._image = image
     }
     
-    func updateScore(amount: Int){
+    func updateScore(_ amount: Int){
         self._score = self._score + amount
     }
     

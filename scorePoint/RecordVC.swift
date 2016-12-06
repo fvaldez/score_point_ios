@@ -29,7 +29,7 @@ class RecordVC: UIViewController, UITableViewDelegate, UITableViewDataSource, MD
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        let logoutBtn : UIBarButtonItem = UIBarButtonItem(title: "Logout", style: UIBarButtonItemStyle.Plain, target: self, action: #selector(RecordVC.logout))
+        let logoutBtn : UIBarButtonItem = UIBarButtonItem(title: "Logout", style: UIBarButtonItemStyle.plain, target: self, action: #selector(RecordVC.logout))
         self.navigationItem.rightBarButtonItem = logoutBtn
 
         self.title = "Record"
@@ -41,15 +41,15 @@ class RecordVC: UIViewController, UITableViewDelegate, UITableViewDataSource, MD
         tableView.delegate = self
         tableView.dataSource = self
         let nibName = UINib(nibName: "RecordCell", bundle:nil)
-        self.tableView.registerNib(nibName, forCellReuseIdentifier: "RecordCell")
+        self.tableView.register(nibName, forCellReuseIdentifier: "RecordCell")
         
-        pieChart = MDRotatingPieChart(frame: CGRectMake(0, 0, chartView.frame.width, chartView.frame.width))
+        pieChart = MDRotatingPieChart(frame: CGRect(x: 0, y: 0, width: chartView.frame.width, height: chartView.frame.width))
         
         slicesData = [
             Data(myValue: 60.0, myColor: GREEN_COLOR, myLabel:"Won 60%"),
             Data(myValue: 40.0, myColor: LIGHT_GRAY, myLabel:"Lost 40%"),
         ]
-        pieChart.userInteractionEnabled = false
+        pieChart.isUserInteractionEnabled = false
         //pieChart.delegate = self
         pieChart.datasource = self
         
@@ -64,13 +64,13 @@ class RecordVC: UIViewController, UITableViewDelegate, UITableViewDataSource, MD
         pieChart.properties = properties
         chartView.addSubview(pieChart)
         
-        pieChart2 = MDRotatingPieChart(frame: CGRectMake(0, 0, chartView2.frame.width, chartView2.frame.width))
+        pieChart2 = MDRotatingPieChart(frame: CGRect(x: 0, y: 0, width: chartView2.frame.width, height: chartView2.frame.width))
         
         slicesData2 = [
             Data(myValue: 40.0, myColor: RED_COLOR, myLabel:"Won 60%"),
             Data(myValue: 60.0, myColor: LIGHT_GRAY, myLabel:"Lost 40%"),
         ]
-        pieChart2.userInteractionEnabled = false
+        pieChart2.isUserInteractionEnabled = false
         //pieChart.delegate = self
         pieChart2.datasource = self
         pieChart2.properties = properties
@@ -84,38 +84,38 @@ class RecordVC: UIViewController, UITableViewDelegate, UITableViewDataSource, MD
 
     }
 
-    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+    func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
     
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return playersArray.count
     }
     
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let player = playersArray[indexPath.row]
-        if let cell = tableView.dequeueReusableCellWithIdentifier("RecordCell") as? RecordCell {
+        if let cell = tableView.dequeueReusableCell(withIdentifier: "RecordCell") as? RecordCell {
             cell.configureCell(player)
             cell.delegate = self
-            cell.selectionStyle = .None
+            cell.selectionStyle = .none
             return cell
         }else {
             let cell = RecordCell()
             cell.configureCell(player)
             cell.delegate = self
-            cell.selectionStyle = .None
+            cell.selectionStyle = .none
             return cell
         }
         
     }
     
-    func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 80.0
     }
     
     //Datasource
-    func colorForSliceAtIndex(index:Int) -> UIColor {
+    func colorForSliceAtIndex(_ index:Int) -> UIColor {
         if(chart == 1) {
             return slicesData[index].color
         }else{
@@ -123,7 +123,7 @@ class RecordVC: UIViewController, UITableViewDelegate, UITableViewDataSource, MD
         }
     }
     
-    func valueForSliceAtIndex(index:Int) -> CGFloat {
+    func valueForSliceAtIndex(_ index:Int) -> CGFloat {
         if(chart == 1) {
             return slicesData[index].value
         }else{
@@ -131,7 +131,7 @@ class RecordVC: UIViewController, UITableViewDelegate, UITableViewDataSource, MD
         }
     }
     
-    func labelForSliceAtIndex(index:Int) -> String {
+    func labelForSliceAtIndex(_ index:Int) -> String {
         if(chart == 1) {
             return slicesData[index].label
         }else{
@@ -155,24 +155,24 @@ class RecordVC: UIViewController, UITableViewDelegate, UITableViewDataSource, MD
     
     //Delegate
     //some sample messages when actions are triggered (open/close slices)
-    func didOpenSliceAtIndex(index: Int) {
+    func didOpenSliceAtIndex(_ index: Int) {
         print("Open slice at \(index)")
     }
     
-    func didCloseSliceAtIndex(index: Int) {
+    func didCloseSliceAtIndex(_ index: Int) {
         print("Close slice at \(index)")
     }
     
-    func willOpenSliceAtIndex(index: Int) {
+    func willOpenSliceAtIndex(_ index: Int) {
         print("Will open slice at \(index)")
     }
     
-    func willCloseSliceAtIndex(index: Int) {
+    func willCloseSliceAtIndex(_ index: Int) {
         print("Will close slice at \(index)")
     }
     
 
-    override func viewDidAppear(animated: Bool) {
+    override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
        
     }
@@ -181,21 +181,21 @@ class RecordVC: UIViewController, UITableViewDelegate, UITableViewDataSource, MD
     func logout(){
         GIDSignIn.sharedInstance().signOut()
         
-        let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
         
         appDelegate.window!.rootViewController = appDelegate.loginVC
         appDelegate.tabBarController.selectedIndex = 0
         
-        UIView.transitionWithView(appDelegate.window!, duration: 0.5, options: UIViewAnimationOptions.TransitionCrossDissolve, animations: {
+        UIView.transition(with: appDelegate.window!, duration: 0.5, options: UIViewAnimationOptions.transitionCrossDissolve, animations: {
             }, completion: nil)
 
     }
     
     func matchSelected() {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        let vc = storyboard.instantiateViewControllerWithIdentifier("GameSetupVC")
+        let vc = storyboard.instantiateViewController(withIdentifier: "GameSetupVC")
         //self.navigationController?.pushViewController(vc, animated: true)
-        self.presentViewController(vc, animated: true, completion: nil)
+        self.present(vc, animated: true, completion: nil)
     }
     
     
@@ -203,7 +203,7 @@ class RecordVC: UIViewController, UITableViewDelegate, UITableViewDataSource, MD
 
 class Data {
     var value:CGFloat
-    var color:UIColor = UIColor.grayColor()
+    var color:UIColor = UIColor.gray
     var label:String = ""
     
     init(myValue:CGFloat, myColor:UIColor, myLabel:String) {

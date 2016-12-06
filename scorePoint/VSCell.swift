@@ -22,23 +22,23 @@ class VSCell: UITableViewCell {
         super.awakeFromNib()
             }
 
-    override func setSelected(selected: Bool, animated: Bool) {
+    override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
 
         // Configure the view for the selected state
     }
     
-    func configureCell(player:String){
-        playerImg.frame = CGRectMake(0, 0, 65, 65)
+    func configureCell(_ player:String){
+        playerImg.frame = CGRect(x: 0, y: 0, width: 65, height: 65)
         lblName.text = player
         playerImg.image = UIImage(named: "placeholder")
 
     }
     
-    @IBAction func matchBtnPressed(sender: AnyObject) {
+    @IBAction func matchBtnPressed(_ sender: AnyObject) {
         let delay = 0.2 * Double(NSEC_PER_SEC)
-        let time = dispatch_time(DISPATCH_TIME_NOW, Int64(delay))
-        dispatch_after(time, dispatch_get_main_queue()) {
+        let time = DispatchTime.now() + Double(Int64(delay)) / Double(NSEC_PER_SEC)
+        DispatchQueue.main.asyncAfter(deadline: time) {
             self.delegate?.matchSelected()
         }
     }

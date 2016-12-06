@@ -24,75 +24,75 @@ class DashboardVC: UIViewController, UITableViewDelegate, UITableViewDataSource,
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let value = UIInterfaceOrientation.Portrait.rawValue
-        UIDevice.currentDevice().setValue(value, forKey: "orientation")
+        let value = UIInterfaceOrientation.portrait.rawValue
+        UIDevice.current.setValue(value, forKey: "orientation")
               
         self.title = "Matches"
         self.tabBarItem.title = ""
 
         let backView = UIView(frame: self.tableView.bounds)
-        backView.backgroundColor = UIColor.clearColor()
+        backView.backgroundColor = UIColor.clear
         self.tableView.backgroundView = backView
         tableView.delegate = self
         tableView.dataSource = self
         let nibName = UINib(nibName: "VSCell", bundle:nil)
-        self.tableView.registerNib(nibName, forCellReuseIdentifier: "VSCell")
+        self.tableView.register(nibName, forCellReuseIdentifier: "VSCell")
        
     }
     
-    override func viewWillAppear(animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
         //UIApplication.sharedApplication().setStatusBarStyle(.LightContent, animated: false)
-        UIApplication.sharedApplication().statusBarStyle = UIStatusBarStyle.LightContent
+        UIApplication.shared.statusBarStyle = UIStatusBarStyle.lightContent
 
     }
     
-    override func preferredStatusBarStyle() -> UIStatusBarStyle {
-        return .LightContent
+    override var preferredStatusBarStyle : UIStatusBarStyle {
+        return .lightContent
     }
     
-    override func shouldAutorotate() -> Bool {
+    override var shouldAutorotate : Bool {
         return true
     }
     
-    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+    func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
     
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return playersArray.count
     }
 
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let player = playersArray[indexPath.row]
-        if let cell = tableView.dequeueReusableCellWithIdentifier("VSCell") as? VSCell {
+        if let cell = tableView.dequeueReusableCell(withIdentifier: "VSCell") as? VSCell {
             cell.delegate = self
             cell.configureCell(player)
-            cell.selectionStyle = .None
+            cell.selectionStyle = .none
             return cell
         }else {
             let cell = VSCell()
             cell.delegate = self
             cell.configureCell(player)
-            cell.selectionStyle = .None
+            cell.selectionStyle = .none
             return cell
         }
 
     }
     
-    func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 80.0
     }
     
     func matchSelected() {
         
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        let vc = storyboard.instantiateViewControllerWithIdentifier("GameSetupVC")
+        let vc = storyboard.instantiateViewController(withIdentifier: "GameSetupVC")
         //self.navigationController?.pushViewController(vc, animated: true)
-        self.presentViewController(vc, animated: true, completion: nil)
+        self.present(vc, animated: true, completion: nil)
 
     }
    
-    @IBAction func joinBtnPressed(sender: AnyObject) {
+    @IBAction func joinBtnPressed(_ sender: AnyObject) {
     }
 }

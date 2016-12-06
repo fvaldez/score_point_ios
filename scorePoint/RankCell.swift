@@ -25,14 +25,14 @@ class RankCell: UITableViewCell {
 
     }
     
-    override func setSelected(selected: Bool, animated: Bool) {
+    override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
         
         // Configure the view for the selected state
     }
     
-    func configureCell(player:String){
-        playerImg.frame = CGRectMake(0, 0, 65, 65)
+    func configureCell(_ player:String){
+        playerImg.frame = CGRect(x: 0, y: 0, width: 65, height: 65)
         lblName.text = player
         playerImg.image = UIImage(named: "placeholder")
         

@@ -15,12 +15,12 @@ class LeaderBoardVC: UIViewController, UITableViewDataSource, UITableViewDelegat
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var tableView: UITableView!
     
-    override func viewWillAppear(animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
         self.title = "Leaderboard"
         self.tabBarItem.title = ""
     }
     
-    override func viewWillDisappear(animated: Bool) {
+    override func viewWillDisappear(_ animated: Bool) {
         self.title = ""
     }
     
@@ -30,27 +30,27 @@ class LeaderBoardVC: UIViewController, UITableViewDataSource, UITableViewDelegat
         self.tabBarItem.title = ""
 
         let backView = UIView(frame: self.tableView.bounds)
-        backView.backgroundColor = UIColor.clearColor()
+        backView.backgroundColor = UIColor.clear
         self.tableView.backgroundView = backView
 
         tableView.delegate = self
         tableView.dataSource = self
         let nibName = UINib(nibName: "RankCell", bundle:nil)
-        self.tableView.registerNib(nibName, forCellReuseIdentifier: "RankCell")
-        searchBar.searchBarStyle = .Minimal
-        searchBar.userInteractionEnabled = false
-        searchBar.backgroundColor = UIColor.whiteColor()
+        self.tableView.register(nibName, forCellReuseIdentifier: "RankCell")
+        searchBar.searchBarStyle = .minimal
+        searchBar.isUserInteractionEnabled = false
+        searchBar.backgroundColor = UIColor.white
     }
 
-    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+    func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
     
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return playersArray.count
     }
     
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         // For testing purposes
         
@@ -67,30 +67,30 @@ class LeaderBoardVC: UIViewController, UITableViewDataSource, UITableViewDelegat
         }
         
         let player = playersArray[indexPath.row]
-        if let cell = tableView.dequeueReusableCellWithIdentifier("RankCell") as? RankCell {
+        if let cell = tableView.dequeueReusableCell(withIdentifier: "RankCell") as? RankCell {
             cell.configureCell(player)
             cell.badgeImg.image = UIImage(named: name)
             cell.rankLbl.text = "\(indexPath.row+1)"
-            cell.selectionStyle = .None
+            cell.selectionStyle = .none
             return cell
         }else {
             let cell = RankCell()
             cell.badgeImg.image = UIImage(named: name)
             cell.rankLbl.text = "\(indexPath.row+1)"
             cell.configureCell(player)
-            cell.selectionStyle = .None
+            cell.selectionStyle = .none
             return cell
         }
         
     }
     
-    func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 80.0
     }
 
-    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        let vc = storyboard.instantiateViewControllerWithIdentifier("VersusVC")
+        let vc = storyboard.instantiateViewController(withIdentifier: "VersusVC")
         self.navigationController?.pushViewController(vc, animated: true)
         //self.presentViewController(vc, animated: true, completion: nil)
     }

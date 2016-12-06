@@ -15,14 +15,14 @@ class LoginVC: UIViewController, GIDSignInUIDelegate, GIDSignInDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        UIApplication.sharedApplication().statusBarStyle = UIStatusBarStyle.Default
+        UIApplication.shared.statusBarStyle = UIStatusBarStyle.default
 
         GIDSignIn.sharedInstance().delegate = self
         GIDSignIn.sharedInstance().uiDelegate = self
         
     }
 
-    @IBAction func loginBtnPresed(sender: AnyObject) {
+    @IBAction func loginBtnPresed(_ sender: AnyObject) {
         loginGoogle()
         //enterApp()
     }
@@ -30,50 +30,51 @@ class LoginVC: UIViewController, GIDSignInUIDelegate, GIDSignInDelegate {
     func loginGoogle(){
         GIDSignIn.sharedInstance().signIn()
         //UIApplication.sharedApplication().setStatusBarStyle(.Default, animated: true)
-        UIApplication.sharedApplication().statusBarStyle = UIStatusBarStyle.Default
+        UIApplication.shared.statusBarStyle = UIStatusBarStyle.default
 
     }
     
-    func signIn(signIn: GIDSignIn!, didSignInForUser user: GIDGoogleUser!,
-        withError error: NSError!) {
+    func sign(_ signIn: GIDSignIn!, didSignInFor user: GIDGoogleUser!,
+        withError error: Error!) {
             if (error == nil) {
                 
                 let completename = GIDSignIn.sharedInstance().currentUser.profile.name
-                let fullNameArr = completename.characters.split{$0 == " "}.map(String.init)
+                let fullNameArr = completename?.characters.split{$0 == " "}.map(String.init)
                 
                 SharedData.sharedInstance.idnum = "\(GIDSignIn.sharedInstance().currentUser.userID)"
                 SharedData.sharedInstance.mail = GIDSignIn.sharedInstance().currentUser.profile.email
-                SharedData.sharedInstance.firstName = fullNameArr[0]
-                SharedData.sharedInstance.lastName = fullNameArr[1]
-                SharedData.sharedInstance.completeName = completename
+                SharedData.sharedInstance.firstName = (fullNameArr?[0])!
+                SharedData.sharedInstance.lastName = (fullNameArr?[1])!
+                SharedData.sharedInstance.completeName = completename!
                 print("token: \(user.authentication.accessToken)")
-                if("\(GIDSignIn.sharedInstance().currentUser.profile.imageURLWithDimension(100))" != nil){
-                    SharedData.sharedInstance.imgString = "\(GIDSignIn.sharedInstance().currentUser.profile.imageURLWithDimension(200))"
-                    let url = NSURL(string: SharedData.sharedInstance.imgString)
-                    let data = NSData(contentsOfURL: url!)
-                    SharedData.sharedInstance.downloadedImg = UIImage(data: data!)
-                }else{
-                    self.generateProfileImage()
-                }
-                
+//                if("\(GIDSignIn.sharedInstance().currentUser.profile.imageURL(withDimension: 100))" != nil){
+//                    SharedData.sharedInstance.imgString = "\(GIDSignIn.sharedInstance().currentUser.profile.imageURL(withDimension: 200))"
+//                    let url = URL(string: SharedData.sharedInstance.imgString)
+//                    let data = try? Foundation.Data(contentsOf: url!)
+//                    SharedData.sharedInstance.downloadedImg = UIImage(data: data!)
+//                }else{
+//                    self.generateProfileImage()
+//                }
+
+                self.generateProfileImage()
                 self.enterApp()
             } else {
                 print("\(error.localizedDescription)")
             }
     }
     
-    func signIn(signIn: GIDSignIn!, didDisconnectWithUser user:GIDGoogleUser!,
+    func sign(_ signIn: GIDSignIn!, didDisconnectWith user:GIDGoogleUser!,
         withError error: NSError!) {
             // Perform any operations when the user disconnects from app here.
     }
     
     func enterApp(){
-        let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
         
         appDelegate.window!.rootViewController = appDelegate.tabBarController
         appDelegate.tabBarController.selectedIndex = 0
         
-        UIView.transitionWithView(appDelegate.window!, duration: 0.5, options: UIViewAnimationOptions.TransitionCrossDissolve, animations: {
+        UIView.transition(with: appDelegate.window!, duration: 0.5, options: UIViewAnimationOptions.transitionCrossDissolve, animations: {
             }, completion: nil)
 
     }
@@ -82,15 +83,15 @@ class LoginVC: UIViewController, GIDSignInUIDelegate, GIDSignInDelegate {
         let first = SharedData.sharedInstance.firstName.characters.first
         let second = SharedData.sharedInstance.lastName.characters.first
         
-        let lbl = UILabel(frame: CGRectMake(0,0,100,100))
+        let lbl = UILabel(frame: CGRect(x: 0,y: 0,width: 100,height: 100))
         lbl.text = "\(first!)\(second!)"
         lbl.font =  UIFont(name: "OpenSans-Semibold", size: 50)
         lbl.backgroundColor = BLUE_COLOR
-        lbl.textAlignment = NSTextAlignment.Center
-        lbl.textColor = UIColor.whiteColor()
+        lbl.textAlignment = NSTextAlignment.center
+        lbl.textColor = UIColor.white
         
         UIGraphicsBeginImageContextWithOptions(lbl.bounds.size, true, 0)
-        lbl.drawViewHierarchyInRect(lbl.bounds, afterScreenUpdates: true)
+        lbl.drawHierarchy(in: lbl.bounds, afterScreenUpdates: true)
         let image = UIGraphicsGetImageFromCurrentImageContext()
         UIGraphicsEndImageContext()
         
