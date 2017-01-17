@@ -10,6 +10,7 @@
 		0B4FCE848DFD840F67F374D3 /* Pods_scorePoint.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BB9A8BBBEDE33D2F3165FC10 /* Pods_scorePoint.framework */; };
 		3F00181F1CD94A6B00794E1F /* RoundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F00181E1CD94A6B00794E1F /* RoundView.swift */; };
 		3F0018211CD94BCE00794E1F /* RoundImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F0018201CD94BCE00794E1F /* RoundImageView.swift */; };
+		3F0221521E2D97C3004F4FA4 /* GoogleSignIn.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F02214F1E2D930B004F4FA4 /* GoogleSignIn.framework */; };
 		3F08CF051C975C0000B71936 /* OpenSans-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 3F08CF041C975C0000B71936 /* OpenSans-Bold.ttf */; };
 		3F08CF071C975C0D00B71936 /* OpenSans-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 3F08CF061C975C0D00B71936 /* OpenSans-Regular.ttf */; };
 		3F08CF091C975C1300B71936 /* OpenSans-Semibold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 3F08CF081C975C1300B71936 /* OpenSans-Semibold.ttf */; };
@@ -25,7 +26,6 @@
 		3F0A2F0E1CAC730800D7F5A3 /* GameResults.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3F0A2F0D1CAC730800D7F5A3 /* GameResults.xib */; };
 		3F10C9B41CB84B2000F52EFE /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3F10C9B31CB84B2000F52EFE /* GoogleService-Info.plist */; };
 		3F463EFD1C9CB04B004E9CDD /* GoogleSignIn.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 3F463EFB1C9CB04A004E9CDD /* GoogleSignIn.bundle */; };
-		3F463EFE1C9CB04B004E9CDD /* GoogleSignIn.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F463EFC1C9CB04A004E9CDD /* GoogleSignIn.framework */; };
 		3F463F001C9CB162004E9CDD /* AddressBook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F463EFF1C9CB162004E9CDD /* AddressBook.framework */; };
 		3F463F021C9CB177004E9CDD /* SafariServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F463F011C9CB177004E9CDD /* SafariServices.framework */; };
 		3F463F041C9CB17E004E9CDD /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F463F031C9CB17E004E9CDD /* StoreKit.framework */; };
@@ -60,6 +60,7 @@
 		3D162202C76FE276F0EB2D6D /* Pods-scorePoint.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-scorePoint.release.xcconfig"; path = "Pods/Target Support Files/Pods-scorePoint/Pods-scorePoint.release.xcconfig"; sourceTree = "<group>"; };
 		3F00181E1CD94A6B00794E1F /* RoundView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoundView.swift; sourceTree = "<group>"; };
 		3F0018201CD94BCE00794E1F /* RoundImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoundImageView.swift; sourceTree = "<group>"; };
+		3F02214F1E2D930B004F4FA4 /* GoogleSignIn.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GoogleSignIn.framework; path = ../../Downloads/google_signin_sdk_4_0_1/GoogleSignIn.framework; sourceTree = "<group>"; };
 		3F08CF041C975C0000B71936 /* OpenSans-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-Bold.ttf"; sourceTree = "<group>"; };
 		3F08CF061C975C0D00B71936 /* OpenSans-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-Regular.ttf"; sourceTree = "<group>"; };
 		3F08CF081C975C1300B71936 /* OpenSans-Semibold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-Semibold.ttf"; sourceTree = "<group>"; };
@@ -122,9 +123,9 @@
 				3F463F021C9CB177004E9CDD /* SafariServices.framework in Frameworks */,
 				3F463F001C9CB162004E9CDD /* AddressBook.framework in Frameworks */,
 				3F08E7A51C9B56D2001D4A60 /* QuartzCore.framework in Frameworks */,
-				3F463EFE1C9CB04B004E9CDD /* GoogleSignIn.framework in Frameworks */,
 				3F08E7A31C9B56C9001D4A60 /* CoreGraphics.framework in Frameworks */,
 				0B4FCE848DFD840F67F374D3 /* Pods_scorePoint.framework in Frameworks */,
+				3F0221521E2D97C3004F4FA4 /* GoogleSignIn.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -134,6 +135,7 @@
 		0597BFAC2672B1629AA42DB7 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				3F02214F1E2D930B004F4FA4 /* GoogleSignIn.framework */,
 				BB9A8BBBEDE33D2F3165FC10 /* Pods_scorePoint.framework */,
 			);
 			name = Frameworks;
@@ -316,12 +318,12 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0720;
-				LastUpgradeCheck = 0810;
+				LastUpgradeCheck = 0820;
 				ORGANIZATIONNAME = "Adriana Gonzalez";
 				TargetAttributes = {
 					3F6A68D01C8DDF34009F05D7 = {
 						CreatedOnToolsVersion = 7.2.1;
-						DevelopmentTeam = TZRX6AQ237;
+						DevelopmentTeam = X3M2VGZ3X9;
 						LastSwiftMigration = 0810;
 					};
 				};
@@ -574,12 +576,14 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = X3M2VGZ3X9;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/scorePoint",
 				);
 				INFOPLIST_FILE = scorePoint/Info.plist;
+				LD_MAP_FILE_PATH = "$(inherited)";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_BUNDLE_IDENTIFIER = com.ipointsystems.scorepoint;
@@ -603,12 +607,14 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = X3M2VGZ3X9;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/scorePoint",
 				);
 				INFOPLIST_FILE = scorePoint/Info.plist;
+				LD_MAP_FILE_PATH = "$(inherited)";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_BUNDLE_IDENTIFIER = com.ipointsystems.scorepoint;

@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Alamofire
 
 class DashboardVC: UIViewController, UITableViewDelegate, UITableViewDataSource, matchSelectedDelegate {
 
@@ -37,6 +38,16 @@ class DashboardVC: UIViewController, UITableViewDelegate, UITableViewDataSource,
         tableView.dataSource = self
         let nibName = UINib(nibName: "VSCell", bundle:nil)
         self.tableView.register(nibName, forCellReuseIdentifier: "VSCell")
+        
+        Alamofire.request("http://172.16.6.119:8080/user").responseJSON { response in
+            print(response.request ?? "")  // original URL request
+
+            print(response.result)   // result of response serialization
+            
+            if let JSON = response.result.value {
+                print("JSON: \(JSON)")
+            }
+        }
        
     }
     

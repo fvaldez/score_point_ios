@@ -10,7 +10,7 @@ import UIKit
 
 class VersusVC: UIViewController, MDRotatingPieChartDelegate, MDRotatingPieChartDataSource {
 
-    var slicesData:Array<Data> = Array<Data>()
+    var slicesData:Array<DataEntry> = Array<DataEntry>()
     var pieChart:MDRotatingPieChart!
 
     @IBOutlet weak var rankView: UIView!
@@ -37,8 +37,8 @@ class VersusVC: UIViewController, MDRotatingPieChartDelegate, MDRotatingPieChart
 
 
         slicesData = [
-            Data(myValue: 93.0, myColor: GREEN_COLOR, myLabel:""),
-            Data(myValue: 3.0, myColor: RED_COLOR, myLabel:""),
+            DataEntry(myValue: 93.0, someColor: GREEN_COLOR, myLabel:""),
+            DataEntry(myValue: 3.0, someColor: RED_COLOR, myLabel:""),
         ]
         pieChart.isUserInteractionEnabled = false
         pieChart.datasource = self

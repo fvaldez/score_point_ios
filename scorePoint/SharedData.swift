@@ -16,7 +16,7 @@ class SharedData {
     var completeName = ""
     var firstName = ""
     var lastName = ""
-    var imgString = ""
+    var imgString : URL?
     var downloadedImg : UIImage?
     var idnum = ""
     var mail = ""

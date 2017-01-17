@@ -73,7 +73,7 @@ class GameSetupVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSourc
         }
 
         let attr = NSDictionary(object: UIFont(name: "Open Sans", size: 15.0)!, forKey: NSFontAttributeName as NSCopying)
-        UISegmentedControl.appearance().setTitleTextAttributes(attr as! [AnyHashable: Any] , for: UIControlState())
+        UISegmentedControl.appearance().setTitleTextAttributes(attr as? [AnyHashable: Any] , for: UIControlState())
         createPicker()
         
         self.animEngine = AnimationEngine(constraints: [firstPlayerConstraint, secondPlayerConstraint])

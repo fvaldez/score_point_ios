@@ -4,7 +4,7 @@ use_frameworks!
 target 'scorePoint' do
 
 pod 'pop', '~> 1.0'
-pod 'Alamofire', '~> 4.0'
+pod 'Alamofire', '~> 4.3’
 
 end
 

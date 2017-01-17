@@ -47,14 +47,22 @@ class LoginVC: UIViewController, GIDSignInUIDelegate, GIDSignInDelegate {
                 SharedData.sharedInstance.lastName = (fullNameArr?[1])!
                 SharedData.sharedInstance.completeName = completename!
                 print("token: \(user.authentication.accessToken)")
-//                if("\(GIDSignIn.sharedInstance().currentUser.profile.imageURL(withDimension: 100))" != nil){
-//                    SharedData.sharedInstance.imgString = "\(GIDSignIn.sharedInstance().currentUser.profile.imageURL(withDimension: 200))"
-//                    let url = URL(string: SharedData.sharedInstance.imgString)
-//                    let data = try? Foundation.Data(contentsOf: url!)
-//                    SharedData.sharedInstance.downloadedImg = UIImage(data: data!)
-//                }else{
-//                    self.generateProfileImage()
-//                }
+                if(GIDSignIn.sharedInstance().currentUser.profile.hasImage){
+                    if let imgString = GIDSignIn.sharedInstance().currentUser.profile.imageURL(withDimension: 200){
+                        SharedData.sharedInstance.imgString = imgString
+                        DispatchQueue.global().async {
+                            let data = try? Data(contentsOf: imgString) //make sure your image in this url does exist, otherwise unwrap in a if let check / try-catch
+                            DispatchQueue.main.async {
+                                SharedData.sharedInstance.downloadedImg = UIImage(data: data!)
+                            }
+                        }
+
+                    }
+                    
+                   
+                }else{
+                    self.generateProfileImage()
+                }
 
                 self.generateProfileImage()
                 self.enterApp()
@@ -63,8 +71,8 @@ class LoginVC: UIViewController, GIDSignInUIDelegate, GIDSignInDelegate {
             }
     }
     
-    func sign(_ signIn: GIDSignIn!, didDisconnectWith user:GIDGoogleUser!,
-        withError error: NSError!) {
+    internal func sign(_ signIn: GIDSignIn!, didDisconnectWith user:GIDGoogleUser!,
+        withError error: Error!) {
             // Perform any operations when the user disconnects from app here.
     }
     

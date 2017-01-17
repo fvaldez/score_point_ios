@@ -20,8 +20,8 @@ class RecordVC: UIViewController, UITableViewDelegate, UITableViewDataSource, MD
     @IBOutlet weak var backView: UIView!
     
     var playersArray = ["Some Player", "Some Player", "Some Player", "Some Player"]
-    var slicesData:Array<Data> = Array<Data>()
-    var slicesData2:Array<Data> = Array<Data>()
+    var slicesData:Array<DataEntry> = Array<DataEntry>()
+    var slicesData2:Array<DataEntry> = Array<DataEntry>()
     var pieChart:MDRotatingPieChart!
     var pieChart2:MDRotatingPieChart!
     var chart = 1
@@ -46,8 +46,8 @@ class RecordVC: UIViewController, UITableViewDelegate, UITableViewDataSource, MD
         pieChart = MDRotatingPieChart(frame: CGRect(x: 0, y: 0, width: chartView.frame.width, height: chartView.frame.width))
         
         slicesData = [
-            Data(myValue: 60.0, myColor: GREEN_COLOR, myLabel:"Won 60%"),
-            Data(myValue: 40.0, myColor: LIGHT_GRAY, myLabel:"Lost 40%"),
+            DataEntry(myValue: 40.0, someColor: GREEN_COLOR, myLabel:"Won 60%"),
+            DataEntry(myValue: 60.0, someColor: LIGHT_GRAY, myLabel:"Lost 40%"),
         ]
         pieChart.isUserInteractionEnabled = false
         //pieChart.delegate = self
@@ -67,8 +67,8 @@ class RecordVC: UIViewController, UITableViewDelegate, UITableViewDataSource, MD
         pieChart2 = MDRotatingPieChart(frame: CGRect(x: 0, y: 0, width: chartView2.frame.width, height: chartView2.frame.width))
         
         slicesData2 = [
-            Data(myValue: 40.0, myColor: RED_COLOR, myLabel:"Won 60%"),
-            Data(myValue: 60.0, myColor: LIGHT_GRAY, myLabel:"Lost 40%"),
+            DataEntry(myValue: 40.0, someColor: RED_COLOR, myLabel:"Won 60%"),
+            DataEntry(myValue: 60.0, someColor: LIGHT_GRAY, myLabel:"Lost 40%"),
         ]
         pieChart2.isUserInteractionEnabled = false
         //pieChart.delegate = self
@@ -201,14 +201,14 @@ class RecordVC: UIViewController, UITableViewDelegate, UITableViewDataSource, MD
     
 }
 
-class Data {
+class DataEntry {
     var value:CGFloat
     var color:UIColor = UIColor.gray
     var label:String = ""
     
-    init(myValue:CGFloat, myColor:UIColor, myLabel:String) {
+    init(myValue:CGFloat, someColor:UIColor, myLabel:String) {
         value = myValue
-        color = myColor
+        color = someColor
         label = myLabel
     }
 }
