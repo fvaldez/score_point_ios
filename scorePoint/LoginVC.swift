@@ -65,7 +65,8 @@ class LoginVC: UIViewController, GIDSignInUIDelegate, GIDSignInDelegate {
                 }
 
                 self.generateProfileImage()
-                self.enterApp()
+                checkIfUserAllowed(mail: SharedData.sharedInstance.mail)
+                
             } else {
                 print("\(error.localizedDescription)")
             }
@@ -107,4 +108,23 @@ class LoginVC: UIViewController, GIDSignInUIDelegate, GIDSignInDelegate {
         
     }
 
+    func checkIfUserAllowed(mail:String){
+        print(mail)
+        var mailComponents = mail.characters.split{$0 == "@"}.map(String.init)
+        if(mailComponents[1] == "ipointsystems.com"){
+            print("allowed")
+            self.enterApp()
+        }
+        else{
+            print("not allowed")
+            let alertController = UIAlertController(title: "Message", message: "Must be an Inflection Point member", preferredStyle: .alert)
+            let OKAction = UIAlertAction(title: "OK", style: .default) { action in
+                GIDSignIn.sharedInstance().signOut()
+            }
+            alertController.addAction(OKAction)
+            self.present(alertController, animated: true) {
+                
+            }
+        }
+    }
 }
